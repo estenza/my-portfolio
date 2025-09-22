@@ -1,115 +1,122 @@
-import Image from "next/image";
-import { Geist, Geist_Mono } from "next/font/google";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import ProjectCard from '../components/ProjectCard';
+import LanguageSwitcher from '../components/LanguageSwitcher';
+import i18nConfig from '../next-i18next.config.js';
+import MemojiAvatar from '../components/MemojiAvatar';
 
 export default function Home() {
+  const { t } = useTranslation('common');
+
   return (
-    <div
-      className={`${geistSans.className} ${geistMono.className} font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20`}
-    >
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              pages/index.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <main className="min-h-screen bg-black text-white py-16 px-4 tracking-wide">
+      <div className="flex flex-col gap-8 max-w-screen-xl mx-auto mb-12">
+
+        {/* Аватар + имя + переключатель */}
+        <div className="flex items-center justify-between w-full">
+          <div className="flex items-center gap-4">
+            <MemojiAvatar />
+            <h1 className="text-white text-3xl sm:text-5xl whitespace-nowrap font-semibold">
+              {t('name')}
+            </h1>
+          </div>
+
+          <div className="hidden sm:flex gap-4 text-xl text-muted-foreground">
+            <LanguageSwitcher />
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+
+        {/* Описание */}
+        <div className="max-w-[568px]">
+          <p className="text-neutral-400 text-xl leading-normal font-regular tracking-wide">
+            {t('description')}
+          </p>
+        </div>
+
+        {/* Ссылки */}
+        <div className="-mx-4 overflow-x-auto scrollbar-hide">
+          <div className="px-4 flex gap-2 text-xl leading-normal font-regular">
+            <a href="#" className="text-white hover:bg-lime-200 hover:text-black rounded-full bg-neutral-900 px-8 py-4 whitespace-nowrap">
+              {t('about')}
+            </a>
+            <a href="mailto:estenza@gmail.com" className="text-white hover:bg-yellow-200 hover:text-black rounded-full bg-neutral-900 px-8 py-4 whitespace-nowrap">
+              {t('email')}
+            </a>
+            <a href="https://t.me/estenza" className="text-white hover:bg-sky-200 hover:text-black rounded-full bg-neutral-900 px-8 py-4 whitespace-nowrap">
+              Telegram
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Карточки проектов */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-1 items-stretch max-w-screen-xl mx-auto">
+        <ProjectCard
+          title={t('projects.parkly.title')}
+          description={t('projects.parkly.description-short')}
+          image="/parkly/parkly.png"
+          href="/parkly"
+        />
+        <ProjectCard
+          title={t('projects.noomad.title')}
+          description={t('projects.noomad.description-short')}
+          image="/noomad/noomad.png"
+          href="/noomad"
+        />
+        <ProjectCard
+          title={t('projects.meeet.title')}
+          description={t('projects.meeet.description-short')}
+          image="/meeet/meeet.png"
+          href="/meeet"
+        />
+        <ProjectCard
+          title={t('projects.english_pet.title')}
+          description={t('projects.english_pet.description-short')}
+          image="/english_pet.png"
+          href="/english_pet"
+        />
+        <ProjectCard
+          title={t('projects.programming.title')}
+          description={t('projects.programming.description-short')}
+          image="/programming.png"
+          href="/programming"
+        />
+        <ProjectCard
+          title={t('projects.students.title')}
+          description={t('projects.students.description-short')}
+          image="/students.png"
+          href="/students"
+          disabled
+        />
+        <ProjectCard
+          title={t('projects.managers.title')}
+          description={t('projects.managers.description-short')}
+          image="/managers.png"
+          href="/managers"
+          disabled
+        />
+        <ProjectCard
+          title={t('projects.zenpulsar.title')}
+          description={t('projects.zenpulsar.description-short')}
+          image="/zenpulsar.png"
+          href="/zenpulsar"
+          disabled
+        />
+      </div>
+
+      {/* Последнее обновление */}
+      <div className="mt-12 mx-auto max-w-screen-xl">
+        <p className="text-neutral-500">{t('lastUpdated')}</p>
+      </div>
+    </main>
   );
+}
+
+// SSR (если используется)
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common'], i18nConfig)),
+    },
+  };
 }

@@ -1,0 +1,56 @@
+{
+  "name": "Vadim Zaripov",
+  "description": "Hi! I'm a product designer with 6 years of experience in mobile, web products, and gamedev",
+  "about": "More about me",
+  "email": "Email",
+  "lastUpdated": "Last updated: September 2025",
+  "backToHome": "Back to projects",
+  "projects": {
+    "parkly": {
+      "title": "Parkly",
+      "description-short": "An app for booking parking in Moscow",
+      "type": "Mobile app",
+      "description": "At Parkly, I designed an application for booking parking in Moscow. The service allows users to reserve and pay for spots in underground parking garages in the city center in advance, at a price significantly lower than municipal rates. The product design was developed from scratch, and I started by analyzing competitors and Western counterparts to understand which solutions could be used as a foundation and what would be better to adapt for local scenarios. After that, I assembled rough mockups of the main booking flow and turned them into an interactive prototype.",
+      "caption1": "On the map, users can search for parking with different booking types. On the booking modal screen, one can clearly see how increasing the booking duration reduces the hourly parking cost.",
+      "caption2": "On the parking card, the user can learn about the parking's specific details. After payment, the user receives a ticket and parking instructions.",
+      "caption3": "On the orders screen, we added a widget showing approximately how much money the user has saved by choosing Parkly's parking spots instead of municipal ones."
+    },
+    "noomad": {
+      "title": "Noomad",
+      "description-short": "Crypto-banking for digital nomads",
+      "type": "Mobile app",
+      "description": "Noomad is a fintech service that allows users to issue virtual and physical Visa cards linked to a crypto wallet. I joined the project at its inception and developed the visual concept. The minimalist interface helped make the product easy to learn and pleasant to use. For now, only the most basic functionality has been implemented, which will be expanded in the future. The design was created with future development in mind, so it can be easily adapted for new features.",
+      "caption1": "The user is greeted by the main screen, which displays the total wallet balance and the asset allocation. Swiping down the asset sheet reveals the card details and settings. You can switch between cards with a tap.",
+      "caption2": "Otherwise, the application follows the standard template of crypto wallet apps."
+    },
+    "meeet": {
+      "title": "Meeet",
+      "description-short": "Dating app for offline meetups",
+      "type": "Mobile app",
+      "description": "Meeet is a social app for offline dating. Unlike classic dating apps, it focuses on real-life meetups happening here and now: users see each other on the map and can immediately start a conversation without endless swipes, arrange a meeting, and confirm it through “bumping” to receive tokens.",
+      "caption1": "On the map, the user sees people nearby who are open to meeting. To appear on the map, one needs to “Raise a hand” by tapping the blue button in the center menu. After that, the user’s location becomes visible to others. Optionally, they can add a short status text.",
+      "caption2": "Before starting a conversation, people send a request to chat. Once accepted, they can discuss the details of the meeting – time and place. Upon arrival, one participant taps “Start meeting.” The app ensures that the phones are close to each other and launches the bumping process.",
+      "caption3": "During the 20-minute confirmation period, users spend time together and get to know each other. After bumping is completed, each participant receives a reward – EEE tokens. These tokens can be spent on highlighting one’s profile on the map, instantly restoring meeting energy (otherwise it takes 72 hours to recover after a meetup), and more."
+    },
+    "english_pet": {
+      "title": "English with Animals",
+      "description": "An educational English game for kids"
+    },
+    "programming": {
+      "title": "Programming Heroes",
+      "description": "An educational game on visual programming for kids"
+    },
+    "students": {
+      "title": "RANEPA – for Students",
+      "description": "A learning platform for digital transformation leaders"
+    },
+    "managers": {
+      "title": "RANEPA – for Managers",
+      "description": "A learning platform for digital transformation leaders"
+    },
+    "zenpulsar": {
+      "title": "Zenpulsar",
+      "description": "An AI-powered investment signal platform based on social media and news analysis"
+    }
+  }
+}
