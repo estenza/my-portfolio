@@ -67,7 +67,7 @@ export default function ProjectPage({ title, type, year, description, images, vi
                     height={0}
                     sizes="100vw"
                     className="w-full h-auto rounded-2xl"
-                    priority
+                    priority={idx === 0}
                   />
                 </div>
               ))}

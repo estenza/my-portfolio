@@ -4,7 +4,7 @@ import { appWithTranslation } from 'next-i18next';
 
 
 const geist = Manrope({
-  subsets: ['latin'],
+  subsets: ['latin', 'cyrillic'],
   weight: ['400', '500', '600', '700'],
   display: 'swap',
 });
