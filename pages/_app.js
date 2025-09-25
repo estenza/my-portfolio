@@ -1,9 +1,9 @@
+import Head from 'next/head';
 import '@/styles/globals.css';
 import { Manrope } from 'next/font/google';
 import { appWithTranslation } from 'next-i18next';
 
-
-const geist = Manrope({
+const manrope = Manrope({
   subsets: ['latin', 'cyrillic'],
   weight: ['400', '500', '600', '700'],
   display: 'swap',
@@ -11,9 +11,20 @@ const geist = Manrope({
 
 function MyApp({ Component, pageProps }) {
   return (
-    <main className={geist.className}>
-      <Component {...pageProps} />
-    </main>
+    <>
+      <Head>
+        <title>Вадим Зарипов | Продуктовый дизайнер</title>
+        <meta name="description" content="Портфолио продуктового дизайнера Вадима Зарипова. Опыт в Edtech, Fintech, SaaS." />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/site.webmanifest" />        
+      </Head>
+      
+      <main className={manrope.className}>
+        <Component {...pageProps} />
+      </main>
+    </>
   );
 }
 

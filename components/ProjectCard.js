@@ -34,7 +34,7 @@ export default function ProjectCard({ title, description, image, disabled = fals
           src={image}
           alt={title}
           fill
-          className={`object-cover transition-transform duration-300 ${!disabled ? 'group-hover:scale-105' : ''}`}
+          className={`object-cover transition-transform duration-300 ${!disabled ? 'group-hover:scale-103' : ''}`}
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
         />
 
