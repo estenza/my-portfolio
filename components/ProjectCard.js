@@ -12,7 +12,8 @@ export default function ProjectCard({ title, description, image, disabled = fals
     'px-5',
     'py-5',
     'rounded-2xl',
-    'transition',
+    // 👇 1. Уточнили, какие свойства анимировать
+    'transition-[background-color,opacity]',
     'duration-300',
     'ease-in-out',
     !disabled && 'hover:bg-neutral-800',
@@ -34,13 +35,12 @@ export default function ProjectCard({ title, description, image, disabled = fals
           src={image}
           alt={title}
           fill
-          className={`object-cover transition-transform duration-300 ${!disabled ? 'group-hover:scale-103' : ''}`}
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          className={`object-cover transition-transform duration-300 transform-gpu ${!disabled ? 'group-hover:scale-103' : ''}`}
+          sizes="(max-width: 640px), (max-width: 1024px)"
         />
 
-        {/* Белая тонировка при ховере — только если НЕ disabled */}
+        {/* Белая тонировка при ховере */}
         {!disabled && (
-          // 👇 Опечатка "inset-о" исправлена на "inset-0"
           <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity" />
         )}
 
@@ -55,7 +55,8 @@ export default function ProjectCard({ title, description, image, disabled = fals
   )
 
   return !disabled && href ? (
-    <Link href={href} className="h-full">
+    // 👇 2. Добавили сброс outline для ссылки
+    <Link href={href} className="h-full rounded-2xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black focus:ring-lime-400">
       {CardContent}
     </Link>
   ) : (

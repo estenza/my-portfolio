@@ -14,7 +14,7 @@ export default function Home() {
       <div className="flex flex-col gap-8 max-w-screen-xl mx-auto mb-12">
 
         {/* Аватар + имя + переключатель */}
-        <div className="flex items-center justify-between w-full">
+        <div className="flex items-center justify-between w-full overflow-hidden">
           <div className="flex items-center gap-4">
             <MemojiAvatar />
             <h1 className="text-white text-3xl sm:text-5xl whitespace-nowrap font-semibold">
