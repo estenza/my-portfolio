@@ -52,5 +52,36 @@
       "title": "Zenpulsar",
       "description": "An AI-powered investment signal platform based on social media and news analysis"
     }
+    },
+  "jobTitle": {
+    "productDesigner": "Product Designer",
+    "uxUiDesigner": "UX/UI Designer"
+  },
+  "aboutMe": {
+    "title": "About me",
+    "photoAlt": "Vadim Zaripov's photo",
+    "p1": "I’m Vadim Zaripov, a product designer with 6 years of experience. I have worked in Edtech, Fintech, SaaS, and Web/Mobile. I enjoy working on both B2C and B2B products.",
+    "p2": "My strength lies in extensive experience with startups, designing projects from scratch, and navigating high uncertainty. While working in children’s Edtech on gamified educational products, I honed the skill of simplifying complex things and creating accessible interfaces. In pursuit of the best user experience, I never lose sight of business goals and know how to find the right balance.",
+    "cvTitle": "CV",
+    "uchi": {
+      "name": "Uchi.ru",
+      "dates": "June 2021 – August 2025",
+      "d1": "Designed user interfaces for nine interactive game-based courses in school subjects (Grades 1–4), taking into account age-specific needs of children.",
+      "d2": "Conducted multiple usability tests with children and parents to better understand target audience needs and simplify user experience.",
+      "d3": "Collaborated with product managers and analysts to increase conversion to course purchases, proposing hypotheses that significantly impacted CR (growth up to 30%, depending on the course)."
+    },
+    "parkly": {
+      "name": "Parkly",
+      "dates": "June 2020 – May 2023",
+      "d1": "Joined the project at its very beginning and designed the mobile application from scratch. Conducted several rounds of user testing at different development stages.",
+      "d2": "A year after release, led a full redesign of the app, organizing and unifying the design system by creating a UI kit.",
+      "d3": "In addition to the mobile app, designed the landing page, web version of the product, marketing visuals, and navigation for parking zones."
+    },
+    "athanor": {
+      "name": "Athanor",
+      "dates": "June 2019 – March 2020",
+      "d1": "Designed an educational platform for training CDTOs (Chief Digital Transformation Officers) and a CRM system for managing the educational process.",
+      "d2": "Closely collaborated with business analysts to refine client requirements."
+    }
   }
 }

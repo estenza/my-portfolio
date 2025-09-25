@@ -1,12 +1,12 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslation } from 'next-i18next';
+import BackButton from './BackButton'
 
 export default function ProjectPage({ title, type, year, description, images, videos }) {
   const { t } = useTranslation('common');
 
-  // 1. Переносим логику сюда, ДО основного return.
-  // Теперь 'paragraphs' будет корректно определён.
+
   const paragraphs = typeof description === 'string' ? description.split('\n') : [];
 
   return (
@@ -15,19 +15,7 @@ export default function ProjectPage({ title, type, year, description, images, vi
       <div className="w-full max-w-screen-xl mx-auto">
         {/* ВНУТРЕННЯЯ КОЛОНКА */}
         <div className="w-full max-w-[700px]">
-          <Link
-            href="/"
-            className="bg-neutral-900 hover:bg-neutral-800 rounded-full inline-flex items-center text-s text-white transition-colors group py-2 px-4 mb-12"
-          >
-            <Image
-              src="/arrow-left.svg"
-              alt="Back"
-              width={32}
-              height={32}
-              className="mr-2 opacity-70 group-hover:opacity-100 transition"
-            />
-            <span>{t('backToHome')}</span>
-          </Link>
+          <BackButton />
 
           <h1 className="text-4xl font-semibold text-white mb-2">{title}</h1>
           <p className="text-neutral-400 mb-8">{type} · {year}</p>

@@ -15,7 +15,7 @@ export default function ProjectCard({ title, description, image, disabled = fals
     'transition',
     'duration-300',
     'ease-in-out',
-    !disabled && 'hover:bg-neutral-800', // только если НЕ disabled
+    !disabled && 'hover:bg-neutral-800',
   ]
     .filter(Boolean)
     .join(' ')
@@ -29,19 +29,18 @@ export default function ProjectCard({ title, description, image, disabled = fals
       </div>
 
       {/* Нижняя часть: изображение */}
-      <div className="relative mt-6 overflow-hidden w-full rounded-xl">
-        <div className="overflow-hidden rounded-xl">
-          <div
-            className={`w-full h-full transition-transform duration-300 ease-in-out ${
-              !disabled ? 'group-hover:scale-103' : ''
-            }`}
-          >
-            <img src={image} alt={title} className="w-full h-auto object-contain" />
-          </div>
-        </div>
+      <div className="relative mt-6 w-full aspect-[388/251] overflow-hidden rounded-xl bg-neutral-900">
+        <Image
+          src={image}
+          alt={title}
+          fill
+          className={`object-cover transition-transform duration-300 ${!disabled ? 'group-hover:scale-105' : ''}`}
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+        />
 
         {/* Белая тонировка при ховере — только если НЕ disabled */}
         {!disabled && (
+          // 👇 Опечатка "inset-о" исправлена на "inset-0"
           <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity" />
         )}
 

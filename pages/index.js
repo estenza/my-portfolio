@@ -4,6 +4,7 @@ import ProjectCard from '../components/ProjectCard';
 import LanguageSwitcher from '../components/LanguageSwitcher';
 import i18nConfig from '../next-i18next.config.js';
 import MemojiAvatar from '../components/MemojiAvatar';
+import Link from 'next/link';
 
 export default function Home() {
   const { t } = useTranslation('common');
@@ -36,9 +37,9 @@ export default function Home() {
         {/* Ссылки */}
         <div className="-mx-4 overflow-x-auto scrollbar-hide">
           <div className="px-4 flex gap-2 text-xl leading-normal font-regular">
-            <a href="#" className="text-white hover:bg-lime-200 hover:text-black rounded-full bg-neutral-900 px-8 py-4 whitespace-nowrap">
+            <Link href="/about" className="text-white hover:bg-lime-200 hover:text-black rounded-full bg-neutral-900 px-8 py-4 whitespace-nowrap">
               {t('about')}
-            </a>
+            </Link>
             <a href="mailto:estenza@gmail.com" className="text-white hover:bg-yellow-200 hover:text-black rounded-full bg-neutral-900 px-8 py-4 whitespace-nowrap">
               {t('email')}
             </a>

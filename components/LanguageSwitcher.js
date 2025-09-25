@@ -13,14 +13,14 @@ export default function LanguageSwitcher() {
       <button
         onClick={() => changeLanguage('ru')}
         className={`transition 
-           ${locale === 'ru' ? 'text-white font-light' : 'text-neutral-500 hover:text-white cursor-pointer'}`} 
+           ${locale === 'ru' ? 'text-white font-regular' : 'text-neutral-500 hover:text-white cursor-pointer text-regular'}`} 
       >
         Rus
       </button>
       <button
         onClick={() => changeLanguage('en')}
         className={`transition 
-          ${locale === 'en' ? 'text-white font-light' : 'text-neutral-500 hover:text-white cursor-pointer'}`}
+          ${locale === 'en' ? 'text-white font-regular' : 'text-neutral-500 hover:text-white cursor-pointer text-regular'}`}
       >
         Eng
       </button>
