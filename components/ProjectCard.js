@@ -35,8 +35,8 @@ export default function ProjectCard({ title, description, image, disabled = fals
           src={image}
           alt={title}
           fill
-          className={`object-cover transition-transform duration-300 transform-gpu ${!disabled ? 'group-hover:scale-103' : ''}`}
-          sizes="(max-width: 640px), (max-width: 1024px)"
+          className={`object-cover transition-transform duration-300 transform-gpu ${!disabled ? 'group-hover:scale-102' : ''}`}
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
         />
 
         {/* Белая тонировка при ховере */}
@@ -46,7 +46,7 @@ export default function ProjectCard({ title, description, image, disabled = fals
 
         {/* Лейбл NDA */}
         {disabled && (
-          <span className="absolute top-2 right-2 bg-neutral-900 text-white text-s font-medium px-2 py-2 rounded-xl">
+          <span className="absolute top-2 right-2 bg-neutral-900 text-white text-s font-medium px-2 py-1 rounded-xl">
             NDA
           </span>
         )}
@@ -56,7 +56,7 @@ export default function ProjectCard({ title, description, image, disabled = fals
 
   return !disabled && href ? (
     // 👇 2. Добавили сброс outline для ссылки
-    <Link href={href} className="h-full rounded-2xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black focus:ring-lime-400">
+    <Link href={href} className="h-full rounded-2xl">
       {CardContent}
     </Link>
   ) : (

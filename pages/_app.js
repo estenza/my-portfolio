@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import '@/styles/globals.css';
 import { Manrope } from 'next/font/google';
-import { appWithTranslation } from 'next-i18next';
+import { appWithTranslation, useTranslation } from 'next-i18next';
 
 const manrope = Manrope({
   subsets: ['latin', 'cyrillic'],
@@ -10,10 +10,11 @@ const manrope = Manrope({
 });
 
 function MyApp({ Component, pageProps }) {
+  const { t } = useTranslation('common');
   return (
     <>
       <Head>
-        <title>Вадим Зарипов | Продуктовый дизайнер</title>
+        <title>Vadim Zaripov</title>
         <meta name="description" content="Портфолио продуктового дизайнера Вадима Зарипова. Опыт в Edtech, Fintech, SaaS." />
         <link rel="icon" href="/favicons/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicons/favicon.svg" type="image/svg+xml" />

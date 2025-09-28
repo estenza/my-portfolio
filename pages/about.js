@@ -39,7 +39,10 @@ export default function AboutPage() {
             <div className="flex flex-col md:flex-row gap-x-8">
               <div className="w-full md:w-2/7 shrink-0">
                 <h3 className="font-semibold text-white text-xl mb-1">
-                  <a href="https://uchi.ru/" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-300 transition-all">
+                  <a href="https://uchi.ru/" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="underline hover:text-blue-300 transition-all">
                     {t('aboutMe.uchi.name')}
                   </a>
                 </h3>
@@ -59,7 +62,10 @@ export default function AboutPage() {
             <div className="flex flex-col md:flex-row gap-x-8">
               <div className="w-full md:w-2/7 shrink-0">
                 <h3 className="font-semibold text-white text-xl mb-1">
-                  <a href="https://apps.apple.com/ru/app/%D0%BF%D0%B0%D1%80%D0%BA%D0%BB%D0%B8-%D0%BF%D0%B0%D1%80%D0%BA%D0%BE%D0%B2%D0%BA%D0%B8-%D0%BC%D0%BE%D1%81%D0%BA%D0%B2%D1%8B-%D0%B8-%D1%81%D0%BF%D0%B1/id1530278550?referrer=appmetrica_tracking_id%3D1181069930796221196%26ym_tracking_id%3D8144508877423365345" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-300">
+                  <a href="https://apps.apple.com/ru/app/%D0%BF%D0%B0%D1%80%D0%BA%D0%BB%D0%B8-%D0%BF%D0%B0%D1%80%D0%BA%D0%BE%D0%B2%D0%BA%D0%B8-%D0%BC%D0%BE%D1%81%D0%BA%D0%B2%D1%8B-%D0%B8-%D1%81%D0%BF%D0%B1/id1530278550?referrer=appmetrica_tracking_id%3D1181069930796221196%26ym_tracking_id%3D8144508877423365345" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="underline hover:text-blue-300">
                     {t('aboutMe.parkly.name')}
                   </a>
                 </h3>
@@ -78,7 +84,14 @@ export default function AboutPage() {
             {/* --- Athanor --- */}
             <div className="flex flex-col md:flex-row gap-x-8">
               <div className="w-full md:w-2/7 shrink-0">
-                <h3 className="font-semibold text-white text-xl mb-1">{t('aboutMe.athanor.name')}</h3>
+                <h3 className="font-semibold text-white text-xl mb-1">
+                  <a href="https://www.linkedin.com/company/atnrpro/" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="underline hover:text-blue-300">
+                    {t('aboutMe.athanor.name')}
+                  </a>
+                </h3>
                 <p className="text-base text-neutral-400 mb-1">{t('jobTitle.uxUiDesigner')}</p>
                 <p className="text-base text-neutral-400">{t('aboutMe.athanor.dates')}</p>
               </div>

@@ -10,11 +10,11 @@ export default function Home() {
   const { t } = useTranslation('common');
 
   return (
-    <main className="min-h-screen bg-black text-white py-16 px-4 tracking-wide">
+    <main className="min-h-screen bg-black text-white py-16 px-4 tracking-wide overflow-hidden">
       <div className="flex flex-col gap-8 max-w-screen-xl mx-auto mb-12">
 
         {/* Аватар + имя + переключатель */}
-        <div className="flex items-center justify-between w-full overflow-hidden">
+        <div className="flex items-center justify-between w-full">
           <div className="flex items-center gap-4">
             <MemojiAvatar />
             <h1 className="text-white text-3xl sm:text-5xl whitespace-nowrap font-semibold">
@@ -28,23 +28,50 @@ export default function Home() {
         </div>
 
         {/* Описание */}
-        <div className="max-w-[568px]">
+         <div className="max-w-[568px] flex flex-col items-start gap-2">
           <p className="text-neutral-400 text-xl leading-normal font-regular tracking-wide">
             {t('description')}
           </p>
+
+          <Link 
+            href="/about" 
+            className="text-white text-xl leading-normal font-medium tracking-wide underline underline decoration-1 underline-offset-4 hover:text-sky-300 transition-colors"
+          >
+            {t('about')}
+          </Link>
         </div>
 
         {/* Ссылки */}
         <div className="-mx-4 overflow-x-auto scrollbar-hide">
           <div className="px-4 flex gap-2 text-xl leading-normal font-regular">
-            <Link href="/about" className="text-white hover:bg-lime-200 hover:text-black rounded-full bg-neutral-900 px-8 py-4 whitespace-nowrap">
-              {t('about')}
-            </Link>
-            <a href="mailto:estenza@gmail.com" className="text-white hover:bg-yellow-200 hover:text-black rounded-full bg-neutral-900 px-8 py-4 whitespace-nowrap">
+      
+            <a href="mailto:estenza@gmail.com" className="text-white hover:bg-lime-200 hover:text-black rounded-full bg-neutral-900 px-8 py-4 whitespace-nowrap">
               {t('email')}
             </a>
-            <a href="https://t.me/estenza" className="text-white hover:bg-sky-200 hover:text-black rounded-full bg-neutral-900 px-8 py-4 whitespace-nowrap">
+
+            <a 
+              href="https://t.me/estenza" 
+              className="text-white hover:bg-yellow-200 hover:text-black rounded-full bg-neutral-900 px-8 py-4 whitespace-nowrap"
+              target="_blank" 
+              rel="noopener noreferrer"
+              >
               Telegram
+            </a>
+            <a 
+              href="https://linkedin.com/in/vadim-zaripov-40448317a" 
+              className="text-white hover:bg-sky-200 hover:text-black rounded-full bg-neutral-900 px-8 py-4 whitespace-nowrap"
+              target="_blank" 
+              rel="noopener noreferrer"
+              >
+              LinkedIn
+            </a>
+            <a 
+              href={`/${t('cv.fileName')}`} // Динамически подставляем имя файла
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-white hover:bg-violet-200 hover:text-black rounded-full bg-neutral-900 px-8 py-4 whitespace-nowrap"
+            >
+              {t('cv.buttonText')}
             </a>
           </div>
         </div>
@@ -105,9 +132,13 @@ export default function Home() {
         />
       </div>
 
-      {/* Последнее обновление */}
-      <div className="mt-12 mx-auto max-w-screen-xl">
-        <p className="text-neutral-500">{t('lastUpdated')}</p>
+      <div className="mt-12 mx-auto max-w-screen-xl flex flex-col md:flex-row justify-between items-center gap-4">
+        <p className="text-neutral-600 text-s">
+          {t('footer.lastUpdated')}
+        </p>
+        <p className="text-neutral-600 text-s text-center md:text-right">
+          {t('footer.builtWith')}
+        </p>  
       </div>
     </main>
   );

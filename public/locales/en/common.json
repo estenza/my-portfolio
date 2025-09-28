@@ -5,6 +5,11 @@
   "email": "Email",
   "lastUpdated": "Last updated: September 2025",
   "backToHome": "Back to projects",
+  "cv": {
+    "buttonText": "CV",
+    "fileName": "cv/Vadim-Zaripov-CV-ENG.pdf"
+  },
+  "siteTitle": "Vadim Zaripov | Product Designer",
   "projects": {
     "parkly": {
       "title": "Parkly",
@@ -34,25 +39,29 @@
     },
     "english_pet": {
       "title": "English with Animals",
-      "description": "An educational English game for kids"
+      "description-short": "Educational English game for children"
     },
     "programming": {
       "title": "Programming Heroes",
-      "description": "An educational game on visual programming for kids"
+      "description-short": "An educational game on visual programming for kids"
     },
     "students": {
       "title": "RANEPA – for Students",
-      "description": "A learning platform for digital transformation leaders"
+      "description-short": "Platform for training Chief Digital Transformation Officers (CDTOs)"
     },
     "managers": {
       "title": "RANEPA – for Managers",
-      "description": "A learning platform for digital transformation leaders"
+      "description-short": "Platform for administering educational programs"
     },
     "zenpulsar": {
       "title": "Zenpulsar",
-      "description": "An AI-powered investment signal platform based on social media and news analysis"
+      "description-short": "An AI-powered investment signal platform based on social media and news analysis"
     }
-    },
+  },
+  "footer": {
+    "lastUpdated": "Last updated: September 2025",
+    "builtWith": "Built with Next.js and Tailwind CSS using ChatGPT and Gemini"
+  },
   "jobTitle": {
     "productDesigner": "Product Designer",
     "uxUiDesigner": "UX/UI Designer"
