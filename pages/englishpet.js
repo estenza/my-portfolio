@@ -7,7 +7,7 @@ export default function EnglishPetPage() {
 
   const videosData = [
     {
-      src: '/english-pet/english-pet-1.mp4',
+      src: '/englishPet/english-pet-1.mp4',
       caption: t('projects.englishPet.videoCaption1')
     }
   ];
@@ -15,19 +15,19 @@ export default function EnglishPetPage() {
   // 1. Создаём массив с данными для изображений и подписей
   const imagesData = [
     {
-      imgs: [{ src: '/english-pet/english-1.png' }], 
+      imgs: [{ src: '/englishPet/english-1.png' }], 
       caption: t('projects.englishPet.caption1')
     },
     {
-      imgs: [{ src: '/english-pet/english-2.png' }],
+      imgs: [{ src: '/englishPet/english-2.png' }],
       caption: t('projects.englishPet.caption2')
     },
     {
-      imgs: [{ src: '/english-pet/english-3.png' }],
+      imgs: [{ src: '/englishPet/english-3.png' }],
       caption: t('projects.englishPet.caption3')
     },
     {
-      imgs: [{ src: '/english-pet/english-4.png' }],
+      imgs: [{ src: '/englishPet/english-4.png' }],
       caption: t('projects.englishPet.caption4')
     }
   ];

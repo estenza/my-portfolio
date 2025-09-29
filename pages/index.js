@@ -98,10 +98,10 @@ export default function Home() {
           href="/meeet"
         />
         <ProjectCard
-          title={t('projects.english_pet.title')}
-          description={t('projects.english_pet.description-short')}
-          image="/english-pet/english-cover.png"
-          href="/english_pet"
+          title={t('projects.englishPet.title')}
+          description={t('projects.englishPet.description-short')}
+          image="/englishPet/english-cover.png"
+          href="/englishpet"
         />
         <ProjectCard
           title={t('projects.programming.title')}
