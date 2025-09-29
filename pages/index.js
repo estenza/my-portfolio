@@ -100,7 +100,7 @@ export default function Home() {
         <ProjectCard
           title={t('projects.english_pet.title')}
           description={t('projects.english_pet.description-short')}
-          image="/english_pet.png"
+          image="/english-pet/english-cover.png"
           href="/english_pet"
         />
         <ProjectCard

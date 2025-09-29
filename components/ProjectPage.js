@@ -36,7 +36,7 @@ export default function ProjectPage({ title, type, year, description, images, vi
                 {t('videoNotSupported')}
               </video>
               {video.caption && (
-                <figcaption className="text-sm text-gray-500 mt-2">
+                <figcaption className="text-sm text-neutral-500 mt-2">
                   {video.caption}
                 </figcaption>
               )}

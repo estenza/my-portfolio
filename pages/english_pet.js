@@ -1,36 +1,54 @@
-import ProjectPage from '../components/ProjectPage';
+import ProjectPage from '/components/ProjectPage';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useTranslation } from 'next-i18next';
 
-export default function English_pet() {
+export default function EnglishPetPage() {
+  const { t } = useTranslation('common');
+
+  const videosData = [
+    {
+      src: '/english-pet/english-pet-1.mp4',
+      caption: t('projects.englishPet.videoCaption1')
+    }
+  ];
+
+  // 1. Создаём массив с данными для изображений и подписей
+  const imagesData = [
+    {
+      imgs: [{ src: '/english-pet/english-1.png' }], 
+      caption: t('projects.englishPet.caption1')
+    },
+    {
+      imgs: [{ src: '/english-pet/english-2.png' }],
+      caption: t('projects.englishPet.caption2')
+    },
+    {
+      imgs: [{ src: '/english-pet/english-3.png' }],
+      caption: t('projects.englishPet.caption3')
+    },
+    {
+      imgs: [{ src: '/english-pet/english-4.png' }],
+      caption: t('projects.englishPet.caption4')
+    }
+  ];
+
   return (
     <ProjectPage
-      title="Английский со зверятами"
-      type="Браузерная игра"
-      year="2024"
-      description={[
-        'В рамках работы в «Учи.ру» работал над интерфейсом образовательной игры для учеников 1-4-х классов «Английский со зверятами». Образовательная кор-часть напоминает упрощённую версию Duolingo: ребёнок решает карточки с заданиями и зарабатывает монеты. В мета-части эти монеты можно тратить на уход за питомцами и покупку различных аксессуаров для них.', 
-        'Изначально мы планировали добавить классические для тамагочи показатели вроде голода, усталости и чистоты, но тесты показали, что детям сложно воспринимать подобные шкалы, поэтому от этой идеи отказались.',
-        'Курс оказался успешным: показал высокую конверсию в покупку и хороший ретеншн – родителям была понятна ценность, а детям нравилось играть.',
-      ]}
-      videos={[
-        {
-          src: "/videos/english-pet-1.mp4",
-          caption: "Видеофрагмент вводного урока"
-        }
-      ]}
-      images={[
-        {
-          imgs: [{ src: '/english-1.png',}],
-          caption: 'На карте пользователь видит людей рядом, которые готовы к встрече. Чтобы появиться на карте, нужно «Поднять руку», нажав на синюю кнопку в центре меню. После этого местоположение пользователя становится видно на карте всем остальным пользователям. Опционально можно добавить текстовый статус.'
-        },
-        {
-          imgs: [{ src: '/meeet-2.png' }],
-          caption: 'Прежде чем перейти к общению, люди отправляют запрос на переписку. После подтверждения запроса пользователи обговаривают детали встречи, договариваются о времени и месте. Затем, придя на место, один из участников нажимает на кнопку «Начать встречу». Приложение убеждается, что телефоны находятся рядом и запускается процесс бампинга.'
-        },
-        {
-          imgs: [{ src: '/meeet-3.png' }],
-          caption: 'В течение 20 минут, пока встреча находится на подтверждении, пользователи знакомятся и общаются. После завершения бампинга каждый участник получает награду за встречу – токены EEE. Полученные токены EEE пользователи могут тратить на выделение своего профиля на карте, мгновенное восстановление энергии для встреч (после встречи нужно ждать 72 часа до восстановления) и т.д.'
-        }
-      ]}
+      title={t('projects.englishPet.title')}
+      description={t('projects.englishPet.description')}
+      type={t('projects.englishPet.type')}
+      year="2023"
+      images={imagesData}
+      videos={videosData}
     />
   );
 }
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common'])),
+    },
+  };
+}
+

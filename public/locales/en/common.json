@@ -9,7 +9,6 @@
     "buttonText": "CV",
     "fileName": "cv/Vadim-Zaripov-CV-ENG.pdf"
   },
-  "siteTitle": "Vadim Zaripov | Product Designer",
   "projects": {
     "parkly": {
       "title": "Parkly",
@@ -39,7 +38,8 @@
     },
     "english_pet": {
       "title": "English with Animals",
-      "description-short": "Educational English game for children"
+      "description-short": "Educational English game for children",
+      "videoCaption1": "Здесь будет подпись к вашему видео"
     },
     "programming": {
       "title": "Programming Heroes",
