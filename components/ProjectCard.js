@@ -35,7 +35,7 @@ export default function ProjectCard({ title, description, image, disabled = fals
       <div className="relative mt-6 w-full overflow-hidden rounded-xl bg-neutral-900">
         {/* контейнер для масштабирования: масштабируем внутренний блок, а не сам контейнер */}
         <div className={`transition-transform duration-300 transform-gpu ${!disabled ? 'group-hover:scale-103' : ''}`}>
-          <div className="relative pt-[64.69%]">
+          <div className="relative pt-[64%]">
             <Image
               src={image}
               alt={title}
