@@ -12,11 +12,9 @@ export default function ProjectCard({ title, description, image, disabled = fals
     'px-5',
     'py-5',
     'rounded-2xl',
-    // 👇 1. Уточнили, какие свойства анимировать
-    'transition-[background-color,opacity]',
+    'transition',
     'duration-300',
     'ease-in-out',
-    !disabled && 'hover:bg-neutral-800',
   ]
     .filter(Boolean)
     .join(' ')
@@ -26,18 +24,26 @@ export default function ProjectCard({ title, description, image, disabled = fals
       {/* Верхняя часть */}
       <div className="flex-grow">
         <h3 className="text-2xl font-semibold mb-2">{title}</h3>
-        <p className="text-neutral-400 font-regular tracking-wide">{description}</p>
+        <p className="text-neutral-400 font-light tracking-wide">{description}</p>
       </div>
 
-      {/* Нижняя часть: изображение */}
-      <div className="relative mt-6 w-full aspect-[388/251] overflow-hidden rounded-xl bg-neutral-900">
-        <Image
-          src={image}
-          alt={title}
-          fill
-          className={`object-cover transition-transform duration-300 transform-gpu ${!disabled ? 'group-hover:scale-102' : ''}`}
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-        />
+      {/* --- ИЗМЕНЁННАЯ НИЖНЯЯ ЧАСТЬ --- */}
+      <div className="relative mt-6 w-full overflow-hidden rounded-xl bg-neutral-900">
+        
+        <div className={`transition-transform duration-300 transform-gpu ${!disabled ? 'group-hover:scale-103' : ''}`}>
+          
+          {/* 👇 Вместо aspect-ratio используем padding-top */}
+          <div className="relative pt-[64%]">
+            <Image
+              src={image}
+              alt={title}
+              fill
+              // 👇 Изображение теперь абсолютно спозиционировано
+              className="absolute top-0 left-0 w-full h-full object-cover"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            />
+          </div>
+        </div>
 
         {/* Белая тонировка при ховере */}
         {!disabled && (
@@ -46,7 +52,7 @@ export default function ProjectCard({ title, description, image, disabled = fals
 
         {/* Лейбл NDA */}
         {disabled && (
-          <span className="absolute top-2 right-2 bg-neutral-900 text-white text-s font-medium px-2 py-1 rounded-xl">
+          <span className="absolute top-2 right-2 bg-neutral-900 text-white text-s font-medium px-2 py-2 rounded-xl">
             NDA
           </span>
         )}
@@ -55,8 +61,10 @@ export default function ProjectCard({ title, description, image, disabled = fals
   )
 
   return !disabled && href ? (
-    // 👇 2. Добавили сброс outline для ссылки
-    <Link href={href} className="h-full rounded-2xl">
+    <Link
+      href={href}
+      className="h-full rounded-2xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black focus:ring-lime-400"
+    >
       {CardContent}
     </Link>
   ) : (

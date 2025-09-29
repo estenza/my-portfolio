@@ -36,10 +36,16 @@
       "caption2": "Before starting a conversation, people send a request to chat. Once accepted, they can discuss the details of the meeting – time and place. Upon arrival, one participant taps “Start meeting.” The app ensures that the phones are close to each other and launches the bumping process.",
       "caption3": "During the 20-minute confirmation period, users spend time together and get to know each other. After bumping is completed, each participant receives a reward – EEE tokens. These tokens can be spent on highlighting one’s profile on the map, instantly restoring meeting energy (otherwise it takes 72 hours to recover after a meetup), and more."
     },
-    "english_pet": {
+    "englishPet": {
       "title": "English with Animals",
       "description-short": "Educational English game for children",
-      "videoCaption1": "Здесь будет подпись к вашему видео"
+      "description": "While at Uchi.ru, I designed the interface for 'English with Animals,' an educational game for students in grades 1-4. The core learning experience resembles a simplified version of Duolingo, where children complete tasks on cards to earn coins. In the meta-game, these coins can be spent on pet care and various accessories. We initially planned to include classic Tamagotchi-style metrics like hunger and fatigue, but user testing revealed that children had difficulty understanding these scales, so the feature was scrapped. The course was a success, achieving high conversion rates and strong retention. Parents saw the educational value, while kids loved the gameplay.", 
+      "type": "Browser Game",
+      "videoCaption1": "This is what the gameplay loop looks like, with solving cards, earning coins, and buying treats for the pet.",
+      "caption1": "The game's cards feature four main mechanics.",
+      "caption2": "In the free version, a paywall appears after about 10 minutes, prompting the child to ask a parent to purchase the full game. This paywall blocks any further gameplay. We had previously tested an alternative where players could still access the pet's room without solving new cards, but this resulted in lower conversion rates.",
+      "caption3": "This is the parent-facing paywall screen. It provides parents with an overview of the course, highlights its educational value, and details what's included in the full version. The left side features a video trailer with gameplay clips.",
+      "caption4": "I also designed a landing page to attract users from outside the Uchi.ru platform."
     },
     "programming": {
       "title": "Programming Heroes",
