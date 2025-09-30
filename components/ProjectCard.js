@@ -65,7 +65,7 @@ export default function ProjectCard({ title, description, image, disabled = fals
   // Если хочешь, чтобы hover срабатывал на всей зоне ссылки (включая padding у Link),
   // можно добавить сюда `group` (но root уже group — обычно достаточно).
   return !disabled && href ? (
-    <Link href={href} className="h-full rounded-2xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black focus:ring-lime-400">
+    <Link href={href} className="h-full rounded-2xl">
       {CardContent}
     </Link>
   ) : (

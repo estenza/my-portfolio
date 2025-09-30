@@ -49,7 +49,13 @@
     },
     "programming": {
       "title": "Programming Heroes",
-      "description-short": "An educational game on visual programming for kids"
+      "description-short": "An educational game on visual programming for kids",
+      "type": "Browser game",
+      "description": "At Uchi.ru, I also worked on the interface for the course 'Programming Heroes', where children learn the basics of visual programming using blocks. The game takes the form of a platformer with a storyline about a hero saving a kingdom. It develops logical thinking, the ability to think sequentially, and strategic skills.\n\nMy main task was to figure out how to create the most accessible visual representation of programming. I conducted extensive research on analogues and testing with children, which led to the creation of minimalist blocks with icons.",
+      "caption1": "The level map is the first thing the player sees after entering the game, allowing them to start playing as quickly as possible. In the free part of the game, a prominent bright 'Buy Course' button takes center stage.",
+      "caption2": "To complete a level, the child needs to build a sequence of command blocks so that the hero executes them and reaches the portal leading to the next level.",
+      "caption3": "In Salty’s shop, the player spends earned in-game currency — bones — on wardrobe items. They have purely cosmetic effects.",
+      "caption4": "After completing 5 levels, the player encounters a paywall that prompts them to call a parent to purchase full access to the course. The paywall provides an overview of the educational value and the gameplay through a gameplay video on the left side of the screen."
     },
     "students": {
       "title": "RANEPA – for Students",
