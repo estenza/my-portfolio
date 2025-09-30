@@ -2,6 +2,7 @@ import Head from 'next/head';
 import '@/styles/globals.css';
 import { Manrope } from 'next/font/google';
 import { appWithTranslation, useTranslation } from 'next-i18next';
+import { Analytics } from '@vercel/analytics/react';
 
 const manrope = Manrope({
   subsets: ['latin', 'cyrillic'],
@@ -25,6 +26,8 @@ function MyApp({ Component, pageProps }) {
       <main className={manrope.className}>
         <Component {...pageProps} />
       </main>
+
+      <Analytics />
     </>
   );
 }
