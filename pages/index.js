@@ -100,7 +100,7 @@ export default function Home() {
         <ProjectCard
           title={t('projects.ranepaCRM.title')}
           description={t('projects.ranepaCRM.description-short')}
-          image="/managers.png"
+          image="/ranepaCRM/ranepaCRMPreview.png"
           href="/ranepaCRM"
         />
         <ProjectCard
