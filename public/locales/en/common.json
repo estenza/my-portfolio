@@ -36,6 +36,25 @@
       "caption2": "Before starting a conversation, people send a request to chat. Once accepted, they can discuss the details of the meeting – time and place. Upon arrival, one participant taps “Start meeting.” The app ensures that the phones are close to each other and launches the bumping process.",
       "caption3": "During the 20-minute confirmation period, users spend time together and get to know each other. After bumping is completed, each participant receives a reward – EEE tokens. These tokens can be spent on highlighting one’s profile on the map, instantly restoring meeting energy (otherwise it takes 72 hours to recover after a meetup), and more."
     },
+    "ranepaCRM": {
+      "title": "RANEPA – CRM for Managers",
+      "description-short": "Educational Process Management",
+      "type": "CRM",
+      "description": "As part of my work on a training platform for digital transformation leaders, I participated in designing a CRM to manage the educational process for students in both online and offline formats.\n\nThe CRM allows managers to oversee the general learning processes, while methodologists can build educational programs consisting of assignments and materials.",
+      "caption1": "On this screen, managers can see a list of the groups they manage. To begin managing a group, they select one from the list.",
+      "caption2": "Each study group includes both an online and an offline course component, both of which can be managed from a single screen.",
+      "caption3": "This page allows managers to view the full roster of a study group, manage the status of each student, and add new participants.",
+      "caption4": "Here, managers can edit a student's profile and verify the provided data by cross-referencing it with scanned copies of their attached documents.",
+      "caption5": "For the offline modules, managers can create and edit class schedules, which are then displayed in the students' mobile apps."
+    },
+    "students": {
+      "title": "RANEPA – for Students",
+      "description-short": "Platform for training Chief Digital Transformation Officers (CDTOs)"
+    },
+    "zenpulsar": {
+      "title": "Zenpulsar",
+      "description-short": "An AI-powered investment signal platform based on social media and news analysis"
+    },
     "englishPet": {
       "title": "English with Animals",
       "description-short": "Educational English game for children",
@@ -56,18 +75,6 @@
       "caption2": "To complete a level, the child needs to build a sequence of command blocks so that the hero executes them and reaches the portal leading to the next level.",
       "caption3": "In Salty’s shop, the player spends earned in-game currency — bones — on wardrobe items. They have purely cosmetic effects.",
       "caption4": "After completing 5 levels, the player encounters a paywall that prompts them to call a parent to purchase full access to the course. The paywall provides an overview of the educational value and the gameplay through a gameplay video on the left side of the screen."
-    },
-    "students": {
-      "title": "RANEPA – for Students",
-      "description-short": "Platform for training Chief Digital Transformation Officers (CDTOs)"
-    },
-    "managers": {
-      "title": "RANEPA – for Managers",
-      "description-short": "Platform for administering educational programs"
-    },
-    "zenpulsar": {
-      "title": "Zenpulsar",
-      "description-short": "An AI-powered investment signal platform based on social media and news analysis"
     }
   },
   "footer": {

@@ -17,7 +17,7 @@ export default function MeeetPage() {
     },
     {
       imgs: [{ src: '/meeet/meeet-3.png' }],
-      caption: t('projects.meeet.caption2')
+      caption: t('projects.meeet.caption3')
     }
   ];
 

@@ -98,6 +98,26 @@ export default function Home() {
           href="/meeet"
         />
         <ProjectCard
+          title={t('projects.ranepaCRM.title')}
+          description={t('projects.ranepaCRM.description-short')}
+          image="/managers.png"
+          href="/ranepaCRM"
+        />
+        <ProjectCard
+          title={t('projects.students.title')}
+          description={t('projects.students.description-short')}
+          image="/students.png"
+          href="/students"
+          disabled
+        />
+        <ProjectCard
+          title={t('projects.zenpulsar.title')}
+          description={t('projects.zenpulsar.description-short')}
+          image="/zenpulsar.png"
+          href="/zenpulsar"
+          disabled
+        />
+        <ProjectCard
           title={t('projects.englishPet.title')}
           description={t('projects.englishPet.description-short')}
           image="/englishPet/english-cover.png"
@@ -108,27 +128,6 @@ export default function Home() {
           description={t('projects.programming.description-short')}
           image="/programming.png"
           href="/programming"
-        />
-        <ProjectCard
-          title={t('projects.students.title')}
-          description={t('projects.students.description-short')}
-          image="/students.png"
-          href="/students"
-          disabled
-        />
-        <ProjectCard
-          title={t('projects.managers.title')}
-          description={t('projects.managers.description-short')}
-          image="/managers.png"
-          href="/managers"
-          disabled
-        />
-        <ProjectCard
-          title={t('projects.zenpulsar.title')}
-          description={t('projects.zenpulsar.description-short')}
-          image="/zenpulsar.png"
-          href="/zenpulsar"
-          disabled
         />
       </div>
 
