@@ -54,6 +54,8 @@ export default function AboutPage() {
                   <li>{t('aboutMe.uchi.d1')}</li>
                   <li>{t('aboutMe.uchi.d2')}</li>
                   <li>{t('aboutMe.uchi.d3')}</li>
+                  <li>{t('aboutMe.uchi.d4')}</li>
+                  <li>{t('aboutMe.uchi.d5')}</li>
                 </ul>
               </div>
             </div>
@@ -77,6 +79,8 @@ export default function AboutPage() {
                   <li>{t('aboutMe.parkly.d1')}</li>
                   <li>{t('aboutMe.parkly.d2')}</li>
                   <li>{t('aboutMe.parkly.d3')}</li>
+                  <li>{t('aboutMe.parkly.d4')}</li>
+                  <li>{t('aboutMe.parkly.d5')}</li>
                 </ul>
               </div>
             </div>
@@ -100,6 +104,8 @@ export default function AboutPage() {
                   {/* Предполагается, что текст для Athanor будет уникальным */}
                   <li>{t('aboutMe.athanor.d1')}</li>
                   <li>{t('aboutMe.athanor.d2')}</li>
+                  <li>{t('aboutMe.athanor.d3')}</li>
+                  <li>{t('aboutMe.athanor.d4')}</li>
                 </ul>
               </div>
             </div>
