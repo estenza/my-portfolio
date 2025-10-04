@@ -28,7 +28,7 @@ export default function Home() {
         </div>
 
         {/* Описание */}
-         <div className="max-w-[568px] flex flex-col items-start gap-2">
+         <div className="max-w-[636px] flex flex-col items-start gap-2">
           <p className="text-neutral-400 text-xl leading-normal font-regular tracking-wide">
             {t('description')}
           </p>
