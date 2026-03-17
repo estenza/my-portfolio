@@ -1,84 +1,98 @@
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import ProjectCard from '../components/ProjectCard';
-import LanguageSwitcher from '../components/LanguageSwitcher';
 import i18nConfig from '../next-i18next.config.js';
 import MemojiAvatar from '../components/MemojiAvatar';
 import Link from 'next/link';
+import LanguageSwitcher from '../components/LanguageSwitcher';
 
 export default function Home() {
   const { t } = useTranslation('common');
 
+  const contactLinks = [
+    {
+      href: '/about',
+      label: t('about'),
+      isInternal: true,
+      isAvatar: true,
+    },
+    {
+      href: 'mailto:estenza@gmail.com',
+      label: t('email'),
+      className: 'bg-neutral-900 text-white hover:bg-neutral-800'
+    },
+    {
+      href: 'https://t.me/estenza',
+      label: 'Telegram',
+      className: 'bg-neutral-900 text-white hover:bg-neutral-800'
+    },
+    {
+      href: 'https://linkedin.com/in/vadim-zaripov-40448317a',
+      label: 'LinkedIn',
+      className: 'bg-neutral-900 text-white hover:bg-neutral-800'
+    },
+    {
+      href: `/${t('cv.fileName')}`,
+      label: t('cv.buttonText'),
+      className: 'bg-neutral-900 text-white hover:bg-neutral-800'
+    }
+  ];
+
   return (
-    <main className="min-h-screen bg-black text-white py-16 px-4 tracking-wide overflow-hidden">
-      <div className="flex flex-col gap-8 max-w-screen-xl mx-auto mb-12">
-
-        {/* Аватар + имя + переключатель */}
-        <div className="flex items-center justify-between w-full">
-          <div className="flex items-center gap-4">
-            <MemojiAvatar />
-            <h1 className="text-white text-3xl sm:text-5xl whitespace-nowrap font-semibold">
-              {t('name')}
-            </h1>
-          </div>
-
-          <div className="hidden sm:flex gap-4 text-xl text-muted-foreground">
+    <main className="min-h-screen bg-black px-4 py-16 text-white tracking-wide overflow-hidden">
+      <div className="relative mx-auto flex max-w-screen-2xl flex-col">
+        <div className="pointer-events-none absolute left-1/2 top-2 hidden w-full max-w-screen-xl -translate-x-1/2 justify-end sm:flex">
+          <div className="pointer-events-auto">
             <LanguageSwitcher />
           </div>
         </div>
 
-        {/* Описание */}
-         <div className="max-w-[636px] flex flex-col items-start gap-2">
-          <p className="text-neutral-400 text-xl leading-normal font-regular tracking-wide">
+        <section className="mx-auto flex w-full max-w-6xl flex-col items-center text-center">
+          <h1 className="max-w-5xl whitespace-nowrap text-3xl font-semibold sm:text-5xl">
+            {t('name')}
+          </h1>
+
+          <p className="mt-8 max-w-[636px] text-xl leading-normal text-neutral-400">
             {t('description')}
           </p>
 
-          <Link 
-            href="/about" 
-            className="text-white text-xl leading-normal font-medium tracking-wide underline underline decoration-1 underline-offset-4 hover:text-sky-300 transition-colors"
-          >
-            {t('about')}
-          </Link>
-        </div>
+          <div className="mt-8 flex w-full justify-center">
+            <div className="-mx-4 w-screen overflow-x-auto px-4 scrollbar-hide sm:mx-0 sm:w-auto sm:overflow-visible sm:px-0">
+              <div className="flex min-w-max gap-2 pb-2 text-xl leading-normal sm:flex-wrap sm:justify-center sm:pb-0">
+                {contactLinks.map((item) => {
+                  if (item.isAvatar) {
+                    return <MemojiAvatar key={item.label} href={item.href} label={item.label} />;
+                  }
 
-        {/* Ссылки */}
-        <div className="-mx-4 overflow-x-auto scrollbar-hide">
-          <div className="px-4 flex gap-2 text-xl leading-normal font-regular">
-      
-            <a href="mailto:estenza@gmail.com" className="text-white hover:bg-lime-200 hover:text-black rounded-full bg-neutral-900 px-8 py-4 whitespace-nowrap">
-              {t('email')}
-            </a>
+                  const className = `inline-flex items-center justify-center rounded-full px-8 py-3 leading-none whitespace-nowrap transition-colors ${item.className}`;
 
-            <a 
-              href="https://t.me/estenza" 
-              className="text-white hover:bg-yellow-200 hover:text-black rounded-full bg-neutral-900 px-8 py-4 whitespace-nowrap"
-              target="_blank" 
-              rel="noopener noreferrer"
-              >
-              Telegram
-            </a>
-            <a 
-              href="https://linkedin.com/in/vadim-zaripov-40448317a" 
-              className="text-white hover:bg-sky-200 hover:text-black rounded-full bg-neutral-900 px-8 py-4 whitespace-nowrap"
-              target="_blank" 
-              rel="noopener noreferrer"
-              >
-              LinkedIn
-            </a>
-            <a 
-              href={`/${t('cv.fileName')}`} // Динамически подставляем имя файла
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-white hover:bg-violet-200 hover:text-black rounded-full bg-neutral-900 px-8 py-4 whitespace-nowrap"
-            >
-              {t('cv.buttonText')}
-            </a>
+                  if (item.isInternal) {
+                    return (
+                      <Link key={item.label} href={item.href} className={className}>
+                        {item.label}
+                      </Link>
+                    );
+                  }
+
+                  return (
+                    <a
+                      key={item.label}
+                      href={item.href}
+                      target={item.href.startsWith('mailto:') ? undefined : '_blank'}
+                      rel={item.href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
+                      className={className}
+                    >
+                      {item.label}
+                    </a>
+                  );
+                })}
+              </div>
+            </div>
           </div>
-        </div>
+        </section>
       </div>
 
-      {/* Карточки проектов */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-1 items-stretch max-w-screen-xl mx-auto">
+      <div className="mx-auto mt-12 grid max-w-screen-xl grid-cols-1 items-stretch gap-1 sm:grid-cols-2 lg:grid-cols-3">
         <ProjectCard
           title={t('projects.parkly.title')}
           description={t('projects.parkly.description-short')}
@@ -98,26 +112,6 @@ export default function Home() {
           href="/meeet"
         />
         <ProjectCard
-          title={t('projects.ranepaCRM.title')}
-          description={t('projects.ranepaCRM.description-short')}
-          image="/ranepaCRM/ranepaCRMPreview.png"
-          href="/ranepaCRM"
-        />
-        <ProjectCard
-          title={t('projects.students.title')}
-          description={t('projects.students.description-short')}
-          image="/students.png"
-          href="/students"
-          disabled
-        />
-        <ProjectCard
-          title={t('projects.zenpulsar.title')}
-          description={t('projects.zenpulsar.description-short')}
-          image="/zenpulsar.png"
-          href="/zenpulsar"
-          disabled
-        />
-        <ProjectCard
           title={t('projects.englishPet.title')}
           description={t('projects.englishPet.description-short')}
           image="/englishPet/english-cover.png"
@@ -131,11 +125,11 @@ export default function Home() {
         />
       </div>
 
-      <div className="mt-12 mx-auto max-w-screen-xl flex flex-col md:flex-row justify-between items-center gap-4">
-        <p className="text-neutral-600 text-s">
+      <div className="mx-auto mt-12 flex max-w-screen-xl flex-col items-center justify-between gap-4 text-center md:flex-row md:text-left">
+        <p className="text-s text-neutral-600">
           {t('footer.lastUpdated')}
         </p>
-        <p className="text-neutral-600 text-s text-center md:text-right">
+        <p className="text-s text-neutral-600 md:text-right">
           {t('footer.builtWith')}
         </p>  
       </div>

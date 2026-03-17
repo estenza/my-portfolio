@@ -12,7 +12,7 @@ export default function ProjectCard({ title, description, image, disabled = fals
     'bg-neutral-900',
     'px-5',
     'py-5',
-    'rounded-2xl',
+    'rounded-4xl',
     'border',
     'border-transparent',
     'transition-colors',
@@ -26,7 +26,7 @@ export default function ProjectCard({ title, description, image, disabled = fals
   const CardContent = (
     <div className={cardClasses}>
       {/* Верхняя часть */}
-      <div className="flex-grow">
+      <div className="flex-grow px-1">
         <h3 className="text-2xl font-semibold mb-2">{title}</h3>
         <p className="text-neutral-400 font-regular tracking-wide">{description}</p>
       </div>

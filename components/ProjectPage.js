@@ -1,33 +1,33 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import { useTranslation } from 'next-i18next';
 import BackButton from './BackButton'
 
 export default function ProjectPage({ title, type, year, description, images, videos }) {
   const { t } = useTranslation('common');
 
-
   const paragraphs = typeof description === 'string' ? description.split('\n') : [];
 
   return (
-    <div className="w-full px-6 py-12 flex justify-center text-neutral-300 tracking-wide">
-      {/* ВНЕШНИЙ КОНТЕЙНЕР */}
-      <div className="w-full max-w-screen-xl mx-auto">
-        {/* ВНУТРЕННЯЯ КОЛОНКА */}
-        <div className="w-full max-w-[700px]">
-          <BackButton />
+    <div className="flex w-full justify-center px-6 py-12 text-neutral-400 tracking-wide">
+      <div className="relative mx-auto w-full max-w-screen-xl">
+        <div className="absolute right-[calc(50%+414px)] top-0 hidden md:block">
+          <BackButton variant="desktop" />
+        </div>
+
+        <div className="mx-auto flex w-full max-w-[700px] flex-col items-start text-left">
+          <div className="md:hidden">
+            <BackButton variant="mobile-compact" />
+          </div>
 
           <h1 className="text-4xl font-semibold text-white mb-2">{title}</h1>
           <p className="text-neutral-400 mb-8">{type} · {year}</p>
 
-          {/* 2. Встраиваем рендеринг параграфов прямо в основной JSX */}
           {paragraphs.map((para, idx) => (
-            <p key={idx} className="mb-4">{para}</p> // Добавил mb-4 для отступа
+            <p key={idx} className="mb-4">{para}</p>
           ))}
 
-          {/* Видео, если передано */}
           {videos && videos.length > 0 && videos.map((video, index) => (
-            <figure key={index} className="w-full mt-10">
+            <figure key={index} className="mt-10 flex w-full flex-col items-start">
               <video
                 src={video.src}
                 controls
@@ -36,16 +36,15 @@ export default function ProjectPage({ title, type, year, description, images, vi
                 {t('videoNotSupported')}
               </video>
               {video.caption && (
-                <figcaption className="text-sm text-neutral-500 mt-2">
+                <figcaption className="mt-2 text-sm text-neutral-500">
                   {video.caption}
                 </figcaption>
               )}
             </figure>
           ))}
 
-          {/* Изображения с подписями */}
           {images.map((block, idx) => (
-            <div key={idx} className="mt-10">
+            <div key={idx} className="mt-10 flex w-full flex-col items-start">
               {Array.isArray(block.imgs) && block.imgs.map((img, i) => (
                 <div key={i} className="w-full mb-4">
                   <Image
@@ -60,7 +59,7 @@ export default function ProjectPage({ title, type, year, description, images, vi
                 </div>
               ))}
               {block.caption && (
-                <p className="text-sm text-neutral-500 mt-2">{block.caption}</p>
+                <p className="mt-2 text-sm text-neutral-500">{block.caption}</p>
               )}
             </div>
           ))}

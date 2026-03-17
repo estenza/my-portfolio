@@ -9,18 +9,22 @@ export default function LanguageSwitcher() {
   };
 
   return (
-    <div className="space-x-4">
+    <div className="flex items-center gap-4 text-xl">
       <button
+        type="button"
         onClick={() => changeLanguage('ru')}
-        className={`transition 
-           ${locale === 'ru' ? 'text-white font-regular' : 'text-neutral-500 hover:text-white cursor-pointer text-regular'}`} 
+        className={`transition-colors ${
+          locale === 'ru' ? 'text-white' : 'text-neutral-500 hover:text-white'
+        }`}
       >
         Rus
       </button>
       <button
+        type="button"
         onClick={() => changeLanguage('en')}
-        className={`transition 
-          ${locale === 'en' ? 'text-white font-regular' : 'text-neutral-500 hover:text-white cursor-pointer text-regular'}`}
+        className={`transition-colors ${
+          locale === 'en' ? 'text-white' : 'text-neutral-500 hover:text-white'
+        }`}
       >
         Eng
       </button>
