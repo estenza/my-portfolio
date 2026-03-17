@@ -6,12 +6,19 @@ import BackButton from '../components/BackButton.js';
 
 export default function AboutPage() {
   const { t } = useTranslation('common');
+  const paragraphs = ['p1', 'p2', 'p3', 'p4'].map((key) => t(`aboutMe.${key}`));
 
   return (
-    <div className="w-full px-6 py-12 flex justify-center text-neutral-300 tracking-wide">
-      <div className="w-full max-w-screen-xl mx-auto">
-        <div className="w-full max-w-[700px]">
-          <BackButton />
+    <div className="flex w-full justify-center px-6 py-12 text-neutral-300 tracking-wide">
+      <div className="relative mx-auto w-full max-w-screen-xl">
+        <div className="absolute right-[calc(50%+414px)] top-0 hidden md:block">
+          <BackButton variant="desktop" />
+        </div>
+
+        <div className="mx-auto flex w-full max-w-[700px] flex-col items-start text-left">
+          <div className="md:hidden">
+            <BackButton variant="mobile-compact" />
+          </div>
 
           <h1 className="text-4xl font-semibold mb-8">{t('aboutMe.title')}</h1>
 
@@ -27,8 +34,9 @@ export default function AboutPage() {
             </div>
 
             <div className="text-neutral-400 space-y-5 text-base leading-relaxed tracking-wide">
-              <p>{t('aboutMe.p1')}</p>
-              <p>{t('aboutMe.p2')}</p>
+              {paragraphs.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
             </div>
           </div>
           

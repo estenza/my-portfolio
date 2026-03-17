@@ -39,7 +39,7 @@
     "englishPet": {
       "title": "English with Animals",
       "description-short": "Educational English game for children",
-      "description": "While at Uchi.ru, I designed the interface for 'English with Animals,' an educational game for students in grades 1-4. The core learning experience resembles a simplified version of Duolingo, where children complete tasks on cards to earn coins. In the meta-game, these coins can be spent on pet care and various accessories. We initially planned to include classic Tamagotchi-style metrics like hunger and fatigue, but user testing revealed that children had difficulty understanding these scales, so the feature was scrapped. The course was a success, achieving high conversion rates and strong retention. Parents saw the educational value, while kids loved the gameplay.", 
+      "description": "While at Uchi.ru, I designed the interface for 'English with Animals,' an educational game for students in grades 1-4. The core learning experience resembles a simplified version of Duolingo, where children complete tasks on cards to earn coins. In the meta-game, these coins can be spent on pet care and various accessories. We initially planned to include classic Tamagotchi-style metrics like hunger and fatigue, but user testing revealed that children had difficulty understanding these scales, so the feature was scrapped. The course was a success, achieving high conversion rates and strong retention. Parents saw the educational value, while kids loved the gameplay.",
       "type": "Browser Game",
       "videoCaption1": "This is what the gameplay loop looks like, with solving cards, earning coins, and buying treats for the pet.",
       "caption1": "The game's cards feature four main mechanics.",
@@ -69,8 +69,8 @@
   "aboutMe": {
     "title": "About me",
     "photoAlt": "Vadim Zaripov's photo",
-    "p1": "I’m Vadim Zaripov, a product designer with 6 years of experience. I have worked in Edtech, Fintech, SaaS, and Web/Mobile. I enjoy working on both B2C and B2B products.",
-    "p2": "My strength lies in extensive experience with startups, designing projects from scratch, and navigating high uncertainty. While working in children’s Edtech on gamified educational products, I honed the skill of simplifying complex things and creating accessible interfaces. In pursuit of the best user experience, I never lose sight of business goals and know how to find the right balance.",
+    "p1": "I’m Vadim Zaripov, a product designer with 7+ years of experience focused on mobile B2C products in EdTech and FinTech.",
+    "p2": "I design digital products end-to-end, from product discovery and user research to UX flows, prototyping and final UI. My core strength is turning complex product ideas into simple, intuitive user experiences that are easy to understand and use.",
     "cvTitle": "CV",
     "uchi": {
       "name": "Uchi.ru",
@@ -91,6 +91,8 @@
       "dates": "June 2019 – March 2020",
       "d1": "Designed an educational platform for training CDTOs (Chief Digital Transformation Officers) and a CRM system for managing the educational process.",
       "d2": "Closely collaborated with business analysts to refine client requirements."
-    }
+    },
+    "p3": "I have extensive experience working in startups and building products from scratch, where I learned to operate in conditions of high uncertainty and take ownership of design decisions. Working on educational products for children helped me develop a strong sense of clarity and simplicity in interfaces.",
+    "p4": "I approach design through scenario thinking, focusing on real user behavior, product context and measurable outcomes such as engagement, retention and conversion. I work closely with product managers and engineers to create scalable and consistent product experiences."
   }
 }
