@@ -4,7 +4,6 @@ import ProjectCard from '../components/ProjectCard';
 import i18nConfig from '../next-i18next.config.js';
 import MemojiAvatar from '../components/MemojiAvatar';
 import Link from 'next/link';
-import LanguageSwitcher from '../components/LanguageSwitcher';
 
 export default function Home() {
   const { t } = useTranslation('common');
@@ -19,46 +18,40 @@ export default function Home() {
     {
       href: 'mailto:estenza@gmail.com',
       label: t('email'),
-      className: 'bg-neutral-900 text-white hover:bg-neutral-800'
+      className: 'bg-neutral-100 text-neutral-950 hover:bg-neutral-200'
     },
     {
       href: 'https://t.me/estenza',
       label: 'Telegram',
-      className: 'bg-neutral-900 text-white hover:bg-neutral-800'
+      className: 'bg-neutral-100 text-neutral-950 hover:bg-neutral-200'
     },
     {
       href: 'https://linkedin.com/in/vadim-zaripov-40448317a',
       label: 'LinkedIn',
-      className: 'bg-neutral-900 text-white hover:bg-neutral-800'
+      className: 'bg-neutral-100 text-neutral-950 hover:bg-neutral-200'
     },
     {
       href: `/${t('cv.fileName')}`,
       label: t('cv.buttonText'),
-      className: 'bg-neutral-900 text-white hover:bg-neutral-800'
+      className: 'bg-neutral-100 text-neutral-950 hover:bg-neutral-200'
     }
   ];
 
   return (
-    <main className="min-h-screen bg-black px-4 py-16 text-white tracking-wide overflow-hidden">
+    <main className="min-h-screen bg-white px-4 pt-12 pb-0 text-neutral-950 tracking-wide overflow-hidden">
       <div className="relative mx-auto flex max-w-screen-2xl flex-col">
-        <div className="pointer-events-none absolute left-1/2 top-2 hidden w-full max-w-screen-xl -translate-x-1/2 justify-end sm:flex">
-          <div className="pointer-events-auto">
-            <LanguageSwitcher />
-          </div>
-        </div>
-
-        <section className="mx-auto flex w-full max-w-6xl flex-col items-center text-center">
-          <h1 className="max-w-5xl whitespace-nowrap text-3xl font-semibold sm:text-5xl">
+        <section className="relative mx-auto flex w-full max-w-6xl flex-col items-center text-center">
+          <h1 className="max-w-5xl whitespace-nowrap text-3xl font-semibold sm:text-4xl">
             {t('name')}
           </h1>
 
-          <p className="mt-8 max-w-[636px] text-xl leading-normal text-neutral-400">
+          <p className="mt-8 max-w-[636px] text-lg leading-normal text-neutral-600">
             {t('description')}
           </p>
 
-          <div className="mt-8 flex w-full justify-center">
+          <div className="mt-10 flex w-full justify-center">
             <div className="-mx-4 w-screen overflow-x-auto px-4 scrollbar-hide sm:mx-0 sm:w-auto sm:overflow-visible sm:px-0">
-              <div className="flex min-w-max gap-2 pb-2 text-xl leading-normal sm:flex-wrap sm:justify-center sm:pb-0">
+              <div className="flex min-w-max gap-2 pb-2 text-lg leading-normal sm:flex-wrap sm:justify-center sm:pb-0">
                 {contactLinks.map((item) => {
                   if (item.isAvatar) {
                     return <MemojiAvatar key={item.label} href={item.href} label={item.label} />;
@@ -92,7 +85,7 @@ export default function Home() {
         </section>
       </div>
 
-      <div className="mx-auto mt-12 grid max-w-screen-xl grid-cols-1 items-stretch gap-1 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mx-auto mt-12 grid max-w-screen-xl grid-cols-1 items-stretch gap-x-10 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
         <ProjectCard
           title={t('projects.parkly.title')}
           description={t('projects.parkly.description-short')}
@@ -125,14 +118,14 @@ export default function Home() {
         />
       </div>
 
-      <div className="mx-auto mt-12 flex max-w-screen-xl flex-col items-center justify-between gap-4 text-center md:flex-row md:text-left">
-        <p className="text-s text-neutral-600">
+      <footer className="mx-auto flex max-w-screen-xl flex-col items-center justify-between gap-4 pt-24 pb-6 text-center md:flex-row md:text-left">
+        <p className="text-base text-label-quarternary">
           {t('footer.lastUpdated')}
         </p>
-        <p className="text-s text-neutral-600 md:text-right">
+        <p className="text-base text-label-quarternary md:text-right">
           {t('footer.builtWith')}
         </p>  
-      </div>
+      </footer>
     </main>
   );
 }

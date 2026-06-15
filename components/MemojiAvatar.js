@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -12,15 +12,18 @@ const ALL_MEMOJIS = [
   { src: '/images/memoji/memoji-6.png', bg: '#f9cfa4' },
 ];
 
-const DEFAULT_MEMOJI = ALL_MEMOJIS[0];
+const FACE_SIZE = 60;
+const FACE_COUNT = ALL_MEMOJIS.length;
+const FACE_ANGLE = 360 / FACE_COUNT;
+const WHEEL_RADIUS = 92;
 
 export default function MemojiAvatar({ href, label, className = '' }) {
-  const [currentMemoji, setCurrentMemoji] = useState(DEFAULT_MEMOJI);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  const handleMouseEnter = () => {
-    const availableMemojis = ALL_MEMOJIS.filter(({ src }) => src !== currentMemoji.src);
-    const randomIndex = Math.floor(Math.random() * availableMemojis.length);
-    setCurrentMemoji(availableMemojis[randomIndex]);
+  const wheelRotation = `rotateX(-${currentIndex * FACE_ANGLE}deg)`;
+
+  const rotateWheel = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % FACE_COUNT);
   };
 
   useEffect(() => {
@@ -31,15 +34,42 @@ export default function MemojiAvatar({ href, label, className = '' }) {
   }, []);
 
   const avatar = (
-    <span className="flex h-16 w-16 shrink-0 items-center justify-center">
-      <Image
-        src={currentMemoji.src}
-        alt="Vadim Zaripov Memoji"
-        width={64}
-        height={64}
-        priority
-        className="h-16 w-16 object-contain"
-      />
+    <span
+      className="relative flex h-full w-[96px] shrink-0 items-center justify-center"
+      style={{ perspective: '1400px' }}
+    >
+      <span className="relative h-full w-full overflow-hidden">
+        <span
+          className="absolute inset-0"
+          style={{
+            transform: wheelRotation,
+            transformStyle: 'preserve-3d',
+            transition: 'transform 820ms cubic-bezier(0.16, 1, 0.3, 1)',
+          }}
+        >
+          {ALL_MEMOJIS.map((memoji, index) => (
+            <span
+              key={memoji.src}
+              className="absolute left-1/2 top-1/2 flex h-[60px] w-[60px] -translate-x-1/2 -translate-y-1/2 items-center justify-center"
+              style={{
+                transform: `rotateX(${index * FACE_ANGLE}deg) translateZ(${WHEEL_RADIUS}px)`,
+                backfaceVisibility: 'hidden',
+                opacity: currentIndex === index ? 1 : 0,
+                transition: 'opacity 410ms ease-out',
+              }}
+            >
+              <Image
+                src={memoji.src}
+                alt="Vadim Zaripov Memoji"
+                width={FACE_SIZE}
+                height={FACE_SIZE}
+                priority={index === 0}
+                className="h-16 w-16 object-contain"
+              />
+            </span>
+          ))}
+        </span>
+      </span>
     </span>
   );
 
@@ -47,15 +77,14 @@ export default function MemojiAvatar({ href, label, className = '' }) {
     return (
       <Link
         href={href}
-        onMouseEnter={handleMouseEnter}
-        className={`group inline-flex items-center gap-3 rounded-full bg-white px-6 py-3 text-xl leading-none whitespace-nowrap text-black transition-colors hover:bg-neutral-200 ${className}`}
-        style={{ backgroundColor: currentMemoji.bg }}
+        onMouseEnter={rotateWheel}
+        className={`group inline-flex min-h-[72px] items-stretch gap-0 overflow-hidden rounded-full bg-neutral-100 pr-8 text-lg leading-none whitespace-nowrap text-black transition-colors duration-700 ease-out hover:bg-neutral-200 ${className}`}
       >
-        <span className="-my-1 -ml-1">
+        <span className="self-stretch">
           {avatar}
         </span>
         {label ? (
-          <span className="transition-colors">
+          <span className="flex items-center transition-colors">
             {label}
           </span>
         ) : null}
@@ -65,9 +94,9 @@ export default function MemojiAvatar({ href, label, className = '' }) {
 
   return (
     <div
-      onMouseEnter={handleMouseEnter}
+      onMouseEnter={rotateWheel}
       className={className}
-      style={{ backgroundColor: currentMemoji.bg }}
+      style={{ backgroundColor: '#ffffff' }}
     >
       {avatar}
     </div>

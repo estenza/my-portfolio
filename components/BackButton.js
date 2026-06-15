@@ -12,7 +12,7 @@ export default function BackButton({ href = '/', text, variant = 'mobile' }) {
         href={href}
         aria-label={label}
         title={label}
-        className={`group inline-flex items-center justify-center rounded-full text-white/80 transition-colors hover:bg-neutral-900 hover:text-white ${
+        className={`group inline-flex items-center justify-center rounded-full text-neutral-700 transition-colors hover:bg-neutral-100 hover:text-neutral-950 ${
           variant === 'mobile-compact' ? 'mb-12 h-11 w-11' : 'h-12 w-12'
         }`}
       >
@@ -21,7 +21,7 @@ export default function BackButton({ href = '/', text, variant = 'mobile' }) {
           alt={label}
           width={32}
           height={32}
-          className="opacity-70 transition group-hover:opacity-100"
+          className="opacity-70 transition group-hover:opacity-100 invert"
         />
       </Link>
     );
@@ -30,14 +30,14 @@ export default function BackButton({ href = '/', text, variant = 'mobile' }) {
   return (
     <Link
       href={href}
-      className="mb-12 inline-flex items-center rounded-full bg-neutral-900 px-4 py-2 text-s text-white transition-colors group hover:bg-neutral-800"
+      className="mb-12 inline-flex items-center rounded-full bg-neutral-100 px-4 py-2 text-s text-neutral-950 transition-colors group hover:bg-neutral-200"
     >
       <Image
         src="/arrow-left.svg"
         alt={label}
         width={32}
         height={32}
-        className="mr-2 opacity-70 group-hover:opacity-100 transition"
+        className="mr-2 opacity-70 group-hover:opacity-100 transition invert"
       />
       <span>{label}</span>
     </Link>

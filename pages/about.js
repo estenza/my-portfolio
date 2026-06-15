@@ -9,7 +9,7 @@ export default function AboutPage() {
   const paragraphs = ['p1', 'p2', 'p3', 'p4'].map((key) => t(`aboutMe.${key}`));
 
   return (
-    <div className="flex w-full justify-center px-6 py-12 text-neutral-300 tracking-wide">
+    <div className="flex w-full justify-center px-6 py-12 text-neutral-700 tracking-wide">
       <div className="relative mx-auto w-full max-w-screen-xl">
         <div className="absolute right-[calc(50%+414px)] top-0 hidden md:block">
           <BackButton variant="desktop" />
@@ -33,7 +33,7 @@ export default function AboutPage() {
               />
             </div>
 
-            <div className="text-neutral-400 space-y-5 text-base leading-relaxed tracking-wide">
+            <div className="text-neutral-600 space-y-5 text-lg leading-relaxed tracking-wide">
               {paragraphs.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
               ))}
@@ -46,19 +46,19 @@ export default function AboutPage() {
             {/* --- Учи.ру --- */}
             <div className="flex flex-col md:flex-row gap-x-8">
               <div className="w-full md:w-2/7 shrink-0">
-                <h3 className="font-semibold text-white text-xl mb-1">
+                <h3 className="font-semibold text-neutral-950 text-xl mb-1">
                   <a href="https://uchi.ru/" 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="underline hover:text-blue-300 transition-all">
+                    className="underline hover:text-blue-600 transition-all">
                     {t('aboutMe.uchi.name')}
                   </a>
                 </h3>
-                <p className="text-base text-neutral-400 mb-1">{t('jobTitle.productDesigner')}</p>
-                <p className="text-base text-neutral-400">{t('aboutMe.uchi.dates')}</p>
+                <p className="text-lg text-neutral-600 mb-1">{t('jobTitle.productDesigner')}</p>
+                <p className="text-lg text-neutral-600">{t('aboutMe.uchi.dates')}</p>
               </div>
               <div className="w-full md:w-5/7 mt-4 md:mt-0">
-                <ul className="list-disc list-inside text-neutral-400 text-base leading-relaxed space-y-2">
+                <ul className="list-disc list-inside text-neutral-600 text-lg leading-relaxed space-y-2">
                   <li>{t('aboutMe.uchi.d1')}</li>
                   <li>{t('aboutMe.uchi.d2')}</li>
                   <li>{t('aboutMe.uchi.d3')}</li>
@@ -71,19 +71,19 @@ export default function AboutPage() {
             {/* --- Паркли --- */}
             <div className="flex flex-col md:flex-row gap-x-8">
               <div className="w-full md:w-2/7 shrink-0">
-                <h3 className="font-semibold text-white text-xl mb-1">
+                <h3 className="font-semibold text-neutral-950 text-xl mb-1">
                   <a href="https://apps.apple.com/ru/app/%D0%BF%D0%B0%D1%80%D0%BA%D0%BB%D0%B8-%D0%BF%D0%B0%D1%80%D0%BA%D0%BE%D0%B2%D0%BA%D0%B8-%D0%BC%D0%BE%D1%81%D0%BA%D0%B2%D1%8B-%D0%B8-%D1%81%D0%BF%D0%B1/id1530278550?referrer=appmetrica_tracking_id%3D1181069930796221196%26ym_tracking_id%3D8144508877423365345" 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="underline hover:text-blue-300">
+                    className="underline hover:text-blue-600">
                     {t('aboutMe.parkly.name')}
                   </a>
                 </h3>
-                <p className="text-base text-neutral-400 mb-1">{t('jobTitle.productDesigner')}</p>
-                <p className="text-base text-neutral-400">{t('aboutMe.parkly.dates')}</p>
+                <p className="text-lg text-neutral-600 mb-1">{t('jobTitle.productDesigner')}</p>
+                <p className="text-lg text-neutral-600">{t('aboutMe.parkly.dates')}</p>
               </div>
               <div className="w-full md:w-5/7 mt-4 md:mt-0">
-                <ul className="list-disc list-inside text-neutral-400 text-base leading-relaxed space-y-2">
+                <ul className="list-disc list-inside text-neutral-600 text-lg leading-relaxed space-y-2">
                   <li>{t('aboutMe.parkly.d1')}</li>
                   <li>{t('aboutMe.parkly.d2')}</li>
                   <li>{t('aboutMe.parkly.d3')}</li>
@@ -96,19 +96,19 @@ export default function AboutPage() {
             {/* --- Athanor --- */}
             <div className="flex flex-col md:flex-row gap-x-8">
               <div className="w-full md:w-2/7 shrink-0">
-                <h3 className="font-semibold text-white text-xl mb-1">
+                <h3 className="font-semibold text-neutral-950 text-xl mb-1">
                   <a href="https://www.linkedin.com/company/atnrpro/" 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="underline hover:text-blue-300">
+                    className="underline hover:text-blue-600">
                     {t('aboutMe.athanor.name')}
                   </a>
                 </h3>
-                <p className="text-base text-neutral-400 mb-1">{t('jobTitle.uxUiDesigner')}</p>
-                <p className="text-base text-neutral-400">{t('aboutMe.athanor.dates')}</p>
+                <p className="text-lg text-neutral-600 mb-1">{t('jobTitle.uxUiDesigner')}</p>
+                <p className="text-lg text-neutral-600">{t('aboutMe.athanor.dates')}</p>
               </div>
               <div className="w-full md:w-5/7 mt-4 md:mt-0">
-                <ul className="list-disc list-inside text-neutral-400 text-base leading-relaxed space-y-2">
+                <ul className="list-disc list-inside text-neutral-600 text-lg leading-relaxed space-y-2">
                   {/* Предполагается, что текст для Athanor будет уникальным */}
                   <li>{t('aboutMe.athanor.d1')}</li>
                   <li>{t('aboutMe.athanor.d2')}</li>

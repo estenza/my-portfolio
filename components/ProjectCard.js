@@ -9,30 +9,14 @@ export default function ProjectCard({ title, description, image, disabled = fals
     'flex-col',
     'justify-between',
     'h-full',
-    'bg-neutral-900',
-    'px-5',
-    'py-5',
-    'rounded-4xl',
-    'border',
-    'border-transparent',
-    'transition-colors',
-    'duration-300',
-    'ease-in-out',
-    !disabled && 'hover:bg-neutral-800' // <-- было group-hover, исправлено на hover
   ]
     .filter(Boolean)
     .join(' ')
 
   const CardContent = (
     <div className={cardClasses}>
-      {/* Верхняя часть */}
-      <div className="flex-grow px-1">
-        <h3 className="text-2xl font-semibold mb-2">{title}</h3>
-        <p className="text-neutral-400 font-regular tracking-wide">{description}</p>
-      </div>
-
-      {/* Нижняя часть: изображение */}
-      <div className="relative mt-6 w-full overflow-hidden rounded-xl bg-neutral-900">
+      {/* Изображение */}
+      <div className="relative w-full overflow-hidden rounded-[20px] bg-neutral-200">
         {/* контейнер для масштабирования: масштабируем внутренний блок, а не сам контейнер */}
         <div className={`transition-transform duration-300 transform-gpu ${!disabled ? 'group-hover:scale-103' : ''}`}>
           <div className="relative pt-[64%]">
@@ -57,6 +41,12 @@ export default function ProjectCard({ title, description, image, disabled = fals
             NDA
           </span>
         )}
+      </div>
+
+      {/* Текстовая часть */}
+      <div className="mt-4 flex-grow px-1">
+        <h3 className="text-xl font-semibold mb-2">{title}</h3>
+        <p className="text-base text-neutral-500 font-regular tracking-wide">{description}</p>
       </div>
     </div>
   )
