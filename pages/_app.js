@@ -1,8 +1,6 @@
 import Head from 'next/head';
 import '@/styles/globals.css';
 import { Manrope } from 'next/font/google';
-import { appWithTranslation, useTranslation } from 'next-i18next';
-import { Analytics } from '@vercel/analytics/react';
 
 const manrope = Manrope({
   subsets: ['latin', 'cyrillic'],
@@ -11,7 +9,6 @@ const manrope = Manrope({
 });
 
 function MyApp({ Component, pageProps }) {
-  const { t } = useTranslation('common');
   return (
     <>
       <Head>
@@ -27,9 +24,8 @@ function MyApp({ Component, pageProps }) {
         <Component {...pageProps} />
       </main>
 
-      <Analytics />
     </>
   );
 }
 
-export default appWithTranslation(MyApp);
+export default MyApp;

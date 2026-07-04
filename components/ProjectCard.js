@@ -19,13 +19,14 @@ export default function ProjectCard({ title, description, image, disabled = fals
       <div className="relative w-full overflow-hidden rounded-[20px] bg-neutral-200">
         {/* контейнер для масштабирования: масштабируем внутренний блок, а не сам контейнер */}
         <div className={`transition-transform duration-300 transform-gpu ${!disabled ? 'group-hover:scale-103' : ''}`}>
-          <div className="relative pt-[64%]">
+          <div className="relative aspect-[10/7]">
             <Image
               src={image}
               alt={title}
               fill
+              quality={95}
               className="absolute top-0 left-0 w-full h-full object-cover"
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              sizes="(min-width: 1024px) 400px, (min-width: 768px) calc((100vw - 6rem) / 2), calc(100vw - 2.5rem)"
             />
           </div>
         </div>
@@ -46,7 +47,7 @@ export default function ProjectCard({ title, description, image, disabled = fals
       {/* Текстовая часть */}
       <div className="mt-4 flex-grow px-1">
         <h3 className="text-xl font-semibold mb-2">{title}</h3>
-        <p className="text-base text-neutral-500 font-regular tracking-wide">{description}</p>
+        <p className="text-base text-label-tertiary font-regular leading-normal tracking-wide">{description}</p>
       </div>
     </div>
   )

@@ -1,42 +1,31 @@
 import ProjectPage from '/components/ProjectPage';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { useTranslation } from 'next-i18next';
+import content from '../data/content.json';
 
 export default function MeeetPage() {
-  const { t } = useTranslation('common');
+  const project = content.projects.meeet;
 
-  // 1. Создаём массив с данными для изображений и подписей
   const imagesData = [
     {
-      imgs: [{ src: '/meeet/meeet-1.png' }], 
-      caption: t('projects.meeet.caption1')
+      imgs: [{ src: '/meeet/meeet-1.png' }],
+      caption: project.caption1
     },
     {
       imgs: [{ src: '/meeet/meeet-2.png' }],
-      caption: t('projects.meeet.caption2')
+      caption: project.caption2
     },
     {
       imgs: [{ src: '/meeet/meeet-3.png' }],
-      caption: t('projects.meeet.caption3')
+      caption: project.caption3
     }
   ];
 
   return (
     <ProjectPage
-      title={t('projects.meeet.title')}
-      description={t('projects.meeet.description')}
-      type={t('projects.meeet.type')}
+      title={project.title}
+      description={project.description}
+      type={project.type}
       year="2024"
-      // 2. Передаём наш новый, структурированный массив в пропс images
       images={imagesData}
     />
   );
-}
-
-export async function getStaticProps({ locale }) {
-  return {
-    props: {
-      ...(await serverSideTranslations(locale, ['common'])),
-    },
-  };
 }

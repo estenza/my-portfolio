@@ -1,24 +1,17 @@
-import { useTranslation } from 'next-i18next';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import ProjectCard from '../components/ProjectCard';
-import i18nConfig from '../next-i18next.config.js';
 import MemojiAvatar from '../components/MemojiAvatar';
 import Link from 'next/link';
+import content from '../data/content.json';
 
 export default function Home() {
-  const { t } = useTranslation('common');
+  const { projects } = content;
 
   const contactLinks = [
     {
       href: '/about',
-      label: t('about'),
+      label: content.about,
       isInternal: true,
       isAvatar: true,
-    },
-    {
-      href: 'mailto:estenza@gmail.com',
-      label: t('email'),
-      className: 'bg-neutral-100 text-neutral-950 hover:bg-neutral-200'
     },
     {
       href: 'https://t.me/estenza',
@@ -31,110 +24,96 @@ export default function Home() {
       className: 'bg-neutral-100 text-neutral-950 hover:bg-neutral-200'
     },
     {
-      href: `/${t('cv.fileName')}`,
-      label: t('cv.buttonText'),
+      href: 'mailto:estenza@gmail.com',
+      label: content.email,
+      className: 'bg-neutral-100 text-neutral-950 hover:bg-neutral-200'
+    },
+    {
+      href: `/${content.cv.fileName}`,
+      label: content.cv.buttonText,
       className: 'bg-neutral-100 text-neutral-950 hover:bg-neutral-200'
     }
   ];
 
   return (
-    <main className="min-h-screen bg-white px-4 pt-12 pb-0 text-neutral-950 tracking-wide overflow-hidden">
-      <div className="relative mx-auto flex max-w-screen-2xl flex-col">
-        <section className="relative mx-auto flex w-full max-w-6xl flex-col items-center text-center">
-          <h1 className="max-w-5xl whitespace-nowrap text-3xl font-semibold sm:text-4xl">
-            {t('name')}
+    <main className="min-h-screen overflow-x-hidden bg-white px-5 pt-10 pb-0 text-neutral-950 tracking-wide sm:px-6 sm:pt-12 lg:px-10">
+      <div className="mx-auto flex w-full max-w-screen-xl flex-col gap-12 sm:gap-14 lg:gap-16">
+        <section className="mx-auto flex w-full max-w-5xl flex-col items-center text-center">
+          <h1 className="max-w-5xl text-3xl font-semibold leading-tight sm:text-4xl">
+            {content.name}
           </h1>
 
-          <p className="mt-8 max-w-[636px] text-lg leading-normal text-neutral-600">
-            {t('description')}
+          <p className="mt-6 max-w-[680px] text-base leading-relaxed text-label-primary sm:mt-8 sm:text-lg">
+            {content.description}
           </p>
 
-          <div className="mt-10 flex w-full justify-center">
-            <div className="-mx-4 w-screen overflow-x-auto px-4 scrollbar-hide sm:mx-0 sm:w-auto sm:overflow-visible sm:px-0">
-              <div className="flex min-w-max gap-2 pb-2 text-lg leading-normal sm:flex-wrap sm:justify-center sm:pb-0">
-                {contactLinks.map((item) => {
-                  if (item.isAvatar) {
-                    return <MemojiAvatar key={item.label} href={item.href} label={item.label} />;
-                  }
+          <div className="mt-8 flex w-full flex-wrap justify-center gap-2 text-lg leading-normal sm:mt-10">
+            {contactLinks.map((item) => {
+              if (item.isAvatar) {
+                return <MemojiAvatar key={item.label} href={item.href} label={item.label} className="max-w-full" />;
+              }
 
-                  const className = `inline-flex items-center justify-center rounded-full px-8 py-3 leading-none whitespace-nowrap transition-colors ${item.className}`;
+              const className = `inline-flex h-[72px] items-center justify-center rounded-full px-5 leading-none whitespace-nowrap transition-colors sm:px-8 ${item.className}`;
 
-                  if (item.isInternal) {
-                    return (
-                      <Link key={item.label} href={item.href} className={className}>
-                        {item.label}
-                      </Link>
-                    );
-                  }
+              if (item.isInternal) {
+                return (
+                  <Link key={item.label} href={item.href} className={className}>
+                    {item.label}
+                  </Link>
+                );
+              }
 
-                  return (
-                    <a
-                      key={item.label}
-                      href={item.href}
-                      target={item.href.startsWith('mailto:') ? undefined : '_blank'}
-                      rel={item.href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
-                      className={className}
-                    >
-                      {item.label}
-                    </a>
-                  );
-                })}
-              </div>
-            </div>
+              return (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  target={item.href.startsWith('mailto:') ? undefined : '_blank'}
+                  rel={item.href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
+                  className={className}
+                >
+                  {item.label}
+                </a>
+              );
+            })}
           </div>
+        </section>
+
+        <section className="grid grid-cols-1 items-stretch gap-y-12 md:grid-cols-2 md:gap-x-8 md:gap-y-14 lg:grid-cols-3 lg:gap-x-8 xl:gap-x-10">
+          <ProjectCard
+            title={projects.parkly.title}
+            description={projects.parkly['description-short']}
+            image="/previews/parkly-2x.png"
+            href="/parkly"
+          />
+          <ProjectCard
+            title={projects.noomad.title}
+            description={projects.noomad['description-short']}
+            image="/previews/noomad-2x.png"
+            href="/noomad"
+          />
+          <ProjectCard
+            title={projects.uchiCase.title}
+            description={projects.uchiCase['description-short']}
+            image="/previews/uchi-2x.png"
+            href="/uchi"
+          />
+          <ProjectCard
+            title={projects.meeet.title}
+            description={projects.meeet['description-short']}
+            image="/meeet/meeet.png"
+            href="/meeet"
+          />
         </section>
       </div>
 
-      <div className="mx-auto mt-12 grid max-w-screen-xl grid-cols-1 items-stretch gap-x-10 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
-        <ProjectCard
-          title={t('projects.parkly.title')}
-          description={t('projects.parkly.description-short')}
-          image="/parkly/parkly.png"
-          href="/parkly"
-        />
-        <ProjectCard
-          title={t('projects.noomad.title')}
-          description={t('projects.noomad.description-short')}
-          image="/noomad/noomad.png"
-          href="/noomad"
-        />
-        <ProjectCard
-          title={t('projects.meeet.title')}
-          description={t('projects.meeet.description-short')}
-          image="/meeet/meeet.png"
-          href="/meeet"
-        />
-        <ProjectCard
-          title={t('projects.englishPet.title')}
-          description={t('projects.englishPet.description-short')}
-          image="/englishPet/english-cover.png"
-          href="/englishpet"
-        />
-        <ProjectCard
-          title={t('projects.programming.title')}
-          description={t('projects.programming.description-short')}
-          image="/programming.png"
-          href="/programming"
-        />
-      </div>
-
-      <footer className="mx-auto flex max-w-screen-xl flex-col items-center justify-between gap-4 pt-24 pb-6 text-center md:flex-row md:text-left">
+      <footer className="mx-auto flex max-w-screen-xl flex-col items-center justify-between gap-3 pt-20 pb-6 text-center md:flex-row md:text-left lg:pt-24">
         <p className="text-base text-label-quarternary">
-          {t('footer.lastUpdated')}
+          {content.footer.lastUpdated}
         </p>
         <p className="text-base text-label-quarternary md:text-right">
-          {t('footer.builtWith')}
+          {content.footer.builtWith}
         </p>  
       </footer>
     </main>
   );
-}
-
-// SSR (если используется)
-export async function getStaticProps({ locale }) {
-  return {
-    props: {
-      ...(await serverSideTranslations(locale, ['common'], i18nConfig)),
-    },
-  };
 }

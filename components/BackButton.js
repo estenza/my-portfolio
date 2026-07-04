@@ -1,10 +1,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { useTranslation } from 'next-i18next';
 
 export default function BackButton({ href = '/', text, variant = 'mobile' }) {
-  const { t } = useTranslation('common');
-  const label = text || t('backToHome');
+  const label = text || 'На главную';
 
   if (variant === 'desktop' || variant === 'mobile-compact') {
     return (
@@ -13,7 +11,7 @@ export default function BackButton({ href = '/', text, variant = 'mobile' }) {
         aria-label={label}
         title={label}
         className={`group inline-flex items-center justify-center rounded-full text-neutral-700 transition-colors hover:bg-neutral-100 hover:text-neutral-950 ${
-          variant === 'mobile-compact' ? 'mb-12 h-11 w-11' : 'h-12 w-12'
+          variant === 'mobile-compact' ? 'h-11 w-11' : 'h-12 w-12'
         }`}
       >
         <Image
