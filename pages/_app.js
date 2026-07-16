@@ -1,6 +1,8 @@
 import Head from 'next/head';
 import '@/styles/globals.css';
 import { Manrope } from 'next/font/google';
+import SiteHeader from '@/components/SiteHeader';
+import TypographyGlue from '@/components/TypographyGlue';
 
 const manrope = Manrope({
   subsets: ['latin', 'cyrillic'],
@@ -12,17 +14,18 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>Vadim Zaripov</title>
+        <title>Вадим Зарипов – Продуктовый дизайнер</title>
         <meta name="description" content="Портфолио продуктового дизайнера Вадима Зарипова. Опыт в Edtech, Fintech, SaaS." />
-        <link rel="icon" href="/favicons/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicons/favicon.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/favicons/apple-touch-icon.png" />
         <link rel="manifest" href="/favicons/site.webmanifest" />        
       </Head>
       
-      <main className={manrope.className}>
-        <Component {...pageProps} />
-      </main>
+      <div className={manrope.className}>
+        <TypographyGlue>
+          <SiteHeader />
+          <Component {...pageProps} />
+        </TypographyGlue>
+      </div>
 
     </>
   );

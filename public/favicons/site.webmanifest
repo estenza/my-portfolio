@@ -1,17 +1,11 @@
 {
-  "name": "MyWebSite",
-  "short_name": "MySite",
+  "name": "Вадим Зарипов",
+  "short_name": "Вадим Зарипов",
   "icons": [
     {
-      "src": "/web-app-manifest-192x192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "maskable"
-    },
-    {
-      "src": "/web-app-manifest-512x512.png",
-      "sizes": "512x512",
-      "type": "image/png",
+      "src": "/favicons/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
       "purpose": "maskable"
     }
   ],

@@ -78,7 +78,7 @@ export default function MemojiAvatar({ href, label, className = '' }) {
       <Link
         href={href}
         onMouseEnter={rotateWheel}
-        className={`group inline-flex min-h-[72px] items-stretch gap-0 overflow-hidden rounded-full bg-neutral-100 pr-8 text-lg leading-none whitespace-nowrap text-black transition-colors duration-700 ease-out hover:bg-neutral-200 ${className}`}
+        className={`group inline-flex min-h-[72px] items-stretch gap-0 overflow-hidden rounded-full bg-neutral-100 pr-8 text-base leading-none whitespace-nowrap text-black transition-colors duration-700 ease-out hover:bg-neutral-200 ${className}`}
       >
         <span className="self-stretch">
           {avatar}

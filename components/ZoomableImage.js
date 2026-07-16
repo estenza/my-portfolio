@@ -57,6 +57,7 @@ export default function ZoomableImage({
   alt = '',
   children,
   triggerClassName = 'block h-full w-full cursor-zoom-in border-0 bg-transparent p-0',
+  wrapperClassName = 'block w-full',
   zoomSrc
 }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -257,7 +258,7 @@ export default function ZoomableImage({
     : null;
 
   return (
-    <span className="block w-full">
+    <span className={wrapperClassName}>
       <button
         type="button"
         aria-label={alt ? `Открыть изображение: ${alt}` : 'Открыть изображение'}

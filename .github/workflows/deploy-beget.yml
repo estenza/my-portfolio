@@ -1,0 +1,64 @@
+name: Deploy to Beget
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: production-deploy
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build static site
+        run: npm run build
+
+      - name: Configure SSH
+        env:
+          BEGET_SSH_KEY: ${{ secrets.BEGET_SSH_KEY }}
+          BEGET_KNOWN_HOSTS: ${{ secrets.BEGET_KNOWN_HOSTS }}
+        run: |
+          install -d -m 700 ~/.ssh
+          printf '%s\n' "$BEGET_SSH_KEY" > ~/.ssh/beget_deploy_key
+          printf '%s\n' "$BEGET_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/beget_deploy_key ~/.ssh/known_hosts
+
+      - name: Deploy static export
+        env:
+          BEGET_HOST: ${{ secrets.BEGET_HOST }}
+          BEGET_USER: ${{ secrets.BEGET_USER }}
+        run: |
+          rsync -az --no-perms --omit-dir-times --delete \
+            --exclude='.ssh/' \
+            --exclude='.well-known/' \
+            --exclude='cgi-bin/' \
+            -e "ssh -i ~/.ssh/beget_deploy_key -o IdentitiesOnly=yes" \
+            out/ "$BEGET_USER@$BEGET_HOST:./"
+
+      - name: Verify deployment
+        env:
+          BEGET_HOST: ${{ secrets.BEGET_HOST }}
+          BEGET_USER: ${{ secrets.BEGET_USER }}
+        run: |
+          ssh -i ~/.ssh/beget_deploy_key -o IdentitiesOnly=yes \
+            "$BEGET_USER@$BEGET_HOST" \
+            "test -f index.html && test -f parkly/index.html"

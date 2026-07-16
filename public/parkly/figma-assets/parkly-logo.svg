@@ -1,0 +1,12 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="parkly.svg" clip-path="url(#clip0_0_25)">
+<path id="Vector" d="M56 0H0V56H56V0Z" fill="var(--fill-0, #004BF6)"/>
+<path id="Vector_2" d="M23.319 26.5259C23.319 23.9406 25.4148 21.8448 28.0001 21.8448C30.5854 21.8448 32.6812 23.9406 32.6812 26.5259C32.6812 29.1112 30.5854 31.207 28.0001 31.207H23.319V26.5259Z" fill="var(--fill-0, #00D88A)"/>
+<path id="Vector_3" fill-rule="evenodd" clip-rule="evenodd" d="M14.7368 40.5694V26.5263C14.7368 19.2013 20.675 13.2632 28 13.2632C35.325 13.2632 41.2632 19.2012 41.2632 26.5262C41.2632 33.8512 35.3251 39.7895 28.0001 39.7895H23.3188V35.4983H27.9999C32.9551 35.4983 36.9722 31.4814 36.9722 26.5262C36.9722 21.5711 32.9551 17.5542 27.9999 17.5542C23.0448 17.5542 19.0278 21.5711 19.0278 26.5262V27.3064V35.4983V39.7895V41.3497C19.0278 42.8577 17.8053 44.0805 16.2973 44.0805H14.7368V40.5694Z" fill="var(--fill-0, white)"/>
+</g>
+<defs>
+<clipPath id="clip0_0_25">
+<rect width="56" height="56" fill="white"/>
+</clipPath>
+</defs>
+</svg>
