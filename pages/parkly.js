@@ -96,11 +96,13 @@ function GoalIcon({ src }) {
   );
 }
 
-function StoreBadge({ src, alt, width }) {
+function StoreBadge({ href, src, alt, width }) {
   return (
     <a
-      href="#"
+      href={href}
       aria-label={alt}
+      target="_blank"
+      rel="noreferrer"
       className="block h-14 bg-contain bg-left bg-no-repeat transition-opacity hover:opacity-80"
       style={{ width, backgroundImage: `url("${src}")` }}
     >
@@ -362,8 +364,18 @@ export default function ParklyPage() {
                 Parkly — действующий сервис бронирования парковок. Большинство решений, показанных в этом кейсе, реализовано в опубликованном приложении.
               </p>
               <div className="flex flex-wrap gap-3">
-                <StoreBadge src="/parkly/figma-assets/app-store-badge.svg" alt="Загрузить в App Store" width={168} />
-                <StoreBadge src="/parkly/figma-assets/google-play-badge.svg" alt="Доступно в Google Play" width={189} />
+                <StoreBadge
+                  href="https://apps.apple.com/ru/app/%D0%BF%D0%B0%D1%80%D0%BA%D0%BB%D0%B8-%D0%BF%D0%B0%D1%80%D0%BA%D0%BE%D0%B2%D0%BA%D0%B8-%D0%BC%D0%BE%D1%81%D0%BA%D0%B2%D1%8B-%D0%B8-%D1%81%D0%BF%D0%B1/id1530278550"
+                  src="/parkly/figma-assets/app-store-badge.svg"
+                  alt="Загрузить Parkly в App Store"
+                  width={168}
+                />
+                <StoreBadge
+                  href="https://play.google.com/store/apps/details?id=ru.parkly.app&pcampaignid=web_share"
+                  src="/parkly/figma-assets/google-play-badge.svg"
+                  alt="Загрузить Parkly в Google Play"
+                  width={189}
+                />
               </div>
             </div>
             <p className="mt-16 max-w-[520px] text-xs leading-4 text-label-quarternary">
