@@ -14,6 +14,14 @@ export default function Home() {
       href: 'https://linkedin.com/in/vadim-zaripov-40448317a',
       label: 'LinkedIn',
     },
+    {
+      href: 'https://www.behance.net/estenza',
+      label: 'Behance',
+    },
+    {
+      href: 'https://kazan.hh.ru/resume/f2bd2952ff0d4466ef0039ed1f37766c56367a',
+      label: 'hh.ru',
+    },
   ];
   const workflowItems = [
     {

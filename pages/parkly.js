@@ -232,7 +232,7 @@ export default function ParklyPage() {
       </Section>
 
       <Section title="Флоу первого заказа" className="mt-16 sm:mt-24" titleClassName="mb-6">
-        <p className="mb-10 max-w-[920px] px-0.5 text-base leading-6 sm:text-base">
+        <p className="mb-10 max-w-[720px] px-0.5 text-base leading-6 sm:text-base">
           Для первого заказа было важно показать ценность до регистрации и оплаты. Пользователь сначала видит доступные парковки, цену и условия, выбирает время, а обязательные данные появляются только ближе к бронированию — когда уже понятно, за что он платит.
         </p>
         <Image
@@ -290,7 +290,7 @@ export default function ParklyPage() {
       </Section>
 
       <Section title="Экран управления бронированием" className="mt-16 sm:mt-24" titleClassName="mb-6">
-        <p className="mb-10 text-base leading-6 sm:text-base">
+        <p className="mb-10 max-w-[720px] text-base leading-6 sm:text-base">
           После оплаты сценарий не заканчивается. Пользователю нужно доехать до парковки, найти нужный въезд, открыть шлагбаум, припарковаться и позже выехать. Экран бронирования сопровождает водителя на каждом этапе этого пути.
         </p>
 
@@ -329,8 +329,23 @@ export default function ParklyPage() {
         </div>
       </Section>
 
+      <Section title="UI-kit" className="mt-16 sm:mt-24" titleClassName="mb-6">
+        <p className="mb-6 max-w-[720px] text-base leading-6">
+          По мере развития продукта я собрал UI-kit с компонентами, что помогло сохранять консистентность интерфейса и быстрее собирать новые функции.
+        </p>
+        <div className="overflow-hidden rounded-lg border border-black/12 bg-neutral-50">
+          <iframe
+            title="UI-kit Parkly в Figma"
+            src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FTmOPFmzNHeR4V3TcpfoKEM%2FParkly-App--Copy-%3Fnode-id%3D63-111"
+            className="block h-[360px] w-full sm:h-[520px]"
+            allowFullScreen
+            loading="lazy"
+          />
+        </div>
+      </Section>
+
       <Section title="Моя роль и вклад в развитие продукта" className="mt-16 sm:mt-24" titleClassName="mb-6">
-        <p className="mb-8 max-w-[920px] text-base leading-6 sm:text-base">
+        <p className="mb-8 max-w-[720px] text-base leading-6 sm:text-base">
           На протяжении всего проекта я был единственным продуктовым дизайнером. От первых концепций до масштабирования продукта отвечал за UX, UI, исследования, дизайн-систему и развитие ключевых пользовательских сценариев.
         </p>
 
