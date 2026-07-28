@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Head from 'next/head';
-import { useCallback, useEffect, useState } from 'react';
+import { Fragment, useCallback, useEffect, useState } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import BackButton from './BackButton'
 import ZoomableImage from './ZoomableImage';
@@ -39,7 +39,7 @@ function TextBlock({ description, className = '' }) {
   });
 
   return (
-    <div className={`w-full text-base leading-relaxed text-label-primary sm:text-base ${className}`}>
+    <div className={`w-full text-base leading-relaxed text-label-secondary sm:text-base ${className}`}>
       {blocks.map((block, idx) => {
         if (block.type === 'list') {
           return (
@@ -68,7 +68,7 @@ function FactList({ items = [] }) {
   }
 
   return (
-    <div className="mt-8 flex w-full flex-wrap gap-x-10 gap-y-3 text-base leading-normal text-label-primary sm:mt-10 sm:text-base">
+    <div className="mt-8 flex w-full flex-wrap gap-x-10 gap-y-3 text-base leading-normal text-label-secondary sm:mt-10 sm:text-base">
       {items.map((item) => (
         <span key={item}>{item}</span>
       ))}
@@ -82,7 +82,7 @@ function SummaryList({ items = [] }) {
   }
 
   return (
-    <div className="mt-8 flex w-full flex-col gap-4 text-base leading-relaxed text-label-primary sm:mt-10 sm:text-base">
+    <div className="mt-8 flex w-full flex-col gap-4 text-base leading-relaxed text-label-secondary sm:mt-10 sm:text-base">
       {items.map((item) => (
         <p key={item.label} className="m-0">
           <span className="font-semibold text-neutral-950">{item.label}:</span>
@@ -123,7 +123,7 @@ function CardGrid({ cards = [], columns = 3 }) {
               <h3 className="mb-3 text-base font-semibold leading-normal text-neutral-950 sm:text-base">
                 {card.title}
               </h3>
-              <p className="text-base leading-relaxed text-label-primary sm:text-base">
+              <p className="text-base leading-relaxed text-label-secondary sm:text-base">
                 {card.description}
               </p>
             </div>
@@ -151,6 +151,350 @@ function HeroImage({ image }) {
         priority
       />
     </div>
+  );
+}
+
+function CaseHeader({ title, description, pills = [], heroImage }) {
+  return (
+    <>
+      <header className="mx-auto w-full max-w-[920px] px-5 pb-10 pt-14 sm:px-6 sm:pb-12 sm:pt-16 lg:px-0">
+        <h1 className="max-w-[900px] text-[40px] font-semibold leading-[48px] text-label-primary sm:text-[56px] sm:leading-[64px]">
+          {title}
+        </h1>
+        {description && (
+          <p className="mt-8 max-w-[800px] text-base leading-6 text-label-secondary">
+            {description}
+          </p>
+        )}
+        {pills.length > 0 && (
+          <div className="mt-8 flex flex-wrap gap-3">
+            {pills.map((pill) => (
+              <span key={pill} className="rounded-full bg-neutral-100 px-4 py-2 text-base font-normal leading-6 text-label-primary">
+                {pill}
+              </span>
+            ))}
+          </div>
+        )}
+      </header>
+      {heroImage?.src && (
+        <div className="relative left-1/2 mb-14 aspect-[5/1] w-screen -translate-x-1/2 overflow-hidden lg:left-auto lg:mb-16 lg:h-[292px] lg:w-full lg:translate-x-0 lg:aspect-auto">
+          <Image
+            src={heroImage.src}
+            alt={heroImage.alt || ''}
+            fill
+            priority
+            className="object-cover"
+            sizes="100vw"
+          />
+        </div>
+      )}
+    </>
+  );
+}
+
+function ProductOverview({ section }) {
+  if (!section) {
+    return null;
+  }
+
+  return (
+    <section className="mt-16 w-full sm:mt-24">
+      <h2 className="mb-10 text-[32px] font-semibold leading-[40px] text-label-primary">
+        {section.title}
+      </h2>
+      <div className="grid gap-10 md:grid-cols-[minmax(0,1fr)_400px] md:items-center">
+        <div className="max-w-[520px] space-y-5 text-base leading-6 text-label-secondary">
+          {section.paragraphs.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
+          {section.audiencesTitle && (
+            <div className="space-y-3 pt-5">
+              <h3 className="text-[18px] font-bold leading-6 text-label-primary">{section.audiencesTitle}</h3>
+              <p>{section.audiencesText}</p>
+            </div>
+          )}
+        </div>
+        <Image
+          src={section.image.src}
+          alt={section.image.alt}
+          width={1104}
+          height={704}
+          className="h-auto w-full"
+          sizes="(min-width: 768px) 400px, calc(100vw - 2.5rem)"
+        />
+      </div>
+    </section>
+  );
+}
+
+function CourseShowcase({ section }) {
+  if (!section?.items?.length) {
+    return null;
+  }
+
+  const content = (
+    <>
+      {section.title && (
+        <h2 className="mb-10 max-w-[800px] text-[32px] font-semibold leading-[40px] text-label-primary">
+          {section.title}
+        </h2>
+      )}
+      <div className="flex flex-col items-center gap-y-12 md:flex-row md:flex-wrap md:items-start md:justify-center md:gap-x-6 md:gap-y-16">
+        {section.items.map((item) => (
+          <figure key={item.title} className={`flex min-w-0 max-w-full self-start flex-col ${item.figureClassName || ''}`}>
+            <div className={`flex overflow-hidden rounded-[24px] ${item.previewClassName || 'w-full'}`}>
+              <Image
+                src={item.image.src}
+                alt={item.image.alt || item.title}
+                width={item.image.width}
+                height={item.image.height}
+                sizes={item.image.sizes || '(min-width: 768px) 440px, calc(100vw - 2.5rem)'}
+                className={item.imageClassName || 'h-auto w-full'}
+              />
+            </div>
+            <figcaption className={`mt-4 text-center ${item.captionClassName || ''}`}>
+              <h3 className="text-[18px] font-semibold leading-6 text-label-primary">{item.title}</h3>
+              <p className="mt-1 text-base leading-6 text-label-secondary">{item.description}</p>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </>
+  );
+
+  if (section.fullBleed) {
+    return (
+      <section
+        className="relative left-1/2 mt-16 w-screen -translate-x-1/2 bg-[#4CB7FF] py-16 sm:mt-24 sm:py-24"
+        aria-label={section.label || 'Примеры курсов'}
+        style={{
+          backgroundImage: "url('/uchi/showcase/pattern.svg')",
+          backgroundPosition: 'center bottom',
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: '1691px 1177px',
+        }}
+      >
+        <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12">
+          {content}
+        </div>
+      </section>
+    );
+  }
+
+  return (
+    <section className="mt-16 w-full sm:mt-24" aria-label={section.label || 'Примеры курсов'}>
+      {content}
+    </section>
+  );
+}
+
+function ProductGoals({ section }) {
+  if (!section?.items?.length) {
+    return null;
+  }
+
+  return (
+    <section className="mt-20 w-full sm:mt-28">
+      <h2 className="max-w-[800px] text-[32px] font-bold leading-10 text-label-primary">
+        {section.title}
+      </h2>
+      <div className="mt-12 grid grid-cols-1 gap-10 md:grid-cols-3">
+        {section.items.map((item) => (
+          <article key={item.title} className="flex flex-col gap-4">
+            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#FF6170]">
+              <Image
+                src={item.icon}
+                alt=""
+                aria-hidden="true"
+                width={item.iconWidth || 30}
+                height={item.iconHeight || 30}
+              />
+            </div>
+            <div className="space-y-1 text-base leading-6 text-label-secondary">
+              <h3 className="font-bold text-label-primary">{item.title}</h3>
+              <p>{item.description}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function UXContextVisual({ type }) {
+  if (type === 'sound') {
+    return (
+      <div className="relative h-[136px] overflow-hidden rounded-[24px] bg-[#00B87E]">
+        <div className="absolute left-[7%] top-1/2 h-[88px] w-[155px] -translate-y-1/2">
+          <Image src="/uchi/ux-context/sound-left.svg" alt="" aria-hidden="true" width={12} height={52} className="absolute left-2 top-5 h-[50px] w-[12px]" />
+          <Image src="/uchi/ux-context/sound-left-small.svg" alt="" aria-hidden="true" width={6} height={30} className="absolute left-5 top-7 h-[28px] w-[5px]" />
+          <Image src="/uchi/ux-context/sound-right.svg" alt="" aria-hidden="true" width={12} height={52} className="absolute right-2 top-5 h-[50px] w-[12px]" />
+          <Image src="/uchi/ux-context/sound-right-small.svg" alt="" aria-hidden="true" width={6} height={30} className="absolute right-5 top-7 h-[28px] w-[5px]" />
+          <Image src="/uchi/ux-context/fox.svg" alt="" aria-hidden="true" width={95} height={88} className="absolute left-1/2 top-0 h-[88px] w-[95px] -translate-x-1/2" />
+        </div>
+        <p className="absolute left-[45%] top-1/2 w-[180px] -translate-y-1/2 text-[18px] font-bold leading-[22px] text-white">
+          Убедись, что у тебя<br />включен звук
+        </p>
+      </div>
+    );
+  }
+
+  const image = type === 'feedback'
+    ? '/uchi/ux-context/feedback.png'
+    : '/uchi/ux-context/devices.png';
+  const background = type === 'feedback' ? 'bg-[#7665E5]' : 'bg-[#4CB7FF]';
+  const imageClassName = type === 'feedback'
+    ? 'h-full w-[366px] max-w-none object-cover'
+    : 'h-[159px] w-[351px] max-w-none object-contain';
+
+  return (
+    <div className={`flex h-[136px] items-center justify-center overflow-hidden rounded-[24px] ${background}`}>
+      <Image
+        src={image}
+        alt=""
+        aria-hidden="true"
+        width={type === 'feedback' ? 800 : 1774}
+        height={type === 'feedback' ? 297 : 887}
+        unoptimized={type === 'feedback'}
+        className={imageClassName}
+      />
+    </div>
+  );
+}
+
+function UXContext({ section }) {
+  if (!section?.items?.length) {
+    return null;
+  }
+
+  return (
+    <section className="mt-20 w-full sm:mt-28">
+      <h2 className="max-w-[800px] text-[32px] font-bold leading-10 text-label-primary">
+        {section.title}
+      </h2>
+      <div className="mt-12 space-y-10 sm:space-y-14">
+        {section.items.map((item) => (
+          <article key={item.title} className="grid grid-cols-1 items-center gap-6 md:grid-cols-2 md:gap-8">
+            <div className="px-1 text-label-secondary">
+              <h3 className="text-[18px] font-bold leading-6">{item.title}</h3>
+              <p className="mt-3 text-base leading-6">{item.description}</p>
+            </div>
+            <UXContextVisual type={item.visual} />
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function ProductModel({ section }) {
+  if (!section) {
+    return null;
+  }
+
+  return (
+    <section className="mt-20 w-full sm:mt-28">
+      <h2 className="max-w-[800px] text-[32px] font-bold leading-10 text-label-primary">
+        {section.title}
+      </h2>
+      <div className="mt-12">
+        <h3 className="text-xl font-bold leading-7 text-label-primary">{section.subtitle}</h3>
+        <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2">
+          {section.users.map((user) => (
+            <article key={user.title} className="flex min-w-0 gap-5">
+              <span className={`w-1 shrink-0 rounded-lg ${user.colorClassName}`} />
+              <p className="text-base leading-6 text-label-secondary">
+                <strong className="font-bold">{user.title}</strong>{' '}
+                {user.description}
+              </p>
+            </article>
+          ))}
+        </div>
+        <div className="mt-10 flex flex-col items-start gap-3 py-7 md:flex-row md:flex-wrap md:items-center md:gap-0">
+          {section.steps.map((step, index) => (
+            <Fragment key={step.label}>
+              <div className="flex items-start md:self-stretch">
+                <span className={`flex shrink-0 items-start rounded-2xl px-4 pb-4 pt-3 text-base font-normal leading-5 text-white md:h-[120px] ${step.widthClassName || 'w-32'} ${step.colorClassName}`}>
+                  {step.label}
+                </span>
+              </div>
+              {index < section.steps.length - 1 && (
+                <Image
+                  src="/uchi/icons/model-arrow.svg"
+                  alt=""
+                  aria-hidden="true"
+                  width={24}
+                  height={24}
+                  className="h-6 w-6 rotate-90 md:rotate-0"
+                />
+              )}
+            </Fragment>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function PurchaseTransition({ section }) {
+  if (!section?.items?.length) {
+    return null;
+  }
+
+  return (
+    <section className="mt-20 w-full sm:mt-28">
+      <h2 className="max-w-[800px] text-[32px] font-bold leading-10 text-label-primary">
+        {section.title}
+      </h2>
+      {section.description && (
+        <p className="mt-6 max-w-[800px] text-base leading-6 text-label-secondary">
+          {section.description}
+        </p>
+      )}
+      <div className="mt-12 grid grid-cols-1 gap-x-6 gap-y-12 md:grid-cols-2">
+        {section.items.map((item, index) => (
+          <article key={item.title} className={index === section.items.length - 1 ? 'md:col-span-2' : ''}>
+            <Image
+              src={item.image.src}
+              alt={item.image.alt || item.title}
+              width={item.image.width}
+              height={item.image.height}
+              sizes={index === section.items.length - 1 ? '(min-width: 768px) 920px, calc(100vw - 2.5rem)' : '(min-width: 768px) 448px, calc(100vw - 2.5rem)'}
+              className="h-auto w-full"
+            />
+            <h3 className="mt-4 text-[18px] font-bold leading-6 text-label-primary">{item.title}</h3>
+            <p className="mt-2 max-w-[800px] text-base leading-6 text-label-secondary">{item.description}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function TeamRole({ section }) {
+  if (!section?.roles?.length) {
+    return null;
+  }
+
+  return (
+    <section className="mt-20 w-full sm:mt-28">
+      <h2 className="max-w-[800px] text-[32px] font-bold leading-10 text-label-primary">
+        {section.title}
+      </h2>
+      <p className="mt-6 max-w-[800px] text-base leading-6 text-label-secondary">
+        {section.description}
+      </p>
+      <div className="mt-8 flex flex-wrap gap-3 py-6">
+        {section.roles.map((role) => (
+          <span
+            key={role.label}
+            className={`rounded-full px-4 py-2 text-base leading-[21px] ${role.highlighted ? 'bg-[#A362FC] font-medium text-white' : 'bg-[#F5F5F5] font-normal text-label-primary'}`}
+          >
+            {role.label}
+          </span>
+        ))}
+      </div>
+    </section>
   );
 }
 
@@ -379,7 +723,54 @@ function StoriesCarousel({ items = [] }) {
   );
 }
 
-export default function ProjectPage({ title, productLogo, heroImage, statusNote, type, year, description, facts = [], summary = [], introSections = [], images = [], videos = [], sections = [] }) {
+export default function ProjectPage({ title, productLogo, heroImage, statusNote, type, year, description, facts = [], summary = [], introSections = [], images = [], videos = [], sections = [], caseHeader, productOverview, showcase, productGoals, uxContext, productModel, purchaseTransition, teamRole }) {
+  if (caseHeader) {
+    return (
+      <>
+        <Head>
+          <title>{`Кейс — ${title}`}</title>
+        </Head>
+        <main className="min-h-screen bg-white pb-16 text-label-primary">
+          <CaseHeader title={title} description={caseHeader.description} pills={caseHeader.pills} heroImage={heroImage} />
+          <div className="mx-auto w-full max-w-[920px] px-5 sm:px-6 lg:px-0">
+            <ProductOverview section={productOverview} />
+            <CourseShowcase section={showcase} />
+            <ProductGoals section={productGoals} />
+            <UXContext section={uxContext} />
+            <ProductModel section={productModel} />
+            <PurchaseTransition section={purchaseTransition} />
+            <TeamRole section={teamRole} />
+            {introSections.map((section) => (
+              <section key={section.title} className="mt-16 w-full sm:mt-24">
+                {section.title && (
+                  <h2 className="mb-6 max-w-[800px] text-[32px] font-semibold leading-[40px] text-label-primary">
+                    {section.title}
+                  </h2>
+                )}
+                <TextBlock description={section.description} className="max-w-[800px]" />
+                <CardGrid cards={section.cards} columns={section.cardColumns} />
+                <MediaBlocks images={section.images} videos={section.videos} />
+                <EvolutionBlocks items={section.evolutionItems} />
+                <StoriesCarousel items={section.carouselItems} />
+                <TextBlock description={section.descriptionAfter} className={section.descriptionAfterClassName || ''} />
+                <MediaBlocks images={section.extraImages} videos={section.extraVideos} />
+                <TextBlock description={section.extraDescription} />
+              </section>
+            ))}
+            <MediaBlocks images={images} videos={videos} />
+            {sections.map((section) => (
+              <section key={section.title} className="mt-16 w-full sm:mt-24">
+                <h2 className="mb-6 max-w-[800px] text-[32px] font-semibold leading-[40px] text-label-primary">{section.title}</h2>
+                <TextBlock description={section.description} className="max-w-[800px]" />
+                <MediaBlocks images={section.images} videos={section.videos} />
+              </section>
+            ))}
+          </div>
+        </main>
+      </>
+    );
+  }
+
   return (
     <>
       <Head>
@@ -398,7 +789,9 @@ export default function ProjectPage({ title, productLogo, heroImage, statusNote,
 
           <div className="mb-2 flex max-w-[760px] items-center gap-4">
             {productLogo?.src && (
-              <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-2xl bg-[#135BFF] sm:h-14 sm:w-14">
+              <div
+                className="ios-squircle relative h-12 w-12 shrink-0 overflow-hidden bg-[#135BFF] sm:h-14 sm:w-14"
+              >
                 <Image
                   src={productLogo.src}
                   alt={productLogo.alt || ''}

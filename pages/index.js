@@ -14,14 +14,6 @@ export default function Home() {
       href: 'https://linkedin.com/in/vadim-zaripov-40448317a',
       label: 'LinkedIn',
     },
-    {
-      href: 'https://www.behance.net/estenza',
-      label: 'Behance',
-    },
-    {
-      href: 'https://kazan.hh.ru/resume/f2bd2952ff0d4466ef0039ed1f37766c56367a',
-      label: 'hh.ru',
-    },
   ];
   const workflowItems = [
     {
@@ -60,9 +52,9 @@ export default function Home() {
                   Продуктовый дизайнер для B2C
                 </h1>
                 <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-base font-normal leading-6 text-label-primary md:justify-start">
-                  <span>6+ лет опыта</span>
+                  <span>Middle +</span>
                   <span className="h-1 w-1 rounded-full bg-label-primary" aria-hidden="true" />
-                  <span>iOS, Android и Web</span>
+                  <span>Более 6 лет опыта</span>
                   <span className="h-1 w-1 rounded-full bg-label-primary" aria-hidden="true" />
                   <span>Edtech, fintech, городские сервисы</span>
                 </div>
@@ -159,10 +151,6 @@ export default function Home() {
             disableCardHover
             imageClassName="scale-[0.8]"
             details={[
-              {
-                label: 'Роль',
-                value: 'Основатель, соло-продуктовый дизайнер',
-              },
               {
                 label: 'Фокус',
                 value:

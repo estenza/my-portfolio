@@ -35,7 +35,7 @@ const glueWords = [
 ];
 
 const glueRegex = new RegExp(`(^|[\\s([{«"„“])(${glueWords.join('|')})\\s+`, 'giu');
-const cyrillicRegex = /[А-Яа-яЁё]/;
+const cyrillicRegex = /[А-Яа-яЕе]/;
 const ignoredTags = new Set(['CODE', 'KBD', 'PRE', 'SAMP', 'SCRIPT', 'STYLE']);
 
 function glueShortWords(value) {

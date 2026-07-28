@@ -80,34 +80,11 @@ function Section({ title, children, className = '', titleClassName = 'mb-10' }) 
   );
 }
 
-function Pill({ children }) {
-  return (
-    <span className="rounded-full bg-neutral-100 px-4 py-2 text-base font-normal leading-6 text-label-tertiary">
-      {children}
-    </span>
-  );
-}
-
 function GoalIcon({ src }) {
   return (
     <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[14px] bg-[#1D63FF] text-white">
       <Image src={src} alt="" width={32} height={32} className="h-8 w-8" />
     </span>
-  );
-}
-
-function StoreBadge({ href, src, alt, width }) {
-  return (
-    <a
-      href={href}
-      aria-label={alt}
-      target="_blank"
-      rel="noreferrer"
-      className="block h-14 bg-contain bg-left bg-no-repeat transition-opacity hover:opacity-80"
-      style={{ width, backgroundImage: `url("${src}")` }}
-    >
-      <span className="sr-only">{alt}</span>
-    </a>
   );
 }
 
@@ -120,42 +97,6 @@ export default function ParklyPage() {
         <title>{`Кейс — ${project.title}`}</title>
       </Head>
       <main className="min-h-screen bg-white pb-16 text-label-primary">
-      <header className="mx-auto w-full max-w-[920px] px-5 pb-10 pt-14 sm:px-6 sm:pb-12 sm:pt-16 lg:px-0">
-        <div className="mb-6 flex items-center gap-6">
-          <div className="relative h-14 w-14 overflow-hidden rounded-2xl bg-[#135BFF]">
-            <Image
-              src="/parkly/figma-assets/parkly-logo.svg"
-              alt="Логотип Parkly"
-              fill
-              priority
-              className="object-contain"
-              sizes="56px"
-            />
-          </div>
-          <h1 className="text-[34px] font-semibold leading-none text-label-primary sm:text-[40px]">
-            Parkly
-          </h1>
-        </div>
-
-        <div className="max-w-[760px] space-y-4 text-[15px] leading-6 sm:text-base">
-          <p>
-            <span className="font-bold text-label-primary">Роль:</span> Продуктовый дизайнер
-          </p>
-          <p>
-            <span className="font-bold text-label-primary">Фокус:</span> MVP и развитие сервиса бронирования частных парковок: поиск на карте, выбор времени, оплата и сценарии после бронирования.
-          </p>
-          <p>
-            <span className="font-bold text-label-primary">Вклад:</span> Исследовал аналоги, проектировал core flow, проводил тесты, перерабатывал ключевые экраны, парковочный билет, инструкции и UI-kit.
-          </p>
-        </div>
-
-        <div className="mt-6 flex flex-wrap gap-3">
-          <Pill>2020–2023</Pill>
-          <Pill>B2C</Pill>
-          <Pill>iOS, Android, Web</Pill>
-        </div>
-      </header>
-
       <div className="relative left-1/2 mb-14 aspect-[3040/604] w-screen -translate-x-1/2 overflow-hidden lg:left-auto lg:mb-16 lg:h-[292px] lg:w-full lg:translate-x-0 lg:aspect-auto">
         <Image
           src="/parkly/figma-assets/hero.png"
@@ -168,14 +109,16 @@ export default function ParklyPage() {
       </div>
 
       <Section title="О продукте">
-        <div className="grid gap-10 md:grid-cols-[minmax(0,1fr)_390px] md:items-start">
-          <div className="space-y-5 text-base leading-6 sm:text-base md:py-3">
-            <p>
-              Parkly это приложение, которое позволяет водителям находить, бронировать и оплачивать парковку по более выгодным ценам, чем у муниципальных паркингов.
-            </p>
-            <p>
-              После оплаты водитель получает парковочный билет с QR или кнопками для управления шлагбаумами и пошаговые инструкции по проезду.
-            </p>
+        <div className="grid gap-10 md:grid-cols-[minmax(0,1fr)_390px] md:items-stretch">
+          <div className="flex h-full flex-col justify-between text-base leading-6 sm:text-base md:py-3">
+            <div className="space-y-5">
+              <p>
+                Parkly это приложение, которое позволяет водителям находить, бронировать и оплачивать парковку по более выгодным ценам, чем у муниципальных паркингов.
+              </p>
+              <p>
+                После оплаты водитель получает парковочный билет с QR или кнопками для управления шлагбаумами и пошаговые инструкции по проезду.
+              </p>
+            </div>
             <div>
               <p className="mb-3 font-bold text-label-primary">Пользователи</p>
               <ul className="list-disc space-y-2 pl-5">
@@ -193,6 +136,17 @@ export default function ParklyPage() {
             className="w-full"
             sizes="(min-width: 1024px) 390px, calc(100vw - 2.5rem)"
           />
+        </div>
+      </Section>
+
+      <Section title="Проблема" className="mt-16 sm:mt-24">
+        <div className="max-w-[800px] space-y-5 text-base leading-6">
+          <p>
+            В центре города водителю сложно быстро найти свободное место рядом с точкой назначения. Муниципальная парковка часто дорогая, а о доступных частных паркингах во дворах, бизнес-центрах и подземных комплексах мало кто знает.
+          </p>
+          <p>
+            Даже найдя такую парковку, пользователь не всегда понимает, сможет ли туда заехать, сколько будет стоить бронирование, как открыть шлагбаум и где искать место после оплаты. Ошибка на любом из этих этапов превращает поиск парковки в стрессовый сценарий.
+          </p>
         </div>
       </Section>
 
@@ -232,7 +186,7 @@ export default function ParklyPage() {
       </Section>
 
       <Section title="Флоу первого заказа" className="mt-16 sm:mt-24" titleClassName="mb-6">
-        <p className="mb-10 max-w-[720px] px-0.5 text-base leading-6 sm:text-base">
+        <p className="mb-10 max-w-[800px] px-0.5 text-base leading-6 sm:text-base">
           Для первого заказа было важно показать ценность до регистрации и оплаты. Пользователь сначала видит доступные парковки, цену и условия, выбирает время, а обязательные данные появляются только ближе к бронированию — когда уже понятно, за что он платит.
         </p>
         <Image
@@ -290,7 +244,7 @@ export default function ParklyPage() {
       </Section>
 
       <Section title="Экран управления бронированием" className="mt-16 sm:mt-24" titleClassName="mb-6">
-        <p className="mb-10 max-w-[720px] text-base leading-6 sm:text-base">
+        <p className="mb-10 max-w-[800px] text-base leading-6 sm:text-base">
           После оплаты сценарий не заканчивается. Пользователю нужно доехать до парковки, найти нужный въезд, открыть шлагбаум, припарковаться и позже выехать. Экран бронирования сопровождает водителя на каждом этапе этого пути.
         </p>
 
@@ -330,7 +284,7 @@ export default function ParklyPage() {
       </Section>
 
       <Section title="UI-kit" className="mt-16 sm:mt-24" titleClassName="mb-6">
-        <p className="mb-6 max-w-[720px] text-base leading-6">
+        <p className="mb-6 max-w-[800px] text-base leading-6">
           По мере развития продукта я собрал UI-kit с компонентами, что помогло сохранять консистентность интерфейса и быстрее собирать новые функции.
         </p>
         <div className="overflow-hidden rounded-lg border border-black/12 bg-neutral-50">
@@ -345,7 +299,7 @@ export default function ParklyPage() {
       </Section>
 
       <Section title="Моя роль и вклад в развитие продукта" className="mt-16 sm:mt-24" titleClassName="mb-6">
-        <p className="mb-8 max-w-[720px] text-base leading-6 sm:text-base">
+        <p className="mb-8 max-w-[800px] text-base leading-6 sm:text-base">
           На протяжении всего проекта я был единственным продуктовым дизайнером. От первых концепций до масштабирования продукта отвечал за UX, UI, исследования, дизайн-систему и развитие ключевых пользовательских сценариев.
         </p>
 
@@ -371,42 +325,6 @@ export default function ParklyPage() {
         </div>
       </Section>
 
-      <Section title="Попробуйте сами" className="mt-16 sm:mt-24" titleClassName="mb-6 md:mb-10">
-        <div className="grid gap-10 md:grid-cols-[minmax(0,1fr)_420px] md:items-stretch">
-          <div className="flex h-full w-full flex-col justify-between py-2">
-            <div>
-              <p className="mb-6 max-w-[520px] px-0.5 text-base leading-6 sm:text-base">
-                Parkly — действующий сервис бронирования парковок. Большинство решений, показанных в этом кейсе, реализовано в опубликованном приложении.
-              </p>
-              <div className="flex flex-wrap gap-3">
-                <StoreBadge
-                  href="https://apps.apple.com/ru/app/%D0%BF%D0%B0%D1%80%D0%BA%D0%BB%D0%B8-%D0%BF%D0%B0%D1%80%D0%BA%D0%BE%D0%B2%D0%BA%D0%B8-%D0%BC%D0%BE%D1%81%D0%BA%D0%B2%D1%8B-%D0%B8-%D1%81%D0%BF%D0%B1/id1530278550"
-                  src="/parkly/figma-assets/app-store-badge.svg"
-                  alt="Загрузить Parkly в App Store"
-                  width={168}
-                />
-                <StoreBadge
-                  href="https://play.google.com/store/apps/details?id=ru.parkly.app&pcampaignid=web_share"
-                  src="/parkly/figma-assets/google-play-badge.svg"
-                  alt="Загрузить Parkly в Google Play"
-                  width={189}
-                />
-              </div>
-            </div>
-            <p className="mt-16 max-w-[520px] text-xs leading-4 text-label-quarternary">
-              Все изображения интерфейсов представлены исключительно в демонстрационных целях. Parkly® является зарегистрированным товарным знаком. Все права на продукт, бренд и материалы принадлежат правообладателю.
-            </p>
-          </div>
-          <Image
-            src="/parkly/figma-assets/try-phones.png"
-            alt="Приложение Parkly"
-            width={1146}
-            height={1086}
-            className="hidden w-full md:block"
-            sizes="(min-width: 1024px) 420px, calc(100vw - 2.5rem)"
-          />
-        </div>
-      </Section>
       </main>
     </>
   );

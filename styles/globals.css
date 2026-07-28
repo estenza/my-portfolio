@@ -9,6 +9,7 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-label-primary: oklch(0.205 0 0);
+  --color-label-secondary: #171717;
   --color-label-tertiary: oklch(0.556 0 0);
   --color-label-quarternary: oklch(0.708 0 0);
   --font-sans: var(--font-geist-sans);
@@ -31,4 +32,9 @@ h4,
 h5,
 h6 {
   font-weight: 600;
+}
+
+.ios-squircle {
+  border-radius: 22px;
+  corner-shape: squircle;
 }

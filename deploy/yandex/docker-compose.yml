@@ -1,0 +1,14 @@
+services:
+  portfolio:
+    build:
+      context: ../..
+      dockerfile: Dockerfile
+    image: my-portfolio:latest
+    container_name: my-portfolio
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      NEXT_TELEMETRY_DISABLED: "1"
+      PORT: "3000"
+    ports:
+      - "127.0.0.1:3010:3000"

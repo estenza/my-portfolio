@@ -52,7 +52,7 @@ export default function SiteHeader() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 h-[72px] w-full bg-[#0A0A0A] text-white">
+      <header className="sticky top-0 z-50 h-[72px] w-full bg-white text-label-primary shadow-[0_2px_12px_rgba(0,0,0,0.08)]">
         <div className="mx-auto flex h-full w-full max-w-[920px] items-center justify-between px-6 py-3 lg:px-0">
           <Link href="/" className="flex min-w-0 items-center gap-6">
             <span className="relative h-12 w-12 shrink-0 overflow-hidden">
@@ -65,7 +65,7 @@ export default function SiteHeader() {
                 sizes="48px"
               />
             </span>
-            <span className="truncate text-2xl font-semibold leading-9 text-white max-[543px]:hidden">
+            <span className="truncate text-2xl font-semibold leading-9 text-label-primary max-[543px]:hidden">
               Вадим Зарипов
             </span>
           </Link>
@@ -75,7 +75,7 @@ export default function SiteHeader() {
             className="shrink-0 cursor-pointer"
             onClick={() => setIsContactOpen(true)}
           >
-            <span className="inline-flex h-10 items-center justify-center rounded-2xl bg-white px-6 text-base font-medium leading-none text-[#0A0A0A] transition-colors hover:bg-neutral-100">
+            <span className="inline-flex h-10 items-center justify-center rounded-2xl bg-[#0A0A0A] px-6 text-base font-medium leading-none text-white transition-colors hover:bg-neutral-800">
               Связаться со мной
             </span>
           </button>
