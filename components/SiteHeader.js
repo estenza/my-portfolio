@@ -75,7 +75,7 @@ export default function SiteHeader() {
             className="shrink-0 cursor-pointer"
             onClick={() => setIsContactOpen(true)}
           >
-            <span className="inline-flex h-10 items-center justify-center rounded-2xl bg-[#0A0A0A] px-6 text-base font-medium leading-none text-white transition-colors hover:bg-neutral-800">
+            <span className="inline-flex h-10 items-center justify-center rounded-xl bg-[#0A0A0A] px-6 text-base font-medium leading-none text-white transition-colors hover:bg-neutral-800">
               Связаться со мной
             </span>
           </button>

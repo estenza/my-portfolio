@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 function CaseButton({ label = 'Подробнее', iconSrc = '/icons/arrow-right.svg' }) {
   return (
-    <span className="inline-flex h-12 w-fit items-center justify-center gap-2 rounded-2xl bg-neutral-950 py-0 pl-6 pr-4 text-base font-medium leading-none text-white transition-colors hover:bg-neutral-800">
+    <span className="inline-flex h-12 w-fit items-center justify-center gap-2 rounded-xl bg-neutral-950 py-0 pl-6 pr-4 text-base font-medium leading-none text-white transition-colors hover:bg-neutral-800">
       <span>{label}</span>
       <Image
         src={iconSrc}

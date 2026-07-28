@@ -79,7 +79,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="relative left-1/2 w-screen -translate-x-1/2 bg-[#F9F9F9]">
+        <section className="relative left-1/2 w-screen -translate-x-1/2">
           <div className="mx-auto flex w-full max-w-[920px] flex-col items-start gap-0 px-8 text-left tracking-[0.32px] md:flex-row md:flex-wrap md:gap-x-10 lg:flex-nowrap lg:px-2">
             {workflowItems.map((item) => (
               <article
