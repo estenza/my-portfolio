@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import ProgressiveHeaderBlur from './ProgressiveHeaderBlur';
 
 const contactLinks = [
   {
@@ -19,7 +20,7 @@ function ContactLinkButton({ href, label }) {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex h-10 items-center justify-center rounded-xl bg-[#135BFF]/8 px-4 text-base font-medium leading-6 text-[#135BFF] transition-colors hover:bg-[#135BFF]/12"
+      className="inline-flex h-10 items-center justify-center rounded-xl bg-[#135BFF]/8 px-4 text-base font-medium leading-6 text-[#135BFF] transition-opacity hover:bg-[#135BFF]/12 hover:opacity-[0.64]"
     >
       {label}
     </a>
@@ -52,8 +53,9 @@ export default function SiteHeader() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 h-[72px] w-full bg-white text-label-primary shadow-[0_2px_12px_rgba(0,0,0,0.08)]">
-        <div className="mx-auto flex h-full w-full max-w-[920px] items-center justify-between px-6 py-3 lg:px-0">
+      <header className="site-header h-[72px] w-full text-label-primary">
+        <ProgressiveHeaderBlur />
+        <div className="relative mx-auto flex h-full w-full max-w-[920px] items-center justify-between px-6 py-3 lg:px-0">
           <Link href="/" className="flex min-w-0 items-center gap-6">
             <span className="relative h-12 w-12 shrink-0 overflow-hidden">
               <Image
@@ -132,7 +134,7 @@ export default function SiteHeader() {
 
             <a
               href="mailto:estenza@gmail.com"
-              className="mt-6 w-fit text-base font-normal leading-6 text-label-primary transition-colors hover:text-[#135BFF]"
+              className="mt-6 w-fit text-base font-normal leading-6 text-label-primary transition-opacity hover:opacity-[0.64]"
             >
               estenza@gmail.com
             </a>

@@ -1,16 +1,45 @@
 import Head from 'next/head';
+import { useEffect } from 'react';
+import { HeroUIProvider } from '@heroui/react';
 import '@/styles/globals.css';
-import { Manrope } from 'next/font/google';
-import SiteHeader from '@/components/SiteHeader';
+import { Golos_Text } from 'next/font/google';
 import TypographyGlue from '@/components/TypographyGlue';
+import MagnifierCursor from '@/components/MagnifierCursor';
 
-const manrope = Manrope({
+const golos = Golos_Text({
   subsets: ['latin', 'cyrillic'],
-  weight: ['400', '500', '600', '700'],
+  weight: ['400', '500', '600', '700', '800'],
   display: 'swap',
+  variable: '--font-golos-text',
 });
 
 function MyApp({ Component, pageProps }) {
+  useEffect(() => {
+    const scrollKey = `scroll-position:${window.location.pathname}${window.location.search}`;
+    const savedPosition = window.sessionStorage.getItem(scrollKey);
+    const previousScrollRestoration = window.history.scrollRestoration;
+
+    window.history.scrollRestoration = 'manual';
+
+    const restoreScroll = () => {
+      if (savedPosition === null) return;
+      const position = Number.parseInt(savedPosition, 10);
+      if (Number.isFinite(position)) window.scrollTo(0, position);
+    };
+    const saveScroll = () => {
+      window.sessionStorage.setItem(scrollKey, String(window.scrollY));
+    };
+
+    const frameId = window.requestAnimationFrame(restoreScroll);
+    window.addEventListener('pagehide', saveScroll);
+
+    return () => {
+      window.cancelAnimationFrame(frameId);
+      window.removeEventListener('pagehide', saveScroll);
+      window.history.scrollRestoration = previousScrollRestoration;
+    };
+  }, []);
+
   return (
     <>
       <Head>
@@ -20,12 +49,14 @@ function MyApp({ Component, pageProps }) {
         <link rel="manifest" href="/favicons/site.webmanifest" />        
       </Head>
       
-      <div className={manrope.className}>
-        <TypographyGlue>
-          <SiteHeader />
-          <Component {...pageProps} />
-        </TypographyGlue>
-      </div>
+      <HeroUIProvider>
+        <div className={`${golos.className} ${golos.variable}`}>
+          <TypographyGlue>
+            <Component {...pageProps} />
+          </TypographyGlue>
+          <MagnifierCursor />
+        </div>
+      </HeroUIProvider>
 
     </>
   );

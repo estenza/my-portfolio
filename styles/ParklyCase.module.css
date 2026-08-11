@@ -1,0 +1,95 @@
+.page { min-height: 100vh; padding: 0 16px; background: #eceff2; color: #1a1a1a; }
+.header { width: calc(100% + 32px); height: 72px; margin-inline: -16px; }
+.headerInner { display: flex; height: 100%; max-width: 1440px; margin-inline: auto; align-items: center; justify-content: space-between; padding-inline: 16px; }
+.header a { color: inherit; text-decoration: none; }
+.intro { min-height: calc(100vh - 72px); border-radius: 40px; background: #fff; padding: 40px 0 80px; }
+.projectInfo { width: 800px; max-width: calc(100% - 64px); margin-inline: auto; padding: 32px; border-radius: 32px; background: #f6f7f8; }
+.brand { display: flex; align-items: center; gap: 24px; }
+.brand img { width: 56px; height: 56px; border-radius: 16px; }
+.brand h1 { margin: 0; font-size: 40px; font-weight: 500; line-height: 48px; }
+.lead { margin: 24px 0 56px; padding-inline: 4px; font-size: 24px; line-height: 32px; }
+.stats { display: flex; gap: 24px; padding-inline: 4px; }
+.stats p { width: 144px; margin: 0; }
+.stats strong { display: block; font-size: 24px; font-weight: 500; line-height: 32px; }
+.stats span, .projectInfo small { display: block; font-size: 20px; line-height: 28px; }
+.projectInfo small { margin-top: 40px; padding-inline: 4px; color: rgb(26 26 26 / 40%); }
+.projectStory { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: 800px; max-width: 100%; margin: 40px auto 0; align-items: center; gap: 40px; }
+.projectStory p { margin: 0; font-size: 20px; line-height: 28px; }
+.projectStory p + p { margin-top: 40px; }
+.projectStoryImage { display: block; width: 100%; height: auto; }
+.contributions { width: 800px; max-width: 100%; margin: 0 auto; padding-top: 40px; }
+.contributions h2 { margin: 0 0 32px; padding-inline: 4px; font-size: 24px; font-weight: 500; line-height: 32px; }
+.contributionGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.contributionGrid article { min-height: 140px; padding: 24px; border-radius: 24px; background: #f6f7f8; }
+.contributionGrid h3 { margin: 0 0 8px; font-size: 20px; font-weight: 500; line-height: 28px; }
+.contributionGrid p { margin: 0; font-size: 20px; line-height: 28px; }
+.case { margin-top: 16px; border-radius: 40px; background: #fff; }
+.caseContent { width: 800px; max-width: calc(100% - 64px); margin-inline: auto; padding-block: 80px; }
+.caseHeader { padding-inline: 4px; }
+.caseHeader h2 { margin: 0 0 32px; font-size: 24px; font-weight: 500; line-height: 32px; }
+.caseHeader p { margin: 0; font-size: 20px; line-height: 28px; }
+.caseHeader p + p { margin-top: 32px; }
+.caseImage { display: block; width: 100%; height: auto; margin-top: 40px; border-radius: 32px; }
+.caseSection { padding-top: 80px; }
+.caseSection > :is(h2, p, .caseList) { margin-inline: 4px; }
+.caseSection h2 { margin: 0 0 32px; font-size: 24px; font-weight: 500; line-height: 32px; }
+.caseSection p { margin: 0; font-size: 20px; line-height: 28px; }
+.caseSection p + p { margin-top: 32px; }
+.caseSection .caseImage { margin-top: 40px; }
+.caseList { margin: 16px 0 0; padding: 0; list-style: none; counter-reset: item; font-size: 20px; line-height: 28px; }
+.caseList li { display: grid; grid-template-columns: 20px minmax(0, 1fr); column-gap: 8px; padding: 0; }
+.caseList li::before { counter-increment: item; content: counter(item) '.'; }
+.caseList li + li { margin-top: 16px; }
+.caseFindings { display: grid; gap: 32px; margin: 40px 0 0; padding: 0; list-style: none; font-size: 20px; line-height: 28px; }
+.caseFindings li { display: flex; gap: 16px; }
+.caseFindings li::before { flex: 0 0 10px; width: 10px; height: 10px; margin-top: 9px; border-radius: 50%; background: #ff6169; box-shadow: 0 0 0 4px rgb(255 97 105 / 24%); content: ''; }
+.footer { display: flex; width: calc(100% + 32px); height: 120px; margin-inline: -16px; align-items: center; justify-content: space-between; padding: 0 16px; font-size: 20px; line-height: 24px; }
+
+@media (min-width: 640px) {
+  .headerInner, .footer { padding-inline: 40px; }
+}
+
+@media (max-width: 640px) {
+  .header { height: 64px; }
+  .header nav a:nth-child(3) { display: none; }
+  .intro { min-height: calc(100vh - 64px); border-radius: 32px; padding: 32px 0 56px; }
+  .projectInfo { max-width: calc(100% - 32px); padding: 32px; border-radius: 24px; }
+  .brand { gap: 16px; }
+  .brand h1 { font-size: 32px; line-height: 40px; }
+  .lead { margin: 20px 0 40px; padding: 0; font-size: 20px; line-height: 28px; }
+  .stats { flex-wrap: wrap; gap: 12px; padding: 0; }
+  .stats p { width: auto; flex: 1; }
+  .stats strong { font-size: 20px; line-height: 28px; }
+  .stats span, .projectInfo small { font-size: 18px; line-height: 26px; }
+  .projectInfo small { margin-top: 24px; padding: 0; }
+  .projectStory { grid-template-columns: 1fr; gap: 32px; margin-top: 40px; }
+  .projectStory p { font-size: 18px; line-height: 26px; }
+  .projectStory p + p { margin-top: 32px; }
+  .projectStoryImage { max-width: 480px; margin-inline: auto; }
+  .contributions { padding-top: 40px; }
+  .contributions h2 { margin-bottom: 24px; font-size: 22px; line-height: 30px; }
+  .contributionGrid { grid-template-columns: 1fr; gap: 16px; }
+  .contributionGrid article { min-height: auto; padding: 24px; }
+  .contributionGrid h3 { font-size: 20px; line-height: 28px; }
+  .contributionGrid p { font-size: 18px; line-height: 26px; }
+  .case { border-radius: 32px; }
+  .caseContent { max-width: calc(100% - 32px); padding-block: 40px 56px; }
+  .caseHeader { padding-inline: 0; }
+  .caseHeader h2 { margin-bottom: 24px; font-size: 22px; line-height: 30px; }
+  .caseHeader p { font-size: 18px; line-height: 26px; }
+  .caseHeader p + p { margin-top: 24px; }
+  .caseImage { margin-top: 40px; border-radius: 16px; }
+  .caseSection { padding-top: 56px; }
+  .caseSection > :is(h2, p, .caseList) { margin-inline: 0; }
+  .caseSection h2 { margin-bottom: 24px; font-size: 22px; line-height: 30px; }
+  .caseSection p { font-size: 18px; line-height: 26px; }
+  .caseSection p + p { margin-top: 24px; }
+  .caseSection .caseImage { margin-top: 40px; }
+  .caseList { margin-top: 16px; font-size: 18px; line-height: 26px; }
+  .caseList li { grid-template-columns: 18px minmax(0, 1fr); column-gap: 6px; padding: 0; }
+  .caseList li + li { margin-top: 16px; }
+  .caseFindings { gap: 32px; margin-top: 40px; font-size: 18px; line-height: 26px; }
+  .caseFindings li { gap: 16px; }
+  .caseFindings li::before { margin-top: 8px; }
+  .footer { height: 120px; font-size: 20px; }
+}

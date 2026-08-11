@@ -12,7 +12,7 @@ export default function EnglishPetRedirectPage() {
       <main className="flex min-h-screen items-center justify-center bg-white px-5 text-center text-label-primary">
         <p className="text-base">
           Кейс переехал на страницу{' '}
-          <Link href="/uchi/" className="underline hover:text-blue-600">
+          <Link href="/uchi/" className="underline transition-opacity hover:opacity-[0.64]">
             Учи.ру
           </Link>
           .

@@ -1,0 +1,393 @@
+.body {
+  font-weight: 400;
+}
+
+.bodyLarge {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32px;
+}
+
+.bodyNarrow {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.muted {
+  color: #a3a3a3;
+}
+
+.cardTitle {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.cardOutcome {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 28px;
+}
+
+@font-face {
+  font-family: 'Lato Widget';
+  src: url('/fonts/Lato-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lato Widget';
+  src: url('/fonts/Lato-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lato Widget';
+  src: url('/fonts/Lato-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans Ruble';
+  src: url('/fonts/NotoSans-Variable.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+.projectShell {
+  isolation: isolate;
+  position: relative;
+  background: #f6f7f8;
+}
+
+.projectShell::before {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  content: '';
+  pointer-events: none;
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.04);
+  transition: opacity 240ms ease;
+}
+
+.projectShell:hover::before,
+.projectShell:focus-within::before {
+  opacity: 1;
+}
+
+.projectShell > * {
+  position: relative;
+  z-index: 1;
+}
+
+.uchiPaywallPreview {
+  display: flex;
+  min-height: 0;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  padding-inline: 24px;
+}
+
+.uchiPaywallFrame {
+  position: relative;
+  width: min(100%, 573px);
+  aspect-ratio: 573 / 317;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.uchiPaywallVideo {
+  position: absolute;
+  z-index: 2;
+  top: 18.58%;
+  left: 1.8%;
+  width: 45.37%;
+  height: 49.52%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.parklyBookingPreview {
+  display: flex;
+  height: 100%;
+  min-height: 220px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0 0 24px;
+  container-type: inline-size;
+  background: transparent;
+  color: #1d3262;
+}
+
+.parklyWidgets {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  transform-origin: center;
+  transition: gap 560ms cubic-bezier(0.22, 1, 0.36, 1), transform 240ms ease;
+}
+
+.parklyWidgetsActive {
+  gap: 32px;
+}
+
+.parklySelectionCard {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  width: 144px;
+  height: 136px;
+  box-sizing: border-box;
+  flex: 0 0 144px;
+  flex-direction: column;
+  justify-content: center;
+  padding: 12px 0;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(48, 54, 66, 0.12);
+  font-family: 'Lato Widget', sans-serif;
+  transform: translateX(40px) rotate(-3deg);
+  transition: transform 560ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.parklyPreviewHeader {
+  display: grid;
+  justify-items: center;
+  gap: 2.269px;
+  padding-bottom: 6.806px;
+  padding-inline: 12px;
+  text-align: center;
+}
+
+.parklyPreviewHeader strong {
+  font-size: 16px;
+  line-height: 15.88px;
+  font-weight: 700;
+}
+
+.parklyPreviewRate {
+  font-size: 10px;
+  line-height: 11.343px;
+  font-weight: 400;
+}
+
+.parklyPreviewHeader .parklyRuble {
+  font-family: 'Noto Sans Ruble', sans-serif;
+  font-weight: 400;
+}
+
+.parklyRoller {
+  position: relative;
+  width: 100%;
+  margin-top: 0;
+}
+
+.parklyRollerArrow {
+  display: block;
+  width: 11.491px;
+  height: 8.619px;
+  margin: 4.537px auto;
+}
+
+.parklyRollerViewport {
+  position: relative;
+  width: 100%;
+  height: 52.177px;
+  overflow: hidden;
+}
+
+.parklyRollerViewport::before,
+.parklyRollerViewport::after {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  bottom: 0;
+  width: 22px;
+  pointer-events: none;
+  content: '';
+}
+
+.parklyRollerViewport::before {
+  left: 0;
+  background: linear-gradient(to right, #fff 10%, rgba(255, 255, 255, 0));
+}
+
+.parklyRollerViewport::after {
+  right: 0;
+  background: linear-gradient(to left, #fff 10%, rgba(255, 255, 255, 0));
+}
+
+.parklyRollerStrip {
+  display: flex;
+  gap: 4px;
+  height: 100%;
+  align-items: end;
+  transition: transform 560ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.parklyRollerItem,
+.parklyRollerItemActive {
+  display: flex;
+  width: 18.149px;
+  height: 52.177px;
+  flex: 0 0 18.149px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  transition: color 220ms ease;
+}
+
+.parklyRollerItem::before,
+.parklyRollerItemActive::before {
+  display: block;
+  width: 100%;
+  height: var(--bar-height);
+  border-radius: 4px;
+  content: '';
+  background: rgba(38, 209, 148, 0.5);
+  transition: background 220ms ease;
+}
+
+.parklyRollerItemActive {
+  color: #1d3262;
+  font-weight: 500;
+}
+
+.parklyRollerItemActive::before {
+  background: #26d194;
+}
+
+.parklyGsmButton {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  width: 144px;
+  height: 136px;
+  box-sizing: border-box;
+  flex: 0 0 144px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 16px;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(48, 54, 66, 0.12);
+  font-family: 'Lato Widget', sans-serif;
+  transform: translate(-40px, -8px) rotate(3deg);
+  transition: transform 560ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.parklyWidgetsActive .parklySelectionCard {
+  transform: translateX(0) rotate(-3deg);
+}
+
+.parklyWidgetsActive .parklyGsmButton {
+  transform: translateY(-8px) rotate(3deg);
+}
+
+.parklyGsmIcon {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
+  overflow: hidden;
+  border-radius: 50%;
+  background: #00ca24;
+}
+
+.parklyGsmGlyph {
+  position: absolute;
+  inset: 8px;
+  overflow: hidden;
+}
+
+.parklyGsmBody,
+.parklyGsmWheel,
+.parklyGsmLine {
+  position: absolute;
+  display: block;
+}
+
+.parklyGsmBody {
+  top: 8px;
+  left: 4px;
+  width: 16px;
+  height: 9px;
+  transform: scaleX(-1);
+}
+
+.parklyGsmWheel {
+  top: 12.5px;
+  left: 5.5px;
+  width: 5px;
+  height: 5px;
+  transform: scaleX(-1);
+}
+
+.parklyGsmLine {
+  top: 5px;
+  left: 19px;
+  width: 1.5px;
+  height: 15.5px;
+}
+
+.parklyGsmCopy {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.parklyGsmCopy strong {
+  width: 100%;
+  color: #00b220;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 22px;
+}
+
+.parklyGsmCopy span {
+  width: 100%;
+  color: #1d3262;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.07px;
+  line-height: 16px;
+}
+
+/* Карточка Паркли становится уже раньше, чем весь блок проектов.
+   Масштабируем виджеты по ширине их собственной колонки, сохраняя пропорции. */
+@container (max-width: 400px) {
+  .parklyWidgets { transform: scale(0.96); }
+}
+
+@container (max-width: 340px) {
+  .parklyWidgets { transform: scale(0.9); }
+}
+
+@container (max-width: 285px) {
+  .parklyWidgets { transform: scale(0.86); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .parklyRollerStrip,
+  .parklyWidgets,
+  .parklySelectionCard,
+  .parklyGsmButton {
+    transition: none;
+  }
+
+}

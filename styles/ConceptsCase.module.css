@@ -1,0 +1,51 @@
+.page { min-height: 100vh; padding: 0 16px; background: #eceff2; color: #1a1a1a; }
+.header { width: calc(100% + 32px); height: 72px; margin-inline: -16px; }
+.headerInner { display: flex; height: 100%; max-width: 1440px; margin-inline: auto; align-items: center; justify-content: space-between; padding-inline: 16px; }
+.header a { color: inherit; text-decoration: none; }
+
+.intro,
+.case { border-radius: 40px; background: #fff; }
+.intro { padding: 48px 0 80px; }
+.introContent,
+.caseContent { width: 800px; max-width: calc(100% - 64px); margin-inline: auto; }
+.brand { display: flex; align-items: center; gap: 24px; }
+.brand img { width: 56px; height: 56px; border-radius: 16px; }
+.brand h1 { margin: 0; font-size: 40px; font-weight: 500; line-height: 48px; }
+.intro p { margin: 24px 4px 0; font-size: 24px; line-height: 32px; }
+
+.case { margin-top: 16px; }
+.caseContent { padding-block: 80px; }
+.caseHeader { padding-inline: 4px; }
+.caseTitle { display: flex; align-items: baseline; gap: 20px; }
+.caseTitle h2 { margin: 0; font-size: 24px; font-weight: 500; line-height: 32px; }
+.caseTitle span { color: rgb(26 26 26 / 56%); font-size: 20px; line-height: 28px; }
+.caseHeader p { margin: 32px 0 0; font-size: 20px; line-height: 28px; }
+.caseImage { display: block; width: 100%; height: auto; margin-top: 40px; border-radius: 32px; }
+
+.footer { display: flex; width: calc(100% + 32px); height: 120px; margin-inline: -16px; align-items: center; justify-content: space-between; padding-inline: 16px; font-size: 20px; line-height: 24px; }
+
+@media (min-width: 640px) {
+  .headerInner,
+  .footer { padding-inline: 40px; }
+}
+
+@media (max-width: 640px) {
+  .header { height: 64px; }
+  .header nav a:nth-child(3) { display: none; }
+  .intro,
+  .case { border-radius: 32px; }
+  .intro { padding: 32px 0; }
+  .introContent,
+  .caseContent { max-width: calc(100% - 32px); }
+  .brand { gap: 16px; }
+  .brand h1 { font-size: 32px; line-height: 40px; }
+  .intro p { margin-inline: 0; font-size: 20px; line-height: 28px; }
+  .caseContent { padding-block: 56px; }
+  .caseHeader { padding-inline: 0; }
+  .caseTitle { display: block; }
+  .caseTitle h2 { font-size: 22px; line-height: 30px; }
+  .caseTitle span { display: block; margin-top: 8px; font-size: 18px; line-height: 26px; }
+  .caseHeader p { margin-top: 24px; font-size: 18px; line-height: 26px; }
+  .caseImage { margin-top: 40px; border-radius: 16px; }
+  .footer { height: 120px; font-size: 20px; }
+}

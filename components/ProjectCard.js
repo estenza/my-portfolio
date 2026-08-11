@@ -2,18 +2,11 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-function CaseButton({ label = 'Подробнее', iconSrc = '/icons/arrow-right.svg' }) {
+function CaseButton({ label = 'Подробнее' }) {
   return (
     <span className="inline-flex h-12 w-fit items-center justify-center gap-2 rounded-xl bg-neutral-950 py-0 pl-6 pr-4 text-base font-medium leading-none text-white transition-colors hover:bg-neutral-800">
       <span>{label}</span>
-      <Image
-        src={iconSrc}
-        alt=""
-        width={24}
-        height={24}
-        aria-hidden="true"
-        className="h-6 w-6 shrink-0"
-      />
+      <span aria-hidden="true" className="text-xl leading-none">→</span>
     </span>
   )
 }
@@ -42,7 +35,6 @@ export default function ProjectCard({
   const hasAction = !disabled && (href || actionHref)
   const enableHover = !disabled && !disableCardHover && (href || actionHref)
   const actionTargetHref = actionHref || href
-  const actionIcon = actionExternal || actionHref ? '/icons/external-link.svg' : '/icons/arrow-right.svg'
   const actionTargetProps =
     actionExternal || actionHref
       ? {
@@ -52,10 +44,10 @@ export default function ProjectCard({
       : {}
   const renderAction = () =>
     isLinkedCard && !actionHref ? (
-      <CaseButton label={actionLabel} iconSrc={actionIcon} />
+      <CaseButton label={actionLabel} />
     ) : (
       <a href={actionTargetHref} {...actionTargetProps}>
-        <CaseButton label={actionLabel} iconSrc={actionIcon} />
+        <CaseButton label={actionLabel} />
       </a>
     )
 

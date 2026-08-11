@@ -1,330 +1,297 @@
-import Image from 'next/image';
 import Head from 'next/head';
-import content from '../data/content.json';
+import Image from 'next/image';
+import Link from 'next/link';
+import CopyEmailLink from '@/components/CopyEmailLink';
+import ProgressiveHeaderBlur from '@/components/ProgressiveHeaderBlur';
+import homeStyles from '@/styles/Home.module.css';
+import styles from '@/styles/ParklyCase.module.css';
 
-const goals = [
-  {
-    icon: '/parkly/figma-assets/goal-globe.svg',
-    title: 'Анализ аналогов',
-    text: 'Изучить российские и зарубежные сервисы, выделить удачные UX-паттерны и понять, какие решения подходят для нашего рынка'
-  },
-  {
-    icon: '/parkly/figma-assets/goal-search.svg',
-    title: 'Поиск парковок',
-    text: 'Помочь водителям быстро находить доступные частные парковки рядом с точкой назначения'
-  },
-  {
-    icon: '/parkly/figma-assets/goal-shield.svg',
-    title: 'Прозрачность условий',
-    text: 'Показать всю важную информацию до оплаты: цену, период бронирования, правила продления и отмены'
-  },
-  {
-    icon: '/parkly/figma-assets/goal-route.svg',
-    title: 'Понятность действий после оплаты',
-    text: 'Объяснить, что делать дальше: куда ехать, как открыть въезд, где найти место и как действовать на территории парковки'
-  }
-];
-
-const contextCards = [
-  {
-    image: '/parkly/figma-assets/context-stress.png',
-    title: 'Принятие решений в условиях стресса',
-    text: 'Водитель чаще всего спешит, поэтому интерфейс должен снижать когнитивную нагрузку: ясная иерархия информации, крупные кнопки действий.'
-  },
-  {
-    image: '/parkly/figma-assets/context-limits.png',
-    title: 'Понимание ограничений',
-    text: 'Допустимая высота автомобиля, габариты машиноместа и правила парковки должны быть понятны до оплаты.'
-  },
-  {
-    image: '/parkly/figma-assets/context-reading.png',
-    title: 'Мало времени на чтение',
-    text: 'Водитель не хочет читать длинную инструкцию о том, как найти выделенные парковочные места, находясь на парковке. Лучше подойдут короткие шаги с фотографиями и понятными схемами.'
-  },
-  {
-    image: '/parkly/figma-assets/context-savings.png',
-    title: 'Экономия должна быть заметной',
-    text: 'Parkly конкурирует с муниципальными парковками, поэтому для водителя важно подсветить, сколько он экономит, бронируя парковку через приложение.'
-  }
+const stats = [
+  { value: '100 тыс.+', label: 'скачиваний' },
+  { value: '4.7 ★', label: '565 отзывов*' },
+  { value: '~60', label: 'парковок' },
+  { value: '4', label: 'города' },
 ];
 
 const contributions = [
-  {
-    title: 'От идеи до работающего продукта',
-    text: 'Создал пользовательские сценарии, информационную архитектуру, дизайн интерфейсов и сопровождал продукт на всех этапах развития.'
-  },
-  {
-    title: 'Проектирование сложных сценариев',
-    text: 'Спроектировал сценарии бронирования, парковочного билета, управления GSM-оборудованием и адаптировал интерфейс под разные виды объектов.'
-  },
-  {
-    title: 'Основы для масштабирования',
-    text: 'Разработал дизайн-систему и UI-kit, провел рефакторинг интерфейсов и унифицировал компоненты в мобильном приложении и админке.'
-  },
-  {
-    title: 'Работа на стыке дизайна и продукта',
-    text: 'Исследовал конкурентов, участвовал в обсуждении продуктовых решений, проверял гипотезы вместе с основателем и сопровождал реализацию продукта.'
-  }
+  ['исследовал', 'анализ конкурентов, юзабилити-тесты с водителями'],
+  ['проектировал', 'MVP, развитие приложения по мере роста, рефакторинг'],
+  ['рисовал', 'иллюстрации для сторис и рекламы, 3D-графика'],
+  ['проверял на проде', 'пинал разработчиков чтобы дизайн соответствовал макетам'],
 ];
 
-function Section({ title, children, className = '', titleClassName = 'mb-10' }) {
+function Header() {
   return (
-    <section className={`mx-auto w-full max-w-[920px] px-5 sm:px-6 lg:px-0 ${className}`}>
-      {title && (
-        <h2 className={`${titleClassName} text-[32px] font-semibold leading-[40px] text-label-primary`}>
-          {title}
-        </h2>
-      )}
-      {children}
-    </section>
-  );
-}
-
-function GoalIcon({ src }) {
-  return (
-    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[14px] bg-[#1D63FF] text-white">
-      <Image src={src} alt="" width={32} height={32} className="h-8 w-8" />
-    </span>
+    <header className={`site-header ${styles.header}`}>
+      <ProgressiveHeaderBlur />
+      <div className={styles.headerInner}>
+        <Link href="/" className={homeStyles.bodyNarrow}>главная</Link>
+        <nav className={`${homeStyles.bodyNarrow} flex items-center gap-3 sm:gap-10`} aria-label="Контакты">
+          <a href="https://t.me/estenza" target="_blank" rel="noreferrer">telegram</a>
+          <CopyEmailLink />
+          <a href="https://www.linkedin.com/in/вадим-зарипов-40448317a" target="_blank" rel="noreferrer">linkedin</a>
+        </nav>
+      </div>
+    </header>
   );
 }
 
 export default function ParklyPage() {
-  const project = content.projects.parkly;
-
   return (
     <>
-      <Head>
-        <title>{`Кейс — ${project.title}`}</title>
-      </Head>
-      <main className="min-h-screen bg-white pb-16 text-label-primary">
-      <div className="relative left-1/2 mb-14 aspect-[3040/604] w-screen -translate-x-1/2 overflow-hidden lg:left-auto lg:mb-16 lg:h-[292px] lg:w-full lg:translate-x-0 lg:aspect-auto">
-        <Image
-          src="/parkly/figma-assets/hero.png"
-          alt="Parkly на синем фоне"
-          fill
-          priority
-          className="object-cover"
-          sizes="100vw"
-        />
-      </div>
+      <Head><title>Паркли — кейс Вадима Зарипова</title></Head>
+      <main className={styles.page}>
+        <Header />
 
-      <Section title="О продукте">
-        <div className="grid gap-10 md:grid-cols-[minmax(0,1fr)_390px] md:items-stretch">
-          <div className="flex h-full flex-col justify-between text-base leading-6 sm:text-base md:py-3">
-            <div className="space-y-5">
-              <p>
-                Parkly это приложение, которое позволяет водителям находить, бронировать и оплачивать парковку по более выгодным ценам, чем у муниципальных паркингов.
-              </p>
-              <p>
-                После оплаты водитель получает парковочный билет с QR или кнопками для управления шлагбаумами и пошаговые инструкции по проезду.
-              </p>
+        <article className={styles.intro}>
+          <section className={styles.projectInfo} aria-labelledby="parkly-title">
+            <div className={styles.brand}>
+              <Image src="/workplaces/parkly.svg" alt="Паркли" width={56} height={56} priority />
+              <h1 id="parkly-title">паркли</h1>
             </div>
+            <p className={styles.lead}>сервис для бронирования и оплаты парковки</p>
+            <div className={styles.stats}>
+              {stats.map((stat) => (
+                <p key={stat.label}><strong>{stat.value}</strong><span>{stat.label}</span></p>
+              ))}
+            </div>
+            <small>*по данным App Store на август 2026</small>
+          </section>
+
+          <section className={styles.projectStory} aria-label="О проекте Паркли">
             <div>
-              <p className="mb-3 font-bold text-label-primary">Пользователи</p>
-              <ul className="list-disc space-y-2 pl-5">
-                <li>Водители легковых автомобилей;</li>
-                <li>Владельцы и операторы частных парковок: БЦ, ТЦ, подземные паркинги, частные территории и т.д.</li>
-              </ul>
-            </div>
-          </div>
-
-          <Image
-            src="/parkly/figma-assets/about-phones.png"
-            alt="Основные экраны Parkly"
-            width={390}
-            height={365}
-            className="w-full"
-            sizes="(min-width: 1024px) 390px, calc(100vw - 2.5rem)"
-          />
-        </div>
-      </Section>
-
-      <Section title="Проблема" className="mt-16 sm:mt-24">
-        <div className="max-w-[800px] space-y-5 text-base leading-6">
-          <p>
-            В центре города водителю сложно быстро найти свободное место рядом с точкой назначения. Муниципальная парковка часто дорогая, а о доступных частных паркингах во дворах, бизнес-центрах и подземных комплексах мало кто знает.
-          </p>
-          <p>
-            Даже найдя такую парковку, пользователь не всегда понимает, сможет ли туда заехать, сколько будет стоить бронирование, как открыть шлагбаум и где искать место после оплаты. Ошибка на любом из этих этапов превращает поиск парковки в стрессовый сценарий.
-          </p>
-        </div>
-      </Section>
-
-      <Section title="Цели продукта" className="mt-16 sm:mt-24">
-        <div className="grid gap-x-16 gap-y-8 md:grid-cols-2">
-          {goals.map((goal) => (
-            <article key={goal.title} className="flex gap-5">
-              <GoalIcon src={goal.icon} />
-              <div className="flex flex-col gap-1">
-                <h3 className="text-base font-semibold leading-6 text-label-primary">{goal.title}</h3>
-                <p className="text-base leading-6 text-label-primary">{goal.text}</p>
-              </div>
-            </article>
-          ))}
-        </div>
-      </Section>
-
-      <Section title="Контекст, повлиявший на UX-решения" className="mt-16 sm:mt-24">
-        <div className="grid gap-x-10 gap-y-14 md:grid-cols-2">
-          {contextCards.map((card) => (
-            <article key={card.title} className="flex flex-col gap-5">
-              <Image
-                src={card.image}
-                alt=""
-                width={440}
-                height={138}
-                className="w-full rounded-2xl"
-                sizes="(min-width: 1024px) 440px, calc(100vw - 2.5rem)"
-              />
-              <div className="flex flex-col gap-3 px-0.5">
-                <h3 className="text-[18px] font-semibold leading-6 text-label-primary">{card.title}</h3>
-                <p className="text-base leading-6">{card.text}</p>
-              </div>
-            </article>
-          ))}
-        </div>
-      </Section>
-
-      <Section title="Флоу первого заказа" className="mt-16 sm:mt-24" titleClassName="mb-6">
-        <p className="mb-10 max-w-[800px] px-0.5 text-base leading-6 sm:text-base">
-          Для первого заказа было важно показать ценность до регистрации и оплаты. Пользователь сначала видит доступные парковки, цену и условия, выбирает время, а обязательные данные появляются только ближе к бронированию — когда уже понятно, за что он платит.
-        </p>
-        <Image
-          src="/parkly/figma-assets/first-order-flow.png"
-          alt="Флоу первого заказа Parkly"
-          width={2059}
-          height={1752}
-          className="w-full"
-          sizes="(min-width: 1024px) 920px, calc(100vw - 2.5rem)"
-        />
-      </Section>
-
-      <Section title="Выбор времени бронирования" className="mt-16 sm:mt-24">
-        <div className="grid gap-6 md:grid-cols-[300px_minmax(0,1fr)] md:items-start md:gap-10">
-          <div className="space-y-6 px-0.5 text-base leading-6 sm:text-base">
-            <p>
-              Время начала и длительность бронирования настраиваются на одном экране. Слайдер длительности сразу показывает, как меняется стоимость в зависимости от выбранного периода: чем дольше бронирование, тем ниже цена часа.
-            </p>
-            <p className="flex flex-col gap-1">
-              <span className="font-bold text-label-primary">Учитываем ограничения парковки</span>
-              <span>Недоступные интервалы отображаются заранее. Если выбранный период нельзя продлить или парковка закрывается, пользователь получает предупреждение до бронирования.</span>
-            </p>
-          </div>
-          <div className="flex flex-wrap items-start justify-center gap-8 md:flex-nowrap md:justify-start">
-            <div className="relative h-[350px] w-[162px] min-w-[162px] max-w-[162px] overflow-hidden rounded-2xl">
-              <Image
-                src="/parkly/figma-assets/time-phone-main.png"
-                alt="Выбор времени бронирования"
-                width={400}
-                height={870}
-                unoptimized
-                className="h-full w-full object-cover"
-                sizes="162px"
-              />
-              <span className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-black/16" aria-hidden="true" />
+              <p>
+                «паркли» — приложение для iOS и Android, позволяет водителям
+                бронировать парковку у частников по ценам дешевле, чем у
+                муниципального паркинга.
+              </p>
+              <p>
+                я подключился к проекту с самого начала: участвовал в запуске MVP
+                и помогал масштабировать.
+              </p>
             </div>
             <Image
-              src="/parkly/figma-assets/time-phone-warning.png"
-              alt="Предупреждение о невозможности продления бронирования"
-              width={1206}
-              height={2622}
-              className="w-[162px] rounded-2xl border border-neutral-200"
-              sizes="162px"
+              src="/parkly/cover.png"
+              alt="Главный экран и выбор времени бронирования в Паркли"
+              width={712}
+              height={628}
+              sizes="(min-width: 960px) 500px, calc(100vw - 32px)"
+              className={styles.projectStoryImage}
             />
+          </section>
+
+          <section className={styles.contributions} aria-labelledby="contributions-title">
+            <h2 id="contributions-title">что делал</h2>
+            <div className={styles.contributionGrid}>
+              {contributions.map(([title, description]) => (
+                <article key={title}>
+                  <h3>✦&nbsp;&nbsp;{title}</h3>
+                  <p>{description}</p>
+                </article>
+              ))}
+            </div>
+          </section>
+        </article>
+
+        <article className={styles.case}>
+          <div className={styles.caseContent}>
+            <header className={styles.caseHeader}>
+              <h2>кейс 1: эволюция парковочного билета</h2>
+              <p>
+                парковочный билет используется для въезда на парковку, показывает
+                информацию о бронировании и содержит инструкции о том, как найти
+                парковку и как добраться до машиноместа внутри паркинга.
+              </p>
+              <p>
+                еще до запуска MVP решили провести юзабилити-тесты с 7-ю
+                автомобилистами, чтобы понять, как сделать его максимально понятным
+                — ведь, как правило, водитель спешит и принимает решения в условиях
+                стресса.
+              </p>
+            </header>
+
             <Image
-              src="/parkly/figma-assets/time-phone-closed.png"
-              alt="Предупреждение о закрытой парковке"
-              width={1206}
-              height={2622}
-              className="w-[162px] rounded-2xl border border-neutral-200"
-              sizes="162px"
+              src="/parkly/case-1.png"
+              alt="Результаты юзабилити-тестов парковочного билета"
+              width={1600}
+              height={1870}
+              sizes="(min-width: 960px) 920px, calc(100vw - 32px)"
+              className={styles.caseImage}
             />
+
+            <section className={styles.caseSection}>
+              <h2>итоги исследования</h2>
+              <p>
+                водители подсказали, что иерархия отображения информации на
+                парковочном билете во многом не логичная и нуждается в доработке.
+              </p>
+            </section>
+
+            <section className={styles.caseSection}>
+              <h2>проектирование финальной версии для MVP</h2>
+              <p>
+                полностью пересмотрели структуру билета на основе фидбэка от
+                водителей. вся важная информация переехала наверх, стало меньше
+                неиспользуемого полезного пространства. эта версия вошла в MVP и
+                получила положительные отзывы от пользователей.
+              </p>
+              <Image
+                src="/parkly/mvp.png"
+                alt="Финальная версия парковочного билета для MVP"
+                width={1600}
+                height={1982}
+                sizes="(min-width: 960px) 920px, calc(100vw - 32px)"
+                className={styles.caseImage}
+              />
+            </section>
+
+            <section className={styles.caseSection}>
+              <h2>финальная версия билета</h2>
+              <p>в рамках рефакторинга приложения переработали и парковочный билет:</p>
+              <ol className={styles.caseList}>
+                <li>
+                  визуально отделили непосредственно билет с самой важной
+                  информацией от вспомогательных блоков. сам билет стал заметно
+                  компактнее и плотнее.
+                </li>
+                <li>
+                  инструкция по парковке и информация о том, как добраться, стала
+                  более подробной, пошаговой и переехала в отдельный раздел.
+                </li>
+                <li>
+                  билет обрел модульную структуру, которая позволила адаптировать
+                  его под каждую отдельную парковку и учитывает разные способы
+                  въезда: QR-код/кнопка сканирования QR/кнопки управления
+                  шлагбаумами и т.д.
+                </li>
+              </ol>
+              <Image
+                src="/parkly/final.png"
+                alt="Финальная версия парковочного билета"
+                width={1600}
+                height={1430}
+                sizes="(min-width: 960px) 920px, calc(100vw - 32px)"
+                className={styles.caseImage}
+              />
+            </section>
+
+            <section className={styles.caseSection}>
+              <h2>цветовое кодирование состояний</h2>
+              <p>
+                чтобы было проще и нагляднее различать стадии бронирования, ввели
+                для них цветовое кодирование.
+              </p>
+              <Image
+                src="/parkly/colors.png"
+                alt="Цветовое кодирование состояний бронирования"
+                width={1600}
+                height={934}
+                sizes="(min-width: 960px) 920px, calc(100vw - 32px)"
+                className={styles.caseImage}
+              />
+            </section>
           </div>
-        </div>
-      </Section>
+        </article>
 
-      <Section title="Экран управления бронированием" className="mt-16 sm:mt-24" titleClassName="mb-6">
-        <p className="mb-10 max-w-[800px] text-base leading-6 sm:text-base">
-          После оплаты сценарий не заканчивается. Пользователю нужно доехать до парковки, найти нужный въезд, открыть шлагбаум, припарковаться и позже выехать. Экран бронирования сопровождает водителя на каждом этапе этого пути.
-        </p>
+        <article className={styles.case}>
+          <div className={styles.caseContent}>
+            <header className={styles.caseHeader}>
+              <h2>MVP: фиксированные слоты</h2>
+              <p>
+                на запуске парковок было мало, поэтому вместо карты с парковками
+                на главном экране нужно было сперва задать адрес точки назначения,
+                и уже потом смотреть, есть ли парковки поблизости.
+              </p>
+              <p>
+                выбор времени бронирования занимал три шага: сперва пользователь
+                указывал время заезда и выезда, затем выбирал доступные временные
+                слоты.
+              </p>
+              <p>
+                слоты были ранним способом отображения динамики изменения цен и
+                ограничений парковки (график работы).
+              </p>
+            </header>
 
-        <h3 className="mb-6 text-[24px] font-semibold leading-[36px] text-label-primary">
-          Состояния парковочной сессии
-        </h3>
-        <Image
-          src="/parkly/figma-assets/session-states.png"
-          alt="Состояния парковочной сессии"
-          width={1920}
-          height={1203}
-          className="w-full max-w-[660px]"
-          sizes="(min-width: 1024px) 660px, calc(100vw - 2.5rem)"
-        />
+            <Image
+              src="/parkly/mvp-flow.png"
+              alt="Выбор времени бронирования в MVP"
+              width={1600}
+              height={996}
+              sizes="(min-width: 960px) 920px, calc(100vw - 32px)"
+              className={styles.caseImage}
+            />
 
-        <div className="mt-16">
-          <h3 className="mb-7 text-[24px] font-semibold leading-[36px] text-label-primary">
-            Управление парковочным оборудованием
-          </h3>
-          <div className="mb-8 grid gap-6 md:grid-cols-2 md:gap-10">
-            <p className="text-base leading-6 sm:text-base">
-              Parkly поддерживает интеграцию с парковочным оборудованием через GSM-модули, интерфейс адаптируется под каждую отдельную парковку. Пользователь может открывать шлагбаумы, ворота и двери прямо из приложения.
-            </p>
-            <p className="text-base leading-6 sm:text-base">
-              Маршрут разбивается на короткие контекстные шаги и сопровождается инструкциями, схемами и фотографиями, что снижает когнитивную нагрузку и уменьшает вероятность ошибки.
-            </p>
+            <ul className={styles.caseFindings}>
+              <li>
+                пользователи жаловались на отсутствие гибкости, (т.к. нельзя было
+                указать точное количество часов) и на ограниченный набор вариантов
+                продолжительности.
+              </li>
+              <li>
+                не понятно было для чего указывать время выезда, если варианты
+                слотов все равно отображали периоды бронирования за его пределами.
+              </li>
+            </ul>
+
+            <section className={styles.caseSection}>
+              <h2>v2: все еще слоты, но проще</h2>
+              <p>
+                подключили больше парковок, поэтому стали показывать список
+                доступных парковок на главном экране. карточкам парковок добавили
+                таблицу ценообразования, чтобы наглядно показать как меняется цена
+                в пределах 24 часов.
+              </p>
+              <p>
+                упростили выбор времени: теперь нужно было только указать только
+                время начала и выбрать продолжительность из списка слотов.
+              </p>
+              <p>
+                большой почасовой список слотов показывать не стали, чтобы не
+                нагружать интерфейс. проблема с отсутствием гибкости никуда не
+                ушла.
+              </p>
+              <Image
+                src="/parkly/v2.png"
+                alt="Вторая версия выбора времени бронирования"
+                width={1600}
+                height={996}
+                sizes="(min-width: 960px) 920px, calc(100vw - 32px)"
+                className={styles.caseImage}
+              />
+            </section>
+
+            <section className={styles.caseSection}>
+              <h2>v3 (актуальная): единый экран выбора времени</h2>
+              <p>
+                когда подключили достаточное количество парковок, то стали сразу
+                показывать их на карте с возможностью выбирать между почасовой и
+                помесячной вариантами бронирования.
+              </p>
+              <p>
+                выбор времени сделали на одном экране, что сделало ценообразование
+                максимально наглядным для пользователя: горизонтальный слайдер с
+                вертикальными столбцами показывает, как меняется цена в
+                зависимости от продолжительности на манер графика цен у
+                «Авиасейлс».
+              </p>
+              <p>этот интерфейс используется до сих пор и снискал любовь пользователей.</p>
+              <Image
+                src="/parkly/v3.png"
+                alt="Актуальная версия единого экрана выбора времени"
+                width={1600}
+                height={1238}
+                sizes="(min-width: 960px) 920px, calc(100vw - 32px)"
+                className={styles.caseImage}
+              />
+            </section>
           </div>
-          <Image
-            src="/parkly/figma-assets/equipment-flow.png"
-            alt="Управление парковочным оборудованием"
-            width={2763}
-            height={1094}
-            className="w-full"
-            sizes="(min-width: 1024px) 920px, calc(100vw - 2.5rem)"
-          />
-        </div>
-      </Section>
+        </article>
 
-      <Section title="UI-kit" className="mt-16 sm:mt-24" titleClassName="mb-6">
-        <p className="mb-6 max-w-[800px] text-base leading-6">
-          По мере развития продукта я собрал UI-kit с компонентами, что помогло сохранять консистентность интерфейса и быстрее собирать новые функции.
-        </p>
-        <div className="overflow-hidden rounded-lg border border-black/12 bg-neutral-50">
-          <iframe
-            title="UI-kit Parkly в Figma"
-            src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FTmOPFmzNHeR4V3TcpfoKEM%2FParkly-App--Copy-%3Fnode-id%3D63-111"
-            className="block h-[360px] w-full sm:h-[520px]"
-            allowFullScreen
-            loading="lazy"
-          />
-        </div>
-      </Section>
-
-      <Section title="Моя роль и вклад в развитие продукта" className="mt-16 sm:mt-24" titleClassName="mb-6">
-        <p className="mb-8 max-w-[800px] text-base leading-6 sm:text-base">
-          На протяжении всего проекта я был единственным продуктовым дизайнером. От первых концепций до масштабирования продукта отвечал за UX, UI, исследования, дизайн-систему и развитие ключевых пользовательских сценариев.
-        </p>
-
-        <div className="mb-8 flex items-center gap-3 rounded-xl bg-red-50 py-3 pl-3 pr-4 text-base leading-6 text-label-primary">
-          <Image src="/parkly/figma-assets/attention.svg" alt="" width={24} height={24} className="h-6 w-6 shrink-0" />
-          <span>Детальные продуктовые метрики и внутренние показатели скрыты в соответствии с условиями NDA.</span>
-        </div>
-
-        <div className="grid gap-x-12 gap-y-8 md:grid-cols-2">
-          {contributions.map((card) => (
-            <article key={card.title} className="flex gap-4">
-              <span className="mt-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#1D63FF] text-white">
-                <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                  <path d="M3.5 8.25 6.5 11.25 12.5 4.75" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </span>
-              <div>
-                <h3 className="mb-1 text-base font-semibold leading-6 text-label-primary">{card.title}</h3>
-                <p className="text-sm leading-6 sm:text-base">{card.text}</p>
-              </div>
-            </article>
-          ))}
-        </div>
-      </Section>
-
+        <footer className={styles.footer}>
+          <span>дизайнил + кодил вадим зарипов</span>
+          <span>2026</span>
+        </footer>
       </main>
     </>
   );
