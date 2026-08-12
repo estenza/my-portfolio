@@ -1,28 +1,10 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import Link from 'next/link';
-import CopyEmailLink from '@/components/CopyEmailLink';
-import ProgressiveHeaderBlur from '@/components/ProgressiveHeaderBlur';
-import homeStyles from '@/styles/Home.module.css';
+import CaseNavigation from '@/components/CaseNavigation';
+import MainHeader from '@/components/MainHeader';
 import styles from '@/styles/ConceptsCase.module.css';
 
-function Header() {
-  return (
-    <header className={`site-header ${styles.header}`}>
-      <ProgressiveHeaderBlur />
-      <div className={styles.headerInner}>
-        <Link href="/" className={homeStyles.bodyNarrow}>главная</Link>
-        <nav className={`${homeStyles.bodyNarrow} flex items-center gap-3 sm:gap-10`} aria-label="Контакты">
-          <a href="https://t.me/estenza" target="_blank" rel="noreferrer">telegram</a>
-          <CopyEmailLink />
-          <a href="https://www.linkedin.com/in/вадим-зарипов-40448317a" target="_blank" rel="noreferrer">linkedin</a>
-        </nav>
-      </div>
-    </header>
-  );
-}
-
-function Case({ title, year, children, image, alt }) {
+function Case({ title, year, children, image, alt, navigation }) {
   return (
     <article className={styles.case}>
       <div className={styles.caseContent}>
@@ -41,6 +23,7 @@ function Case({ title, year, children, image, alt }) {
           sizes="(min-width: 960px) 800px, calc(100vw - 32px)"
           className={styles.caseImage}
         />
+        {navigation}
       </div>
     </article>
   );
@@ -54,7 +37,7 @@ export default function ConceptsPage() {
         <meta name="description" content="Концепты и прототипы Вадима Зарипова." />
       </Head>
       <main className={styles.page}>
-        <Header />
+        <MainHeader fullBleed />
 
         <article className={styles.intro}>
           <div className={styles.introContent}>
@@ -82,6 +65,7 @@ export default function ConceptsPage() {
           year="2026"
           image="/concepts/hud.png"
           alt="Концепт автомобильного интерфейса HUD"
+          navigation={<CaseNavigation previous="/parkly" />}
         >
           <p>
             концепт интерфейса для автомобильной мультимедийной системы: навигация, ассистенты вождения и быстрый доступ к функциям автомобиля на одном экране.

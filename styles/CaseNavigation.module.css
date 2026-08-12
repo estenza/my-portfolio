@@ -1,0 +1,14 @@
+.navigation { display: flex; align-items: flex-start; justify-content: space-between; margin-top: 80px; }
+.link,
+.disabled { display: flex; align-items: center; gap: 16px; padding: 24px 16px; border-radius: 24px; font-size: 20px; font-weight: 500; line-height: 28px; letter-spacing: 0.2px; text-decoration: none; }
+.link:last-child { justify-content: flex-end; }
+.link { color: #1a1a1a; transition: opacity 150ms ease, background-color 150ms ease; }
+.link:hover,
+.link:focus-visible { background: #f6f7f8; opacity: 1; outline: none; }
+.disabled { color: rgb(26 26 26 / 24%); }
+
+@media (max-width: 640px) {
+  .navigation { margin-top: 56px; }
+  .link,
+  .disabled { padding: 20px 12px; font-size: 18px; line-height: 26px; }
+}

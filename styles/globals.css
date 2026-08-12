@@ -28,7 +28,6 @@ body {
   position: sticky;
   top: 0;
   z-index: 50;
-  isolation: isolate;
   background: transparent;
 }
 
@@ -104,6 +103,10 @@ small,
   corner-shape: squircle;
 }
 
+.magnifier-cursor {
+  display: none;
+}
+
 @media (pointer: fine) {
   .has-magnifier-cursor,
   .has-magnifier-cursor * {
@@ -132,6 +135,7 @@ small,
     color: #fff;
     transform: translate3d(-14px, -50%, 0);
     transform-origin: center;
+    will-change: transform, backdrop-filter;
     transition: width 180ms ease-out, height 180ms ease-out, padding 180ms ease-out, border-radius 180ms ease-out, opacity 90ms ease, transform 180ms ease-out;
   }
 

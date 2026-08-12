@@ -30,6 +30,181 @@
   line-height: 28px;
 }
 
+.randomFacts {
+  width: min(100% - 48px, 670px);
+  margin: 0 auto;
+  padding: 80px 0 64px;
+}
+
+.randomFactsTitle {
+  margin: 0 0 32px;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32px;
+  letter-spacing: 0.02em;
+}
+
+.randomFacts p {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: 0.02em;
+}
+
+.randomFactsIntro {
+  padding-bottom: 40px;
+}
+
+.randomFactsRow {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  align-items: center;
+}
+
+.factPhotoStack {
+  position: relative;
+  height: 232px;
+}
+
+.factPhoto {
+  position: absolute;
+  width: 166px;
+  height: 169px;
+  max-width: none;
+  box-sizing: border-box;
+  border: 6px solid #fff;
+  border-radius: 32px;
+  object-fit: cover;
+  transform-origin: center;
+  transition: transform 240ms ease;
+}
+
+.factPhotoBack {
+  top: 34px;
+  left: 126px;
+  transform: rotate(4.2deg);
+}
+
+.factPhotoFront {
+  top: 5px;
+  left: 2px;
+  transform: rotate(-5.34deg);
+}
+
+.factPhotoStackReverse {
+  height: 246px;
+}
+
+.factPhotoStackReverse .factPhotoBack {
+  top: 15px;
+  left: 135px;
+  transform: rotate(-5.34deg);
+}
+
+.factPhotoStackReverse .factPhotoFront {
+  top: 44px;
+  left: 11px;
+  transform: rotate(4.2deg);
+}
+
+@media (hover: hover) and (min-width: 640px) {
+  .factPhotoStack:hover .factPhotoBack {
+    transform: rotate(7deg) translate(8px, -6px);
+  }
+
+  .factPhotoStack:hover .factPhotoFront {
+    transform: rotate(-8deg) translate(-8px, 4px);
+  }
+
+  .factPhotoStackReverse:hover .factPhotoBack {
+    transform: rotate(-8deg) translate(8px, -6px);
+  }
+
+  .factPhotoStackReverse:hover .factPhotoFront {
+    transform: rotate(7deg) translate(-8px, 4px);
+  }
+}
+
+@media (max-width: 639px) {
+  .randomFacts {
+    width: min(100% - 48px, 670px);
+    padding: 64px 0;
+  }
+
+  .randomFactsRow {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .randomFactsRow + .randomFactsRow {
+    margin-top: 32px;
+  }
+
+  .factPhotoStack {
+    order: 2;
+  }
+
+  .factPhotoStackReverse {
+    order: 2;
+  }
+
+  .factPhotoStack {
+    width: 100%;
+    height: 68vw;
+    margin-left: 0;
+    overflow: hidden;
+  }
+
+  .factPhoto {
+    width: 52vw;
+    height: 53vw;
+    border-radius: 11vw;
+  }
+
+  .factPhotoBack {
+    top: 8vw;
+    left: 42%;
+  }
+
+  .factPhotoFront {
+    top: 1.2vw;
+    left: 2vw;
+  }
+
+  .factPhotoStackReverse .factPhotoBack {
+    top: 3.6vw;
+    left: 43%;
+  }
+
+  .factPhotoStackReverse .factPhotoFront {
+    top: 10.4vw;
+    left: 2vw;
+  }
+}
+
+@media (max-width: 479px) {
+  .mainHeader {
+    height: 64px;
+  }
+
+  .profileImage {
+    width: 120px;
+    height: 120px;
+    align-self: center;
+  }
+
+  .siteHeader {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+
+  .randomFacts {
+    width: min(100% - 32px, 670px);
+  }
+}
+
 @font-face {
   font-family: 'Lato Widget';
   src: url('/fonts/Lato-Regular.ttf') format('truetype');
@@ -96,6 +271,7 @@
   align-items: center;
   justify-content: center;
   padding-inline: 24px;
+  padding-top: 32px;
 }
 
 .uchiPaywallFrame {
@@ -103,7 +279,7 @@
   width: min(100%, 573px);
   aspect-ratio: 573 / 317;
   overflow: hidden;
-  border-radius: 20px;
+  border-radius: 12px;
 }
 
 .uchiPaywallVideo {
@@ -113,7 +289,7 @@
   left: 1.8%;
   width: 45.37%;
   height: 49.52%;
-  border-radius: 10px;
+  border-radius: 6px;
   object-fit: cover;
 }
 
@@ -127,6 +303,35 @@
   container-type: inline-size;
   background: transparent;
   color: #1d3262;
+}
+
+.parklyCard {
+  display: flex;
+  flex-direction: column;
+}
+
+.parklyCardHeader {
+  padding: 32px 32px 0;
+}
+
+.parklyCardVisual {
+  position: relative;
+  display: flex;
+  min-height: 260px;
+  flex: 1;
+  align-items: center;
+  overflow: hidden;
+}
+
+.parklyPhonePreview {
+  position: relative;
+  width: 46%;
+  min-height: 240px;
+  flex: 0 0 46%;
+}
+
+.parklyCardOutcome {
+  padding: 0 32px 28px;
 }
 
 .parklyWidgets {
@@ -382,6 +587,10 @@
   .parklyWidgets { transform: scale(0.86); }
 }
 
+@container (max-width: 240px) {
+  .parklyWidgets { transform: scale(0.72); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .parklyRollerStrip,
   .parklyWidgets,
@@ -390,4 +599,171 @@
     transition: none;
   }
 
+}
+
+@media (min-width: 640px) {
+  .parklyCard {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    grid-template-rows: auto 1fr auto;
+  }
+
+  .parklyCardHeader {
+    grid-column: 1;
+    grid-row: 1;
+    padding-right: 16px;
+  }
+
+  .parklyCardVisual {
+    display: contents;
+  }
+
+  .parklyBookingPreview {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .parklyPhonePreview {
+    grid-column: 2;
+    grid-row: 1 / 4;
+    width: auto;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .parklyCardOutcome {
+    grid-column: 1;
+    grid-row: 3;
+    padding-right: 16px;
+  }
+}
+
+@media (max-width: 639px) {
+  .parklyCardVisual {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .parklyBookingPreview,
+  .parklyPhonePreview {
+    width: auto;
+    min-width: 0;
+  }
+
+  .parklyBookingPreview {
+    grid-column: 1;
+    padding-left: 0;
+  }
+
+  .parklyPhonePreview {
+    grid-column: 2;
+    min-height: 220px;
+    flex: none;
+  }
+
+  .parklyGsmButton {
+    display: none;
+  }
+
+  .parklyBookingPreview {
+    display: none;
+  }
+
+  .parklyCardVisual {
+    display: block;
+    min-height: 0;
+  }
+
+  .parklyPhonePreview {
+    width: 100%;
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 479px) {
+  .intro,
+  .projectsGrid,
+  .footer {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .projectsGrid {
+    gap: 16px;
+    padding-bottom: 0;
+  }
+
+  .projectShell {
+    border-radius: 24px;
+  }
+
+  .intro {
+    padding-top: 24px;
+    padding-bottom: 40px;
+  }
+
+  .intro .bodyLarge {
+    text-align: center;
+  }
+
+  .intro .bodyLarge,
+  .randomFactsTitle,
+  .randomFactsIntro,
+  .randomFactsRow > p {
+    padding-right: 4px;
+    padding-left: 4px;
+  }
+
+  .bodyLarge,
+  .cardOutcome {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .randomFacts p {
+    line-height: 24px;
+  }
+
+  .bodyNarrow,
+  .cardTitle {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .mainHeaderInner {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+  .parklyCardHeader,
+  .projectCardHeader {
+    padding: 20px 20px 0;
+    gap: 16px;
+  }
+
+  .parklyCardHeader > div {
+    gap: 16px;
+  }
+
+  .cardOutcome,
+  .parklyCardOutcome {
+    padding: 20px;
+  }
+
+  .uchiPaywallPreview {
+    padding-top: 16px;
+  }
+
+  .funCardVisual {
+    flex: 0 0 220px;
+  }
+
+  .vnutriCardVisual {
+    flex: 0 0 220px;
+  }
+
+  .projectFun,
+  .projectVnutri {
+    min-height: 0 !important;
+  }
 }

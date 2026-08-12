@@ -1,9 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import Link from 'next/link';
-import CopyEmailLink from '@/components/CopyEmailLink';
-import ProgressiveHeaderBlur from '@/components/ProgressiveHeaderBlur';
-import homeStyles from '@/styles/Home.module.css';
+import CaseNavigation from '@/components/CaseNavigation';
+import MainHeader from '@/components/MainHeader';
 import styles from '@/styles/ParklyCase.module.css';
 
 const stats = [
@@ -17,31 +15,15 @@ const contributions = [
   ['исследовал', 'анализ конкурентов, юзабилити-тесты с водителями'],
   ['проектировал', 'MVP, развитие приложения по мере роста, рефакторинг'],
   ['рисовал', 'иллюстрации для сторис и рекламы, 3D-графика'],
-  ['проверял на проде', 'пинал разработчиков чтобы дизайн соответствовал макетам'],
+  ['проверял на проде', 'курировал разработку, чтобы дизайн соответствовал макетам'],
 ];
-
-function Header() {
-  return (
-    <header className={`site-header ${styles.header}`}>
-      <ProgressiveHeaderBlur />
-      <div className={styles.headerInner}>
-        <Link href="/" className={homeStyles.bodyNarrow}>главная</Link>
-        <nav className={`${homeStyles.bodyNarrow} flex items-center gap-3 sm:gap-10`} aria-label="Контакты">
-          <a href="https://t.me/estenza" target="_blank" rel="noreferrer">telegram</a>
-          <CopyEmailLink />
-          <a href="https://www.linkedin.com/in/вадим-зарипов-40448317a" target="_blank" rel="noreferrer">linkedin</a>
-        </nav>
-      </div>
-    </header>
-  );
-}
 
 export default function ParklyPage() {
   return (
     <>
       <Head><title>Паркли — кейс Вадима Зарипова</title></Head>
       <main className={styles.page}>
-        <Header />
+        <MainHeader fullBleed />
 
         <article className={styles.intro}>
           <section className={styles.projectInfo} aria-labelledby="parkly-title">
@@ -285,6 +267,7 @@ export default function ParklyPage() {
                 className={styles.caseImage}
               />
             </section>
+            <CaseNavigation previous="/uchi" next="/concepts" />
           </div>
         </article>
 

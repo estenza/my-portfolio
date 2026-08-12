@@ -1,9 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import Link from 'next/link';
-import CopyEmailLink from '@/components/CopyEmailLink';
-import ProgressiveHeaderBlur from '@/components/ProgressiveHeaderBlur';
-import homeStyles from '@/styles/Home.module.css';
+import CaseNavigation from '@/components/CaseNavigation';
+import MainHeader from '@/components/MainHeader';
 import styles from '@/styles/UchiCase.module.css';
 
 const courses = [
@@ -41,22 +39,6 @@ const improvements = [
   ['reassurance.png', '2. добавили подтверждение действия при выходе из игры.'],
 ];
 
-function Header() {
-  return (
-    <header className={`site-header ${styles.header}`}>
-      <ProgressiveHeaderBlur />
-      <div className={styles.headerInner}>
-        <Link href="/" className={homeStyles.bodyNarrow}>главная</Link>
-        <nav className={`${homeStyles.bodyNarrow} flex items-center gap-3 sm:gap-10`} aria-label="Контакты">
-          <a href="https://t.me/estenza" target="_blank" rel="noreferrer">telegram</a>
-          <CopyEmailLink />
-          <a href="https://www.linkedin.com/in/вадим-зарипов-40448317a" target="_blank" rel="noreferrer">linkedin</a>
-        </nav>
-      </div>
-    </header>
-  );
-}
-
 function Section({ title, children, className = '' }) {
   return (
     <section className={`${styles.section} ${className}`}>
@@ -75,7 +57,7 @@ export default function UchiPage() {
     <>
       <Head><title>Учи.ру — кейс Вадима Зарипова</title></Head>
       <main className={styles.page}>
-        <Header />
+        <MainHeader fullBleed />
 
         <section className={styles.intro}>
           <div className={styles.introContent}>
@@ -92,7 +74,7 @@ export default function UchiPage() {
           <Section className={styles.courses}>
             <h2>за 4 года поработал над 7 курсами</h2>
             <div className={styles.courseRow}>
-              {courses.map((src) => <img key={src} src={src} alt="" />)}
+              {[...courses, ...courses].map((src, index) => <img key={`${src}-${index}`} src={src} alt="" />)}
             </div>
           </Section>
 
@@ -101,7 +83,7 @@ export default function UchiPage() {
               <article><h3>✦&nbsp;&nbsp;исследовал</h3><p>препродакшен, качественные/количественные тесты</p></article>
               <article><h3>✦&nbsp;&nbsp;проектировал</h3><p>весь путь ученика от первого запуска до пейволла</p></article>
               <article><h3>✦&nbsp;&nbsp;рисовал</h3><p>нескучные игровые интерфейсы и микроанимации</p></article>
-              <article><h3>✦&nbsp;&nbsp;проверял на проде</h3><p>пинал разработчиков, чтобы дизайн соответствовал макетам</p></article>
+              <article><h3>✦&nbsp;&nbsp;проверял на проде</h3><p>курировал разработку, чтобы дизайн соответствовал макетам</p></article>
             </div>
           </Section>
         </section>
@@ -154,7 +136,7 @@ export default function UchiPage() {
         </article>
 
         <article className={styles.case}>
-          <div className={styles.caseContent}>
+          <div className={`${styles.caseContent} ${styles.caseContentLast}`}>
             <header className={styles.caseHeader}><h2>кейс 2: внедрили пейвол, увеличивший продажи курса</h2><p><strong><a href="https://uchi.ru/products/games/word-keepers" target="_blank" rel="noopener noreferrer">«хранители слов»</a></strong> — игровой тренажер для закрепления правил орфографии.</p></header>
           <Section title="проблема"><p className={styles.copy}>через две недели после запуска изучили воронку и увидели, что пейвол плохо конвертит в покупку курса. при этом доходимость до пейвола была хорошая.</p><p className={styles.copy}><strong>гипотеза:</strong> текущая версия слишком ориентирована на ребенка и слабо доносит до родителя образовательную ценность.</p></Section>
           <figure className={styles.paywall}><img src="/uchi/rebuild/case2-3.png" alt="Первая версия пейвола" /><figcaption>первая версия пейвола</figcaption></figure>
@@ -162,6 +144,7 @@ export default function UchiPage() {
           <Section title="вторая версия"><p className={styles.copy}>совместно с методистами спроектировали вторую версию пейволла, дополнив его информацией о пользе курса.</p><figure className={`${styles.paywall} ${styles.paywallOverlayBorder}`}><img src="/uchi/rebuild/case2-6.png" alt="Вторая версия пейвола" /></figure><p className={styles.copy}>аналитика показала, что <strong>конверсия в покупку выросла с 0.6 до 0.7%</strong>, что все еще значительно ниже целевого показателя в 1%.</p><p className={styles.copy}><strong>гипотеза:</strong> если переориентировать пейволл полностью на родителя и сделать акцент только на пользе курса для ребенка, это позволит увеличить конверсию.</p></Section>
           <Section title="третья версия"><p className={styles.copy}>спроектировали третью версию пейвола, где в центре — образовательная ценность для родителя и понятный следующий шаг.</p><figure className={`${styles.paywall} ${styles.paywallNoBorder}`}><img src="/uchi/rebuild/case2-5.png" alt="Третья версия пейвола" /></figure></Section>
             <Result>конверсия в покупку выросла с 0.7 до 1.1%, гипотеза подтвердилась, целевой показатель был достигнут.</Result>
+            <CaseNavigation next="/parkly" />
           </div>
         </article>
 
