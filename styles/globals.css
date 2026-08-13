@@ -64,7 +64,7 @@ body {
   );
 }
 
-.is-windows .site-header-blur span:nth-child(odd) {
+.is-windows .site-header-blur {
   display: none;
 }
 
@@ -147,8 +147,8 @@ small,
   }
 
   .is-windows .magnifier-cursor {
-    -webkit-backdrop-filter: blur(12px);
-    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
   }
 
   .magnifier-cursor__icon {
