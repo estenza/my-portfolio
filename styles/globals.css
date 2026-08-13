@@ -64,6 +64,10 @@ body {
   );
 }
 
+.is-windows .site-header-blur span:nth-child(odd) {
+  display: none;
+}
+
 .site-header > :not(.site-header-blur) {
   position: relative;
   z-index: 1;
@@ -114,6 +118,8 @@ small,
   }
 
   .magnifier-cursor {
+    --cursor-x: -100px;
+    --cursor-y: -100px;
     position: fixed;
     z-index: 9999;
     top: 0;
@@ -133,10 +139,16 @@ small,
     -webkit-backdrop-filter: blur(24px);
     backdrop-filter: blur(24px);
     color: #fff;
+    translate: var(--cursor-x) var(--cursor-y);
     transform: translate3d(-14px, -50%, 0);
     transform-origin: center;
-    will-change: transform, backdrop-filter;
+    will-change: translate, transform, backdrop-filter;
     transition: width 180ms ease-out, height 180ms ease-out, padding 180ms ease-out, border-radius 180ms ease-out, opacity 90ms ease, transform 180ms ease-out;
+  }
+
+  .is-windows .magnifier-cursor {
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
   }
 
   .magnifier-cursor__icon {

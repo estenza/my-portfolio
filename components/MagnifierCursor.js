@@ -5,13 +5,27 @@ export default function MagnifierCursor() {
   const labelRef = useRef(null);
 
   useEffect(() => {
+    const platform = navigator.userAgentData?.platform || navigator.platform || navigator.userAgent;
+    const isWindows = /win/i.test(platform);
+    document.documentElement.classList.toggle('is-windows', isWindows);
+
     const mediaQuery = window.matchMedia('(pointer: fine)');
-    if (!mediaQuery.matches) return undefined;
+    if (!mediaQuery.matches) {
+      return () => document.documentElement.classList.remove('is-windows');
+    }
 
     const cursor = cursorRef.current;
+    let currentContentKey = '';
+    let currentWidth = 16;
+    let pendingPointer = null;
+    let moveFrame = null;
     document.body.classList.add('has-magnifier-cursor');
 
     const setCursorContent = ({ label = '', icon = 'eye', isLink = false }) => {
+      const contentKey = `${label}\u0000${icon}\u0000${Boolean(isLink)}`;
+      if (contentKey === currentContentKey) return currentWidth;
+
+      currentContentKey = contentKey;
       labelRef.current.textContent = label;
       cursor.dataset.label = label;
       cursor.dataset.icon = icon;
@@ -22,11 +36,13 @@ export default function MagnifierCursor() {
         const iconWidth = 18;
         const gap = 8;
         const horizontalPadding = 28;
-        cursor.style.setProperty('--magnifier-label-width', `${labelWidth + iconWidth + gap + horizontalPadding}px`);
-        return labelWidth + iconWidth + gap + horizontalPadding;
+        currentWidth = labelWidth + iconWidth + gap + horizontalPadding;
+        cursor.style.setProperty('--magnifier-label-width', `${currentWidth}px`);
+        return currentWidth;
       } else {
         cursor.style.removeProperty('--magnifier-label-width');
-        return isLink ? 28 : 16;
+        currentWidth = isLink ? 28 : 16;
+        return currentWidth;
       }
     };
 
@@ -37,17 +53,29 @@ export default function MagnifierCursor() {
       return Math.min(Math.max(x, safeLeft), Math.max(safeLeft, safeRight));
     };
 
-    const moveCursor = (event) => {
-      const target = event.target instanceof Element ? event.target : null;
+    const renderCursor = () => {
+      moveFrame = null;
+      if (!pendingPointer) return;
+
+      const { x, y, target } = pendingPointer;
       const projectCard = target && target.closest('[data-cursor-label]');
       const label = projectCard ? projectCard.dataset.cursorLabel : '';
       const icon = projectCard ? projectCard.dataset.cursorIcon : 'eye';
       const link = target && target.closest('a[href]');
       const width = setCursorContent({ label, icon, isLink: Boolean(link) });
 
-      cursor.style.left = `${keepCursorInViewport(event.clientX, width, Boolean(label))}px`;
-      cursor.style.top = `${event.clientY}px`;
+      cursor.style.setProperty('--cursor-x', `${keepCursorInViewport(x, width, Boolean(label))}px`);
+      cursor.style.setProperty('--cursor-y', `${y}px`);
       cursor.dataset.visible = 'true';
+    };
+
+    const moveCursor = (event) => {
+      pendingPointer = {
+        x: event.clientX,
+        y: event.clientY,
+        target: event.target instanceof Element ? event.target : null,
+      };
+      if (moveFrame === null) moveFrame = window.requestAnimationFrame(renderCursor);
     };
 
     const updateCursorFromEvent = (event) => setCursorContent(event.detail || {});
@@ -77,7 +105,9 @@ export default function MagnifierCursor() {
     window.addEventListener('pointercancel', releaseCursor);
 
     return () => {
+      document.documentElement.classList.remove('is-windows');
       document.body.classList.remove('has-magnifier-cursor');
+      if (moveFrame !== null) window.cancelAnimationFrame(moveFrame);
       window.removeEventListener('pointermove', moveCursor);
       window.removeEventListener('magnifier-cursor-change', updateCursorFromEvent);
       document.documentElement.removeEventListener('mouseleave', hideCursor);
