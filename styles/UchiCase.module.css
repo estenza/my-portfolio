@@ -28,7 +28,9 @@
   padding-inline: 4px;
 }
 .courses { padding-top: 64px; }
-.courseRow { display: flex; gap: 20px; overflow-x: auto; }
+.courseRow { display: flex; gap: 20px; overflow: hidden; }
+.courseSet { display: flex; flex: 0 0 auto; gap: 20px; }
+.courseSetDuplicate { display: none; }
 .courseRow img { flex: 0 0 auto; width: 96px; height: 96px; object-fit: cover; }
 .whatGrid, .improvements, .designGrid, .hypotheses { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
 .whatGrid article { min-height: 140px; padding: 24px; background: #f6f7f8; border-radius: 24px; }
@@ -187,6 +189,14 @@
     gap: 16px;
     overflow: visible;
     animation: course-row-scroll 36s linear infinite;
+  }
+
+  .courseSet {
+    gap: 16px;
+  }
+
+  .courseSetDuplicate {
+    display: flex;
   }
 
   .courses::before,

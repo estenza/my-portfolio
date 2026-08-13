@@ -74,7 +74,12 @@ export default function UchiPage() {
           <Section className={styles.courses}>
             <h2>за 4 года поработал над 7 курсами</h2>
             <div className={styles.courseRow}>
-              {[...courses, ...courses].map((src, index) => <img key={`${src}-${index}`} src={src} alt="" />)}
+              <div className={styles.courseSet}>
+                {courses.map((src) => <img key={src} src={src} alt="" />)}
+              </div>
+              <div className={`${styles.courseSet} ${styles.courseSetDuplicate}`} aria-hidden="true">
+                {courses.map((src) => <img key={`duplicate-${src}`} src={src} alt="" />)}
+              </div>
             </div>
           </Section>
 
