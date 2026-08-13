@@ -46,22 +46,12 @@ body {
 }
 
 .site-header-blur span {
+  top: var(--top);
+  bottom: auto;
+  height: var(--height);
   backdrop-filter: blur(var(--blur));
   -webkit-backdrop-filter: blur(var(--blur));
-  mask-image: linear-gradient(
-    to top,
-    transparent var(--start),
-    #000 var(--middle-start),
-    #000 var(--middle-end),
-    transparent var(--end)
-  );
-  -webkit-mask-image: linear-gradient(
-    to top,
-    transparent var(--start),
-    #000 var(--middle-start),
-    #000 var(--middle-end),
-    transparent var(--end)
-  );
+  background: rgb(255 255 255 / 1%);
 }
 
 .site-header > :not(.site-header-blur) {
@@ -134,8 +124,11 @@ small,
     -webkit-backdrop-filter: blur(24px);
     color: #fff;
     transform: translate3d(-14px, -50%, 0);
+    -webkit-transform: translate3d(-14px, -50%, 0);
     transform-origin: center;
     will-change: transform, backdrop-filter;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
     transition: width 180ms ease-out, height 180ms ease-out, padding 180ms ease-out, border-radius 180ms ease-out, opacity 90ms ease, transform 180ms ease-out;
   }
 

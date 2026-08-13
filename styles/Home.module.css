@@ -279,7 +279,7 @@
   width: min(100%, 573px);
   aspect-ratio: 573 / 317;
   overflow: hidden;
-  border-radius: 12px;
+  border-radius: 16px;
 }
 
 .uchiPaywallVideo {
@@ -752,6 +752,10 @@
 
   .uchiPaywallPreview {
     padding-top: 16px;
+  }
+
+  .uchiPaywallFrame {
+    border-radius: 12px;
   }
 
   .funCardVisual {
