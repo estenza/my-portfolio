@@ -1,8 +1,8 @@
-import Head from 'next/head';
 import { useEffect } from 'react';
 import { HeroUIProvider } from '@heroui/react';
 import '@/styles/globals.css';
 import { Golos_Text } from 'next/font/google';
+import Meta from '@/components/Meta';
 import TypographyGlue from '@/components/TypographyGlue';
 import MagnifierCursor from '@/components/MagnifierCursor';
 
@@ -42,12 +42,7 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
-      <Head>
-        <title>Вадим Зарипов – Продуктовый дизайнер</title>
-        <meta name="description" content="Портфолио продуктового дизайнера Вадима Зарипова. Опыт в Edtech, Fintech, SaaS." />
-        <link rel="icon" href="/favicons/favicon.svg" type="image/svg+xml" />
-        <link rel="manifest" href="/favicons/site.webmanifest" />        
-      </Head>
+      <Meta />
       
       <HeroUIProvider>
         <div className={`${golos.className} ${golos.variable}`}>
