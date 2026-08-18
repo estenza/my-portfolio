@@ -16,8 +16,17 @@
   --font-mono: var(--font-geist-mono);
 }
 
+html,
 body {
   background: var(--background);
+}
+
+html.case-page,
+body.case-page {
+  background: #eceff2;
+}
+
+body {
   color: var(--foreground);
   font-family: var(--font-golos-text), Arial, Helvetica, sans-serif;
   font-weight: 400;

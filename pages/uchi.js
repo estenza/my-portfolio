@@ -110,8 +110,8 @@ export default function UchiPage() {
             </div>
           </Section>
 
-          <Section title="первые правки: онбординг">
-            <p className={styles.copy}>сперва попробовали устранить возможные препятствия на пути игрока небольшими UX-правками, тем самым повысив доходимость до завершения онбординга</p>
+          <Section title="первые правки">
+            <p className={styles.copy}>без исследований попробовали устранить возможные препятствия на пути игрока небольшими UX-правками, тем самым повысив доходимость до завершения онбординга</p>
             <div className={styles.improvements}>{improvements.map(([image, text]) => <figure key={image}><div><img src={`/uchi/rebuild/${image}`} alt="" /></div><figcaption>{text}</figcaption></figure>)}</div>
           </Section>
 

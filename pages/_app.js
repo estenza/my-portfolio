@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { HeroUIProvider } from '@heroui/react';
+import { useRouter } from 'next/router';
 import '@/styles/globals.css';
 import { Golos_Text } from 'next/font/google';
 import Meta from '@/components/Meta';
@@ -14,6 +15,9 @@ const golos = Golos_Text({
 });
 
 function MyApp({ Component, pageProps }) {
+  const { pathname } = useRouter();
+  const isCasePage = ['/uchi', '/parkly', '/concepts'].includes(pathname);
+
   useEffect(() => {
     const scrollKey = `scroll-position:${window.location.pathname}${window.location.search}`;
     const savedPosition = window.sessionStorage.getItem(scrollKey);
@@ -39,6 +43,16 @@ function MyApp({ Component, pageProps }) {
       window.history.scrollRestoration = previousScrollRestoration;
     };
   }, []);
+
+  useEffect(() => {
+    document.documentElement.classList.toggle('case-page', isCasePage);
+    document.body.classList.toggle('case-page', isCasePage);
+
+    return () => {
+      document.documentElement.classList.remove('case-page');
+      document.body.classList.remove('case-page');
+    };
+  }, [isCasePage]);
 
   return (
     <>
