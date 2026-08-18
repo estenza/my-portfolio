@@ -266,7 +266,7 @@ function ProjectCard({ project }) {
         <Image src="/workplaces/vnutri-icon.svg" alt="" width={40} height={40} className={`${styles.projectCardIcon} mt-1 h-10 w-10 shrink-0 rounded-xl`} />
         <div>
           <h2 className={styles.cardTitle}>внутри — психологическая платформа</h2>
-          <p className={`${styles.bodyNarrow} ${styles.muted} mt-2`}>2026–н.в.&nbsp;&nbsp;web</p>
+          <p className={`${styles.bodyNarrow} ${styles.muted} mt-2`}>2026–н.в&nbsp;&nbsp;web</p>
         </div>
       </div>
       <div className={`${styles.vnutriCardVisual} relative min-h-0 flex-1 pt-4`}>
@@ -294,13 +294,13 @@ function RandomFacts() {
   return (
     <section className={styles.randomFacts} aria-labelledby="facts-title">
       <h2 id="facts-title" className={styles.randomFactsTitle}>рандомные факты обо мне</h2>
-      <p className={styles.randomFactsIntro}>с детства люблю творить: рисовал машины и хотел стать автомобильным дизайнером. сейчас детская мечта переросла в желание поработать над интерфейсом автомобильной бортовой системы.</p>
+      <p className={styles.randomFactsIntro}>с детства люблю творить: рисовал машины и хотел стать автомобильным дизайнером. сейчас детская мечта переросла в желание поработать над интерфейсом автомобильной бортовой системы</p>
       <div className={styles.randomFactsRow}>
         <FactPhotoStack />
         <p>в прошлом году побывал в Японии и мечтаю съездить туда еще раз, чтобы попасть на слет водителей JDM-машин. и очень хочу свою машину (японскую, конечно же!)</p>
       </div>
       <div className={styles.randomFactsRow}>
-        <p>хожу в английский разговорный клуб, выращиваю комнатные растения, живу с очаровательной бенгальской кошкой Юки.</p>
+        <p>хожу в английский разговорный клуб, выращиваю комнатные растения, живу с бенгальской 🐆 кошкой. летом играю в бадминтон и волейбол, а зимой катаю на сноуборде</p>
         <FactPhotoStack reverse />
       </div>
     </section>
@@ -339,7 +339,7 @@ export default function Home() {
             priority
             className={`${styles.profileImage} h-24 w-24 shrink-0 rounded-full bg-[#E0E0E0] sm:h-[120px] sm:w-[120px]`}
           />
-          <h1 className={`${styles.bodyLarge} max-w-[629px]`}>я вадим зарипов, продуктовый дизайнер. 6 лет создаю продуманные и креативные решения в edtech, стартапах и продуктах 0 → 1.</h1>
+          <h1 className={`${styles.bodyLarge} max-w-[629px]`}>я вадим зарипов, продуктовый дизайнер. 6 лет создаю продуманные и креативные решения в edtech, стартапах и продуктах 0 → 1</h1>
         </section>
 
         <section id="projects" className={`${styles.projectsGrid} mx-auto grid w-full max-w-[1440px] grid-cols-1 gap-6 px-6 pb-6 lg:grid-cols-2 xl:px-10`}>
@@ -350,7 +350,7 @@ export default function Home() {
 
         <RandomFacts />
 
-        <footer className={`${styles.footer} ${styles.body} mx-auto flex h-[120px] w-full max-w-[1440px] items-center justify-between px-5 text-[20px] leading-6 sm:px-10`}>
+        <footer className={`${styles.footer} ${styles.body} mx-auto flex h-[104px] w-full max-w-[1440px] items-center justify-between px-5 text-[20px] leading-6 sm:px-10`}>
           <span>дизайнил + кодил вадим зарипов</span>
           <span>2026</span>
         </footer>

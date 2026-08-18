@@ -11,7 +11,7 @@ const navigation = [
 
 export default function MainHeader({ fullBleed = false }) {
   return (
-    <header className={`${styles.mainHeader} site-header h-[72px] w-full ${fullBleed ? 'w-[calc(100%+32px)] -mx-4' : ''}`}>
+    <header className={`${styles.mainHeader} ${fullBleed ? styles.mainHeaderFullBleed : 'w-full'} site-header h-[72px]`}>
       <ProgressiveHeaderBlur />
       <div className={`${styles.mainHeaderInner} mx-auto flex h-full w-full max-w-[1440px] items-center justify-between px-5 sm:px-10`}>
         <Link href="/" className={styles.bodyNarrow}>главная</Link>
