@@ -11,8 +11,6 @@ const courses = [
   '/uchi/courses/programming-heroes.svg',
   '/uchi/courses/english-pet.svg',
   '/uchi/courses/word-keepers.svg',
-  '/uchi/courses/science-around.svg',
-  '/uchi/courses/geometry.svg',
 ];
 
 const funnel = [
@@ -77,9 +75,11 @@ export default function UchiPage() {
             <div className={styles.courseRow}>
               <div className={styles.courseSet}>
                 {courses.map((src) => <img key={src} src={src} alt="" />)}
+                <span className={styles.courseMore}>+2</span>
               </div>
               <div className={`${styles.courseSet} ${styles.courseSetDuplicate}`} aria-hidden="true">
                 {courses.map((src) => <img key={`duplicate-${src}`} src={src} alt="" />)}
+                <span className={styles.courseMore}>+2</span>
               </div>
             </div>
           </Section>

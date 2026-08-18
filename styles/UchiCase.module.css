@@ -34,15 +34,7 @@
 .courseSet { display: flex; flex: 0 0 auto; gap: 20px; }
 .courseSetDuplicate { display: none; }
 .courseRow img { flex: 0 0 auto; width: 96px; height: 96px; border-radius: 14px; object-fit: cover; }
-.courseSet:not(.courseSetDuplicate) img { position: relative; animation: course-icon-reveal 560ms cubic-bezier(.22, 1, .36, 1) backwards; }
-.courseSet:not(.courseSetDuplicate) img:first-child { z-index: 8; animation: none; }
-.courseSet:not(.courseSetDuplicate) img:nth-child(2) { z-index: 7; --course-start: -116px; animation-delay: 80ms; }
-.courseSet:not(.courseSetDuplicate) img:nth-child(3) { z-index: 6; --course-start: -232px; animation-delay: 160ms; }
-.courseSet:not(.courseSetDuplicate) img:nth-child(4) { z-index: 5; --course-start: -348px; animation-delay: 240ms; }
-.courseSet:not(.courseSetDuplicate) img:nth-child(5) { z-index: 4; --course-start: -464px; animation-delay: 320ms; }
-.courseSet:not(.courseSetDuplicate) img:nth-child(6) { z-index: 3; --course-start: -580px; animation-delay: 400ms; }
-.courseSet:not(.courseSetDuplicate) img:nth-child(7) { z-index: 2; --course-start: -696px; animation-delay: 480ms; }
-.courseSet:not(.courseSetDuplicate) img:nth-child(8) { z-index: 1; --course-start: -812px; animation-delay: 560ms; }
+.courseMore { display: grid; flex: 0 0 auto; width: 96px; height: 96px; place-items: center; border-radius: 14px; background: #f0f0f0; color: #1a1a1a; font-size: 32px; font-weight: 500; line-height: 40px; }
 .whatGrid, .improvements, .designGrid, .hypotheses { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
 .whatGrid article { min-height: 140px; padding: 24px; background: #f6f7f8; border-radius: 24px; }
 .whatGrid h3 { margin: 0 0 8px; font-size: 20px; line-height: 28px; font-weight: 500; }
@@ -267,12 +259,6 @@
   to { transform: translateX(calc(-50% - 8px)); }
 }
 
-@keyframes course-icon-reveal {
-  from { opacity: 0; transform: translateX(var(--course-start)) scale(.96); }
-  to { opacity: 1; transform: translateX(0) scale(1); }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .courseRow,
-  .courseSet:not(.courseSetDuplicate) img { animation: none; }
+  .courseRow { animation: none; }
 }
