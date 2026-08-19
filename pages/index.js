@@ -266,13 +266,13 @@ function ProjectCard({ project }) {
         <Image src="/workplaces/vnutri-icon.svg" alt="" width={40} height={40} className={`${styles.projectCardIcon} mt-1 h-10 w-10 shrink-0 rounded-xl`} />
         <div>
           <h2 className={styles.cardTitle}>внутри — психологическая платформа</h2>
-          <p className={`${styles.bodyNarrow} ${styles.muted} mt-2`}>2026–н.в&nbsp;&nbsp;web</p>
+          <p className={`${styles.bodyNarrow} ${styles.muted} mt-2`}>2026&nbsp;&nbsp;web</p>
         </div>
       </div>
       <div className={`${styles.vnutriCardVisual} relative min-h-0 flex-1 pt-4`}>
         <Image src="/home-figma/vnutri-graphic.png" alt="Экраны платформы «внутри»" fill className={`${styles.projectVisual} object-contain`} sizes="(min-width: 768px) 668px, 100vw" />
       </div>
-      <p className={`${styles.cardOutcome} px-8 py-7`}>личный проект, развиваю самостоятельно</p>
+      <p className={`${styles.cardOutcome} px-8 py-7`}>мой пет-проект, разработан с помощью ИИ</p>
     </ProjectShell>
   );
 }
