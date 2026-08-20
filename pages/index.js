@@ -8,7 +8,7 @@ import styles from '@/styles/Home.module.css';
 const projects = [
   {
     kind: 'uchi',
-    label: 'Учи.ру — образовательные игры для детей',
+    label: 'Учи.ру — образовательные игры для школьников',
     href: '/uchi',
   },
   {
@@ -226,7 +226,7 @@ function UchiProjectCard({ project }) {
       <div className={`${styles.projectCardHeader} flex items-start gap-5 px-8 pt-8`}>
         <Image src="/workplaces/uchi.png" alt="" width={40} height={40} className={`${styles.projectCardIcon} mt-1 h-10 w-10 rounded-xl`} />
         <div>
-          <h2 className={styles.cardTitle}>учи.ру — образовательные игры для детей</h2>
+          <h2 className={styles.cardTitle}>учи.ру — образовательные игры для школьников</h2>
           <p className={`${styles.bodyNarrow} ${styles.muted} mt-2`}>2021–2025&nbsp;&nbsp;web</p>
         </div>
       </div>
