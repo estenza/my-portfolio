@@ -1,8 +1,8 @@
-.page { min-height: 100vh; padding: 0 16px; background: #eceff2; color: #1a1a1a; }
+.page { display: flex; min-height: 100vh; flex-direction: column; padding: 0 16px; background: #eceff2; color: #1a1a1a; }
 .header { width: calc(100% + 32px); height: 72px; margin-inline: -16px; }
 .headerInner { display: flex; height: 100%; max-width: 1440px; margin-inline: auto; align-items: center; justify-content: space-between; padding-inline: 16px; }
 .header a { color: inherit; text-decoration: none; }
-.intro { min-height: calc(100vh - 72px); border-radius: 40px; background: #fff; padding: 40px 0 80px; }
+.intro { order: 1; min-height: calc(100vh - 72px); border-radius: 40px; background: #fff; padding: 40px 0 80px; }
 .projectInfo { width: 800px; max-width: calc(100% - 64px); box-sizing: border-box; margin-inline: auto; padding: 32px; border-radius: 32px; background: #f6f7f8; }
 .brand { display: flex; align-items: center; gap: 24px; }
 .brand img { width: 56px; height: 56px; border-radius: 16px; }
@@ -24,10 +24,14 @@
 .contributionGrid h3 { margin: 0 0 8px; font-size: 20px; font-weight: 500; line-height: 28px; }
 .contributionGrid p { margin: 0; font-size: 20px; line-height: 28px; }
 .case { margin-top: 16px; border-radius: 40px; background: #fff; }
+.bookingCase { order: 2; }
+.ticketCase { order: 3; }
 .caseContent { width: 800px; max-width: calc(100% - 64px); margin-inline: auto; padding-block: 80px; }
+.caseContentWithNavigation { padding-bottom: 40px; }
 .caseHeader { padding-inline: 4px; }
-.caseHeader h2 { margin: 0 0 32px; font-size: 24px; font-weight: 500; line-height: 32px; }
+.caseHeader h2 { margin: 0 0 48px; font-size: 32px; font-weight: 500; line-height: 40px; }
 .caseHeader p { margin: 0; font-size: 20px; line-height: 28px; }
+.caseHeader strong { font-weight: 500; }
 .caseHeader p + p { margin-top: 32px; }
 .caseImage { display: block; width: 100%; height: auto; margin-top: 40px; border-radius: 32px; }
 .caseSection { padding-top: 80px; }
@@ -35,15 +39,31 @@
 .caseSection h2 { margin: 0 0 32px; font-size: 24px; font-weight: 500; line-height: 32px; }
 .caseSection p { margin: 0; font-size: 20px; line-height: 28px; }
 .caseSection p + p { margin-top: 32px; }
+.caseSubheading { margin: 64px 4px 0; font-size: 20px; font-weight: 500; line-height: 28px; }
+.changeList { display: grid; gap: 32px; margin: 40px 4px 0; padding: 0; list-style: none; font-size: 20px; line-height: 28px; }
+.changeList li { position: relative; padding-left: 24px; }
+.changeList li::before { position: absolute; top: 0; left: 0; content: '✦'; }
+.v2Unresolved { margin: 40px 4px 0; }
+.v2Unresolved h3 { margin: 0 0 40px; font-size: 20px; font-weight: 500; line-height: 28px; }
+.v2Unresolved p { margin: 0; }
+.caseResult { margin-top: 80px; padding: 32px; border-radius: 32px; background: #e2fae5; }
+.caseResult h3 { margin: 0 0 20px; font-size: 20px; font-weight: 500; line-height: 28px; }
+.caseResult p { position: relative; margin: 0; padding-left: 32px; }
+.caseResult p::before { position: absolute; top: 0; left: 0; content: '✦'; }
 .caseSection .caseImage { margin-top: 40px; }
 .caseList { margin: 16px 0 0; padding: 0; list-style: none; counter-reset: item; font-size: 20px; line-height: 28px; }
 .caseList li { display: grid; grid-template-columns: 20px minmax(0, 1fr); column-gap: 8px; padding: 0; }
 .caseList li::before { counter-increment: item; content: counter(item) '.'; }
 .caseList li + li { margin-top: 16px; }
+.mvpFindings { margin: 40px 4px 0; }
+.mvpFindings > p { margin: 0; font-size: 20px; line-height: 28px; }
+.mvpFindings h3 { margin: 64px 0 0; font-size: 20px; font-weight: 500; line-height: 28px; }
 .caseFindings { display: grid; gap: 32px; margin: 40px 0 0; padding: 0; list-style: none; font-size: 20px; line-height: 28px; }
-.caseFindings li { display: flex; gap: 16px; }
-.caseFindings li::before { flex: 0 0 10px; width: 10px; height: 10px; margin-top: 9px; border-radius: 50%; background: #ff6169; box-shadow: 0 0 0 4px rgb(255 97 105 / 24%); content: ''; }
-.footer { display: flex; width: calc(100% + 32px); height: 120px; margin-inline: -16px; align-items: center; justify-content: space-between; padding: 0 16px; font-size: 20px; line-height: 24px; }
+.caseFindings li { position: relative; padding-left: 26px; }
+.caseFindings li::before { position: absolute; top: 9px; left: 0; width: 10px; height: 10px; border-radius: 50%; background: #ff6169; box-shadow: 0 0 0 4px rgb(255 97 105 / 24%); content: ''; }
+.caseFindings strong { font-weight: 500; }
+.caseFindings .caseFindingSuccess::before { background: #2edb5f; box-shadow: 0 0 0 4px rgb(46 219 95 / 24%); }
+.footer { display: flex; order: 4; width: calc(100% + 32px); height: 120px; margin-inline: -16px; align-items: center; justify-content: space-between; padding: 0 16px; font-size: 20px; line-height: 24px; }
 
 @media (min-width: 640px) {
   .headerInner, .footer { padding-inline: 40px; }
@@ -74,8 +94,9 @@
   .contributionGrid p { font-size: 18px; line-height: 26px; }
   .case { border-radius: 32px; }
   .caseContent { max-width: calc(100% - 32px); padding-block: 40px 56px; }
+  .caseContentWithNavigation { padding-bottom: 40px; }
   .caseHeader { padding-inline: 0; }
-  .caseHeader h2 { margin-bottom: 24px; font-size: 22px; line-height: 30px; }
+  .caseHeader h2 { margin-bottom: 40px; font-size: 22px; line-height: 30px; }
   .caseHeader p { font-size: 18px; line-height: 26px; }
   .caseHeader p + p { margin-top: 24px; }
   .caseImage { margin-top: 40px; border-radius: 16px; }
@@ -84,12 +105,20 @@
   .caseSection h2 { margin-bottom: 24px; font-size: 22px; line-height: 30px; }
   .caseSection p { font-size: 18px; line-height: 26px; }
   .caseSection p + p { margin-top: 24px; }
+  .caseSubheading { margin: 40px 0 0; font-size: 18px; line-height: 26px; }
+  .changeList { gap: 24px; margin: 40px 0 0; font-size: 18px; line-height: 26px; }
+  .changeList li { padding-left: 16px; }
+  .v2Unresolved { margin: 56px 0 0; }
+  .v2Unresolved h3 { margin-bottom: 40px; font-size: 18px; line-height: 26px; }
+  .caseResult { margin-top: 56px; padding: 24px; border-radius: 24px; }
   .caseSection .caseImage { margin-top: 40px; }
   .caseList { margin-top: 16px; font-size: 18px; line-height: 26px; }
   .caseList li { grid-template-columns: 18px minmax(0, 1fr); column-gap: 6px; padding: 0; }
   .caseList li + li { margin-top: 16px; }
+  .mvpFindings { margin: 40px 0 0; }
+  .mvpFindings > p, .mvpFindings h3 { font-size: 18px; line-height: 26px; }
+  .mvpFindings h3 { margin-top: 40px; }
   .caseFindings { gap: 32px; margin-top: 40px; font-size: 18px; line-height: 26px; }
-  .caseFindings li { gap: 16px; }
-  .caseFindings li::before { margin-top: 8px; }
+  .caseFindings li::before { top: 8px; }
   .footer { height: 120px; font-size: 20px; }
 }

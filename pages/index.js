@@ -255,7 +255,7 @@ function ProjectCard({ project }) {
         <div className={`${styles.funCardVisual} relative min-h-0 flex-1 pt-4`}>
           <Image src="/home-figma/fun-graphic.png" alt="Концепты интерфейсов" fill className={`${styles.projectVisual} object-contain`} sizes="(min-width: 768px) 668px, 100vw" />
         </div>
-        <p className={`${styles.cardOutcome} px-8 py-7`}>концепты, прототипы, не взятое в работу</p>
+        <p className={`${styles.cardOutcome} px-8 py-7`}>UI-кейсы: концепты, прототипы</p>
       </ProjectShell>
     );
   }

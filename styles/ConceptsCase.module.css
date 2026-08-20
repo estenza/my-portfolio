@@ -15,6 +15,7 @@
 
 .case { margin-top: 16px; }
 .caseContent { padding-block: 80px; }
+.caseContentWithNavigation { padding-bottom: 40px; }
 .caseHeader { padding-inline: 4px; }
 .caseTitle { display: flex; align-items: baseline; gap: 20px; }
 .caseTitle h2 { margin: 0; font-size: 24px; font-weight: 500; line-height: 32px; }
@@ -41,6 +42,7 @@
   .brand h1 { font-size: 32px; line-height: 40px; }
   .intro p { margin-inline: 0; font-size: 20px; line-height: 28px; }
   .caseContent { padding-block: 56px; }
+  .caseContentWithNavigation { padding-bottom: 40px; }
   .caseHeader { padding-inline: 0; }
   .caseTitle { display: block; }
   .caseTitle h2 { font-size: 22px; line-height: 30px; }

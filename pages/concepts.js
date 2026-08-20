@@ -7,7 +7,7 @@ import styles from '@/styles/ConceptsCase.module.css';
 function Case({ title, year, children, image, alt, navigation }) {
   return (
     <article className={styles.case}>
-      <div className={styles.caseContent}>
+      <div className={`${styles.caseContent} ${navigation ? styles.caseContentWithNavigation : ''}`}>
         <header className={styles.caseHeader}>
           <div className={styles.caseTitle}>
             <h2>{title}</h2>
