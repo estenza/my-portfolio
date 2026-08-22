@@ -105,39 +105,46 @@ export default function UchiPage() {
 
           <Section title="проблема">
             <div className={styles.problemGrid}>
-              <div><p>через две недели после релиза увидели, что CR в покупку курса составляет 0.7%, что меньше целевого показателя в 1%.</p><p>события аналитики показали, что больше всего отвалов по воронке было на этапе онбординга в начале игры</p></div>
+              <div><p>через две недели после релиза увидели, что CR в покупку курса составляет <strong>0.7%</strong>, что меньше целевого показателя в <strong>1%</strong>.</p><p>события аналитики показали, что больше всего отвалов по воронке было во время онбординга в начале игры — мы теряли на этом этапе <strong>26%</strong> учеников, только <strong>70.6%</strong> доходило до завершения обучения</p></div>
               <div className={styles.funnel}>{funnel.map((item) => <div key={item.label} className={item.muted ? styles.mutedFunnel : ''}><span>{item.label}</span><div className={styles.funnelTrack}><b style={{ width: item.fillWidth }}>{item.displayValue}</b>{item.lossWidth && <i style={{ left: item.lossOffset, width: item.lossWidth }} />}{item.lossLabel && <em style={{ left: item.lossLabelPosition }}>{item.lossLabel}</em>}</div></div>)}</div>
             </div>
+            <p className={`${styles.copy} ${styles.problemConclusion}`}>нужно было выяснить причину отвалов, для этого выбрали формат немодерируемых плей-тестов с детьми, но сперва решили просто увеличить доходимость небольшими UX-правками и проверить их влияние на воронку с помощью A/B-теста</p>
           </Section>
 
-          <Section title="первые правки">
-            <p className={styles.copy}>за счет экспертности попробовали устранить возможные препятствия для завершения онбординга небольшими UX правками, основанными на гипотезах, которые сформировали вместе с командой на брейншторме. так, я предложил добавить автоскип для диалогов и фидбэка к ответам, чтобы сократить количество кликов и сделать игровой процесс более бесшовным.</p>
+          <Section title="первый A/B-тест">
+            <p className={`${styles.copy} ${styles.hypothesesIntro}`}>вместе с продактом внимательно изучили весь флоу, сопоставив его с событиями аналитики, выделили проблемные места и сформулировали для них гипотезы</p>
+            <div className={styles.hypotheses}>
+              <div className={styles.hypothesisRow}><article><span>!</span><p><strong>проблема:</strong> много отвалов на обучающих диалогах</p></article><article className={styles.hypothesisSolution}><span>→</span><p><strong>гипотеза:</strong> дети не понимают назначение кнопки «→» / не замечают ее и потому закрывают игру. если добавить автопереход после завершения озвучки, то уменьшим отвалы на диалогах</p></article></div>
+              <div className={styles.hypothesisRow}><article><span>!</span><p><strong>проблема:</strong> заметные отвалы между заданиями во время и после онбординга</p></article><article className={styles.hypothesisSolution}><span>→</span><p><strong>гипотеза:</strong> когда дети видят фидбэк «правильно/неправильно», они не понимают, что нужно нажать на кнопку «Дальше». если сделать клик необязательным и добавить автопереход к следующему заданию, то уменьшим отвалы во время решения заданий</p></article></div>
+            </div>
+            <p className={`${styles.copy} ${styles.abTestConclusion}`}>на основе сформулированных гипотез внесли UX-правки и запустили A/B-тест на 2 недели</p>
             <div className={styles.improvements}>{improvements.map(([image, text]) => <figure key={image}><div><img src={`/uchi/rebuild/${image}`} alt="" /></div><figcaption>{text}</figcaption></figure>)}</div>
           </Section>
 
-          <Result>промежуточный результат: процент завершивших онбординг повысился с 63.3 до 68.5%, общий CR в покупку незначительно вырос с 0.7% до 0.8%</Result>
-          <p className={styles.copy}>пришли к выводу, что у нас недостаточно данных для того, чтобы более существенно повлиять на CR в покупку — нужны дополнительные исследования</p>
+          <Result>процент завершивших онбординг повысился <strong>с 70.8 до 81.1%</strong>, общий CR в покупку незначительно вырос <strong>с 0.7% до 0.8%</strong></Result>
+          <p className={styles.copy}>пришли к выводу, что у нас недостаточно данных для того, чтобы более существенно повлиять на CR в покупку курса — нужны дополнительные исследования</p>
 
-          <Section title="немодерируемые тесты с детьми"><p className={styles.copy}>были подобраны 8 респондентов среди детей, уже занимающихся на «учи.ру», но еще не знакомых с курсом: мальчики и девочки поровну, ученики 1–4-х классов</p></Section>
-
-          <Section title="выявили проблемы и сформулировали гипотезы">
-            <div className={styles.hypotheses}>
-              <div className={styles.hypothesisRow}><article><span>!</span><p>трудные задачи вкупе с тайм-прессингом дают слишком высокую когнитивную нагрузку</p></article><article className={styles.hypothesisSolution}><span>→</span><p>адаптировать сложность задач под уровень игры ребенка, чтобы найти баланс между скукой и сложностью</p></article></div>
-              <div className={styles.hypothesisRow}><article><span>!</span><p>онбординг затянут, дети устают еще до первого уровня</p></article><article className={styles.hypothesisSolution}><span>→</span><p>сократить количество кругов с двух до одного, чтобы быстрее переводить ребенка к уровням</p></article></div>
-              <div className={styles.hypothesisRow}><article><span>!</span><p>боты-соперники редко ошибаются, их сложно победить</p></article><article className={styles.hypothesisSolution}><span>→</span><p>адаптировать сложность соперников под уровень игры ребенка</p></article></div>
-              <div className={styles.hypothesisRow}><article><span>!</span><p>дети теряются и не понимают, что нужно делать</p></article><article className={styles.hypothesisSolution}><span>→</span><p>добавить CTA-подсказки, чтобы сократить время на ввод ответа</p></article></div>
+          <Section title="немодерируемые тесты с детьми">
+            <p className={styles.copy}>ux-исследователь подобрал для нас 8 детей, уже занимающихся на «учи.ру», но еще не знакомых с курсом: мальчики и девочки поровну, ученики 1–4-х классов. я провел часть ux-тестов самостоятельно из-за высокой загрузки ux-ресерчера.</p>
+            <p className={`${styles.copy} ${styles.researchConclusion}`}>исследование показало серьезные проблемы со сложностью и с продолжительностью заездов, детям было тяжело решать задачи и одновременно следить за своим местом на трассе. один ребенок во время прохождения второго уровня даже заплакал 😢, пришлось прервать тест</p>
+            <div className={`${styles.hypotheses} ${styles.researchHypotheses}`}>
+              <div className={styles.hypothesisRow}><article><span>!</span><p><strong>проблема:</strong> задачи для кого-то были слишком трудными, а для кого-то слишком простыми</p></article><article className={styles.hypothesisSolution}><span>→</span><p><strong>гипотеза:</strong> если адаптировать сложность задач под уровень игры ребенка, то удастся найти баланс между сложностью и скукой</p></article></div>
+              <div className={styles.hypothesisRow}><article><span>!</span><p><strong>проблема:</strong> боты-соперники редко косячили, их было сложно победить даже если не ошибаться во время ответов</p></article><article className={styles.hypothesisSolution}><span>→</span><p><strong>гипотеза:</strong> если адаптировать сложность соперников под то, как ребенок справляется с задачами, то победить станет проще (или сложнее)</p></article></div>
+              <div className={styles.hypothesisRow}><article><span>!</span><p><strong>проблема:</strong> онбординг был затянут, дети теряли интерес еще до первого уровня</p></article><article className={styles.hypothesisSolution}><span>→</span><p><strong>гипотеза:</strong> если сократить количество кругов с двух до одного, то дети будут быстрее доходить до первого уровня</p></article></div>
+              <div className={styles.hypothesisRow}><article><span>!</span><p><strong>проблема:</strong> явный перебор с четырьмя кругами на уровнях — дети сильно уставали или начинали скучать</p></article><article className={styles.hypothesisSolution}><span>→</span><p><strong>гипотеза:</strong> если сократить количество кругов с четырех до двух, то игровой процесс станет более динамичным, дети будут меньше уставать</p></article></div>
+              <div className={styles.hypothesisRow}><article><span>!</span><p><strong>проблема:</strong> дети терялись и начинали следить за машинками, забывая решать задачи</p></article><article className={styles.hypothesisSolution}><span>→</span><p><strong>гипотеза:</strong> если добавить CTA-подсказки на ответы после нескольких секунд бездействия, то удастся переключить фокус внимания ребенка на задачи</p></article></div>
             </div>
           </Section>
 
-          <Section title="проектирование">
+          <Section title="финальные A/B-тесты">
             <div className={styles.designGrid}>
-              <figure className={styles.designSquare}><img src="/uchi/rebuild/laps.png" alt="Сокращение кругов" className={styles.designFill} /><figcaption>1. сократили количество кругов в обучающей гонке с 2 до 1</figcaption></figure>
-              <figure><img src="/uchi/rebuild/difficulty.png" alt="Адаптивная сложность" className={styles.designFill} /><figcaption>2. внедрили адаптивную сложность задач</figcaption></figure>
-              <figure><img src="/uchi/rebuild/cta.gif" alt="Подсказка" /><figcaption>3. добавили подсказки к ответам после 3-х секунд бездействия</figcaption></figure>
-              <figure><img src="/uchi/rebuild/cta-point4.gif" alt="Общий CTA" /><figcaption>4. добавили общий CTA на варианты ответа после 10 секунд бездействия</figcaption></figure>
+              <figure className={styles.designSquare}><img src="/uchi/rebuild/laps.png" alt="Сокращение кругов" className={styles.designFill} /><figcaption>1. в два раза сократили кол-во кругов в заездах: в обучающей гонке с 2 до 1, на уровнях с 4 до 2</figcaption></figure>
+              <figure><img src="/uchi/rebuild/difficulty.png" alt="Адаптивная сложность" className={styles.designFill} /><figcaption>2. геймдизайнер создал алгоритм, адаптирующий сложность заданий и соперников под уровень игрока</figcaption></figure>
+              <figure><img src="/uchi/rebuild/cta.gif" alt="Подсказка" /><figcaption>3. добавил подсказки к ответам после 3-х секунд бездействия во время обучения</figcaption></figure>
+              <figure><img src="/uchi/rebuild/cta-point4.gif" alt="Общий CTA" /><figcaption>4. добавил общий CTA на варианты ответа после 10 секунд бездействия</figcaption></figure>
             </div>
           </Section>
-            <Result>после всех изменений конверсия в покупку курса выросла с 0.8% до 1.3%</Result>
+            <Result>провели A/B-тест, аналитика показала увеличение CR в покупку курса <strong>с 0.8% до 1.3%</strong>, заметно превысив целевой показатель. тест был признан удачным, раскатили изменения на всех пользователей</Result>
           </div>
         </article>
 
