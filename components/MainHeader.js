@@ -7,6 +7,7 @@ const navigation = [
   { label: 'telegram', href: 'https://t.me/estenza', external: true },
   { label: 'email' },
   { label: 'linkedin', href: 'https://www.linkedin.com/in/вадим-зарипов-40448317a', external: true },
+  { label: 'cv', href: '/cv/Vadim-Zaripov-CV.pdf', external: true },
 ];
 
 export default function MainHeader({ fullBleed = false }) {

@@ -99,7 +99,7 @@ export default function UchiPage() {
             <header className={styles.caseHeader}>
             <h2>кейс 1: увеличили конверсию в покупку курса</h2>
             <p><strong><a href="https://uchi.ru/products/courses/course-math-racing" target="_blank" rel="noopener noreferrer">«математические гонки»</a></strong> — игровой тренажер для развития навыков быстрого счета у учеников 1–4 классов. правильные ответы ускоряют машину, неправильные — замедляют.</p>
-            <p>как и все игровые курсы на «учи.ру», состоит из бесплатной trial-части, которая завершается пейволом с призывом позвать родителя для покупки полного доступа</p>
+            <p>как и&nbsp;все игровые курсы на&nbsp;«учи.ру», состоял из&nbsp;бесплатной trial-части, которая завершалась пейволом с&nbsp;призывом позвать родителя для&nbsp;покупки полного доступа</p>
           </header>
           <figure className={`${styles.heroImage} ${styles.paywallOverlayBorder}`}><img src="/uchi/rebuild/case1-hero.png" alt="Игра Математические гонки" /></figure>
 
@@ -108,7 +108,7 @@ export default function UchiPage() {
               <div><p>через две недели после релиза увидели, что CR в покупку курса составляет <strong>0.7%</strong>, что меньше целевого показателя в <strong>1%</strong>.</p><p>события аналитики показали, что больше всего отвалов по воронке было во время онбординга в начале игры — мы теряли на этом этапе <strong>26%</strong> учеников, только <strong>70.6%</strong> доходило до завершения обучения</p></div>
               <div className={styles.funnel}>{funnel.map((item) => <div key={item.label} className={item.muted ? styles.mutedFunnel : ''}><span>{item.label}</span><div className={styles.funnelTrack}><b style={{ width: item.fillWidth }}>{item.displayValue}</b>{item.lossWidth && <i style={{ left: item.lossOffset, width: item.lossWidth }} />}{item.lossLabel && <em style={{ left: item.lossLabelPosition }}>{item.lossLabel}</em>}</div></div>)}</div>
             </div>
-            <p className={`${styles.copy} ${styles.problemConclusion}`}>нужно было выяснить причину отвалов, для этого выбрали формат немодерируемых плей-тестов с детьми, но сперва решили просто увеличить доходимость небольшими UX-правками и проверить их влияние на воронку с помощью A/B-теста</p>
+            <p className={`${styles.copy} ${styles.problemConclusion}`}>чтобы выяснить причину отвалов, выбрали формат немодерируемых плей-тестов с детьми, но сперва решили просто увеличить доходимость небольшими UX-правками и проверить их влияние на воронку с помощью A/B-теста</p>
           </Section>
 
           <Section title="первый A/B-тест">
@@ -117,14 +117,14 @@ export default function UchiPage() {
               <div className={styles.hypothesisRow}><article><span>!</span><p><strong>проблема:</strong> много отвалов на обучающих диалогах</p></article><article className={styles.hypothesisSolution}><span>→</span><p><strong>гипотеза:</strong> дети не понимают назначение кнопки «→» / не замечают ее и потому закрывают игру. если добавить автопереход после завершения озвучки, то уменьшим отвалы на диалогах</p></article></div>
               <div className={styles.hypothesisRow}><article><span>!</span><p><strong>проблема:</strong> заметные отвалы между заданиями во время и после онбординга</p></article><article className={styles.hypothesisSolution}><span>→</span><p><strong>гипотеза:</strong> когда дети видят фидбэк «правильно/неправильно», они не понимают, что нужно нажать на кнопку «Дальше». если сделать клик необязательным и добавить автопереход к следующему заданию, то уменьшим отвалы во время решения заданий</p></article></div>
             </div>
-            <p className={`${styles.copy} ${styles.abTestConclusion}`}>на основе сформулированных гипотез внесли UX-правки и запустили A/B-тест на 2 недели</p>
+            <p className={`${styles.copy} ${styles.abTestConclusion}`}>на основе сформулированных гипотез внесли UX-правки и запустили A/B-тест, который длился две недели</p>
             <div className={styles.improvements}>{improvements.map(([image, text]) => <figure key={image}><div><img src={`/uchi/rebuild/${image}`} alt="" /></div><figcaption>{text}</figcaption></figure>)}</div>
           </Section>
 
           <Result>процент завершивших онбординг повысился <strong>с 70.8 до 81.1%</strong>, общий CR в покупку незначительно вырос <strong>с 0.7% до 0.8%</strong></Result>
           <p className={styles.copy}>пришли к выводу, что у нас недостаточно данных для того, чтобы более существенно повлиять на CR в покупку курса — нужны дополнительные исследования</p>
 
-          <Section title="немодерируемые тесты с детьми">
+          <Section title="плей-тесты с детьми">
             <p className={styles.copy}>ux-исследователь подобрал для нас 8 детей, уже занимающихся на «учи.ру», но еще не знакомых с курсом: мальчики и девочки поровну, ученики 1–4-х классов. я провел часть ux-тестов самостоятельно из-за высокой загрузки ux-ресерчера.</p>
             <p className={`${styles.copy} ${styles.researchConclusion}`}>исследование показало серьезные проблемы со сложностью и с продолжительностью заездов, детям было тяжело решать задачи и одновременно следить за своим местом на трассе. один ребенок во время прохождения второго уровня даже заплакал 😢, пришлось прервать тест</p>
             <div className={`${styles.hypotheses} ${styles.researchHypotheses}`}>

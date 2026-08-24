@@ -339,7 +339,7 @@ export default function Home() {
             priority
             className={`${styles.profileImage} h-24 w-24 shrink-0 rounded-full bg-[#E0E0E0] sm:h-[120px] sm:w-[120px]`}
           />
-          <h1 className={`${styles.bodyLarge} max-w-[629px]`}>я вадим зарипов, продуктовый дизайнер. 6 лет создаю продуманные и креативные решения в edtech, стартапах и продуктах 0 → 1</h1>
+          <h1 className={`${styles.bodyLarge} max-w-[629px]`}>я вадим зарипов, продуктовый дизайнер. более 6 лет создаю продуманные и креативные решения в edtech, стартапах и продуктах 0 → 1</h1>
         </section>
 
         <section id="projects" className={`${styles.projectsGrid} mx-auto grid w-full max-w-[1440px] grid-cols-1 gap-6 px-6 pb-6 lg:grid-cols-2 xl:px-10`}>
