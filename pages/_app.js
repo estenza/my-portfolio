@@ -16,7 +16,7 @@ const golos = Golos_Text({
 
 function MyApp({ Component, pageProps }) {
   const { pathname } = useRouter();
-  const isCasePage = ['/uchi', '/parkly', '/concepts'].includes(pathname);
+  const isCasePage = ['/uchi', '/parkly', '/concepts', '/noomad'].includes(pathname);
 
   useEffect(() => {
     const scrollKey = `scroll-position:${window.location.pathname}${window.location.search}`;

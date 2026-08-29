@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import CaseNavigation from '@/components/CaseNavigation';
-import MainHeader from '@/components/MainHeader';
+import { CaseContainer, CasePage, CaseSurface } from '@/components/CasePage';
 import styles from '@/styles/ParklyCase.module.css';
 
 const stats = [
@@ -22,10 +22,9 @@ export default function ParklyPage() {
   return (
     <>
       <Head><title>Паркли — кейс Вадима Зарипова</title></Head>
-      <main className={styles.page}>
-        <MainHeader fullBleed />
+      <CasePage className={styles.page} footerClassName={styles.footer}>
 
-        <article className={styles.intro}>
+        <CaseSurface className={styles.intro}>
           <section className={styles.projectInfo} aria-labelledby="parkly-title">
             <div className={styles.brand}>
               <Image src="/workplaces/parkly.svg" alt="Паркли" width={56} height={56} priority />
@@ -74,10 +73,10 @@ export default function ParklyPage() {
               ))}
             </div>
           </section>
-        </article>
+        </CaseSurface>
 
-        <article className={`${styles.case} ${styles.ticketCase}`}>
-          <div className={`${styles.caseContent} ${styles.caseContentWithNavigation}`}>
+        <CaseSurface className={`${styles.case} ${styles.ticketCase}`}>
+          <CaseContainer className={`${styles.caseContent} ${styles.caseContentWithNavigation}`}>
             <header className={styles.caseHeader}>
               <h2>кейс 2: эволюция парковочного билета</h2>
               <p>
@@ -175,11 +174,11 @@ export default function ParklyPage() {
               />
             </section>
             <CaseNavigation previous="/uchi" next="/concepts" />
-          </div>
-        </article>
+          </CaseContainer>
+        </CaseSurface>
 
-        <article className={`${styles.case} ${styles.bookingCase}`}>
-          <div className={styles.caseContent}>
+        <CaseSurface className={`${styles.case} ${styles.bookingCase}`}>
+          <CaseContainer className={styles.caseContent}>
             <header className={styles.caseHeader}>
               <h2>кейс 1: как мы меняли сценарий бронирования по мере роста продукта</h2>
               <p>
@@ -347,14 +346,9 @@ export default function ParklyPage() {
                 </p>
               </section>
             </section>
-          </div>
-        </article>
-
-        <footer className={styles.footer}>
-          <span>дизайнил + кодил вадим зарипов</span>
-          <span>2026</span>
-        </footer>
-      </main>
+          </CaseContainer>
+        </CaseSurface>
+      </CasePage>
     </>
   );
 }

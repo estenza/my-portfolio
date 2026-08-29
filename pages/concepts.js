@@ -1,13 +1,13 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import CaseNavigation from '@/components/CaseNavigation';
-import MainHeader from '@/components/MainHeader';
+import { CaseContainer, CasePage, CaseSurface } from '@/components/CasePage';
 import styles from '@/styles/ConceptsCase.module.css';
 
 function Case({ title, year, children, image, alt, navigation }) {
   return (
-    <article className={styles.case}>
-      <div className={`${styles.caseContent} ${navigation ? styles.caseContentWithNavigation : ''}`}>
+    <CaseSurface className={styles.case}>
+      <CaseContainer className={`${styles.caseContent} ${navigation ? styles.caseContentWithNavigation : ''}`}>
         <header className={styles.caseHeader}>
           <div className={styles.caseTitle}>
             <h2>{title}</h2>
@@ -24,8 +24,8 @@ function Case({ title, year, children, image, alt, navigation }) {
           className={styles.caseImage}
         />
         {navigation}
-      </div>
-    </article>
+      </CaseContainer>
+    </CaseSurface>
   );
 }
 
@@ -36,18 +36,17 @@ export default function ConceptsPage() {
         <title>Концепты и прототипы — Вадим Зарипов</title>
         <meta name="description" content="Концепты и прототипы Вадима Зарипова." />
       </Head>
-      <main className={styles.page}>
-        <MainHeader fullBleed />
+      <CasePage>
 
-        <article className={styles.intro}>
-          <div className={styles.introContent}>
+        <CaseSurface className={styles.intro}>
+          <CaseContainer className={styles.introContent}>
             <div className={styles.brand}>
               <Image src="/workplaces/smile.svg" alt="" width={56} height={56} />
               <h1>концепты и прототипы</h1>
             </div>
             <p>всякая UX/UI красота, которая не дошла до реализации или не дотягивает для оформления в кейсы</p>
-          </div>
-        </article>
+          </CaseContainer>
+        </CaseSurface>
 
         <Case
           title="приложение для нетворкинга"
@@ -72,11 +71,7 @@ export default function ConceptsPage() {
           </p>
         </Case>
 
-        <footer className={styles.footer}>
-          <span>дизайнил + кодил вадим зарипов</span>
-          <span>2026</span>
-        </footer>
-      </main>
+      </CasePage>
     </>
   );
 }

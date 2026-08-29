@@ -1,7 +1,8 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import CaseNavigation from '@/components/CaseNavigation';
-import MainHeader from '@/components/MainHeader';
+import { CaseContainer, CasePage, CaseSurface } from '@/components/CasePage';
+import CaseSection from '@/components/CaseSection';
 import styles from '@/styles/UchiCase.module.css';
 
 const courses = [
@@ -39,12 +40,7 @@ const improvements = [
 ];
 
 function Section({ title, children, className = '' }) {
-  return (
-    <section className={`${styles.section} ${className}`}>
-      {title && <h2>{title}</h2>}
-      {children}
-    </section>
-  );
+  return <CaseSection title={title} className={`${styles.section} ${className}`}>{children}</CaseSection>;
 }
 
 function Result({ children }) {
@@ -55,10 +51,9 @@ export default function UchiPage() {
   return (
     <>
       <Head><title>Учи.ру — кейс Вадима Зарипова</title></Head>
-      <main className={styles.page}>
-        <MainHeader fullBleed />
+      <CasePage>
 
-        <section className={styles.intro}>
+        <CaseSurface as="section" className={styles.intro}>
           <div className={styles.introContent}>
             <div className={styles.brand}><Image src="/workplaces/uchi.png" alt="Учи.ру" width={56} height={56} priority /><h1><a href="https://uchi.ru" target="_blank" rel="noopener noreferrer">учи.ру</a></h1></div>
             <p className={styles.lead}>интерактивные образовательные курсы для школьников</p>
@@ -92,10 +87,10 @@ export default function UchiPage() {
               <article><h3>✦&nbsp;&nbsp;проверял на проде</h3><p>курировал разработку, чтобы дизайн соответствовал макетам</p></article>
             </div>
           </Section>
-        </section>
+        </CaseSurface>
 
-        <article className={styles.case}>
-          <div className={styles.caseContent}>
+        <CaseSurface className={styles.case}>
+          <CaseContainer className={styles.caseContent}>
             <header className={styles.caseHeader}>
             <h2>кейс 1: увеличили конверсию в покупку курса</h2>
             <p><strong><a href="https://uchi.ru/products/courses/course-math-racing" target="_blank" rel="noopener noreferrer">«математические гонки»</a></strong> — игровой тренажер для развития навыков быстрого счета у учеников 1–4 классов. правильные ответы ускоряют машину, неправильные — замедляют.</p>
@@ -145,11 +140,11 @@ export default function UchiPage() {
             </div>
           </Section>
             <Result>провели A/B-тест, аналитика показала увеличение CR в покупку курса <strong>с 0.8% до 1.3%</strong>, заметно превысив целевой показатель. тест был признан удачным, раскатили изменения на всех пользователей</Result>
-          </div>
-        </article>
+          </CaseContainer>
+        </CaseSurface>
 
-        <article className={styles.case}>
-          <div className={`${styles.caseContent} ${styles.caseContentLast}`}>
+        <CaseSurface className={styles.case}>
+          <CaseContainer className={`${styles.caseContent} ${styles.caseContentLast}`}>
             <header className={styles.caseHeader}><h2>кейс 2: внедрили пейвол, увеличивший продажи курса</h2><p><strong><a href="https://uchi.ru/products/games/word-keepers" target="_blank" rel="noopener noreferrer">«хранители слов»</a></strong> — игровой тренажер для закрепления правил орфографии с помощью сбора слов. стояла задача спроектировать для него пейвол, который бы хорошо конвертировал в покупку.</p><p>в «учи» ранее проводились исследования о том, почему дети закрывают игру, когда доходят до пейвола, и не зовут родителей. из них следовало, что чаще всего детей пугает обилие текста, общая «взрослость» и серьезность страницы, а также неочевидность дальнейших действий для продолжения игры. мы постарались учесть эти наблюдения при проектировании первой версии</p></header>
           <Section title="проблема"><p className={styles.copy}>через две недели после запуска данные аналитики показали, что доходимость до пейвола была в целом неплохой, но конверсия в покупку на этом этапе составляла всего <strong>0.4%</strong>, что критически мало при целевом показателе в <strong>1%</strong>.</p></Section>
           <figure className={styles.paywall}><img src="/uchi/rebuild/case2-3.png" alt="Первая версия пейвола" /></figure>
@@ -158,12 +153,10 @@ export default function UchiPage() {
           <Section title="третья версия"><figure className={`${styles.paywall} ${styles.paywallNoBorder}`}><img src="/uchi/rebuild/case2-5.png" alt="Третья версия пейвола" /></figure><p className={styles.copy}>в третьей версии пейвола постарались максимально учесть пожелания родителей и полностью переориентировали его на взрослую аудиторию</p><ul className={styles.featureList}><li>убрали упоминание геймплейных и сюжетных особенностей курса, с помощью методистов сделал акцент на развитии прикладных навыков ребенка</li><li>добавили фоновую озвучку реплики «позови родителя…» при открытии страницы, чтобы ребенок понимал, что нужно делать и не закрывал пейвол</li></ul></Section>
           <Section title="пошли снова спрашивать родителей"><p className={styles.copy}>чтобы понять, насколько точно последний вариант соответствует их запросу, на следующем интервью мы предложили сравнить между собой все три версии пейвола, выбрать из них лучший и обосновать свой выбор.</p><p className={`${styles.copy} ${styles.hypothesisCopy}`}>все родители сошлись во мнении, что третья версия гораздо лучше доносит образовательную ценность и хорошо формирует представление о курсе. критических замечаний озвучено не было.</p><p className={`${styles.copy} ${styles.hypothesisCopy}`}>такой позитивный фидбек вселил в нас надежду, что теперь родители более охотно будут покупать курс</p></Section>
             <Result>A/B-тест со сравнением второй и третьей версии завершился в пользу последней. CR вырос <strong>с 0.6 до 1.1%</strong>, гипотеза подтвердилась, целевой показатель был достигнут</Result>
-            <CaseNavigation next="/parkly" />
-          </div>
-        </article>
-
-        <footer className={styles.footer}><span>дизайнил + кодил вадим зарипов</span><span>2026</span></footer>
-      </main>
+            <CaseNavigation previous="/noomad" next="/parkly" />
+          </CaseContainer>
+        </CaseSurface>
+      </CasePage>
     </>
   );
 }
