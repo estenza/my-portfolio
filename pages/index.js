@@ -486,7 +486,7 @@ export default function Home() {
 
         <section className={`${styles.intro} flex w-full flex-col items-start gap-6 px-4 pt-8 pb-16 sm:flex-row sm:items-center sm:gap-8 sm:px-10 md:justify-center`}>
           <Image
-            src="/home-figma/profile.png"
+            src="/home-figma/profile-color.png"
             alt="Вадим Зарипов"
             width={120}
             height={120}
