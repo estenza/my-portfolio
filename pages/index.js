@@ -334,7 +334,7 @@ function NoomadProjectCard({ project }) {
         <div className="flex gap-5">
           <Image src="/workplaces/noomad.svg" alt="" width={40} height={40} className={`${styles.projectCardIcon} mt-1 h-10 w-10 rounded-xl`} />
           <div>
-            <h2 className={styles.cardTitle}>noomad — криптокошелек с оплатой картой</h2>
+            <h2 className={styles.cardTitle}>noomad — криптокошелек с&nbsp;виртуальной картой</h2>
             <p className={`${styles.bodyNarrow} ${styles.muted} mt-2`}>2025–2026&nbsp;&nbsp;mobile</p>
           </div>
         </div>
@@ -343,7 +343,7 @@ function NoomadProjectCard({ project }) {
       <div className={styles.noomadCardVisual}>
         <Image src="/noomad/cover.png" alt="Главный экран приложения Noomad" fill className={`${styles.projectVisual} object-contain`} sizes="(min-width: 768px) 280px, 70vw" />
       </div>
-      <p className={`${styles.cardOutcome} ${styles.noomadCardOutcome}`}>проектировал интерфейсы онбординга, получения карты, пополнения и вывода</p>
+      <p className={`${styles.cardOutcome} ${styles.noomadCardOutcome}`}>проектировал онбординг, получение карты, пополнение&nbsp;и&nbsp;вывод средств</p>
     </ProjectShell>
   );
 }

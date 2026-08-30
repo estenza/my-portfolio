@@ -56,7 +56,7 @@ export default function UchiPage() {
         <CaseSurface as="section" className={styles.intro}>
           <div className={styles.introContent}>
             <div className={styles.brand}><Image src="/workplaces/uchi.png" alt="Учи.ру" width={56} height={56} priority /><h1><a href="https://uchi.ru" target="_blank" rel="noopener noreferrer">учи.ру</a></h1></div>
-            <p className={styles.lead}>интерактивные образовательные курсы для школьников</p>
+            <p className={styles.lead}>игровые образовательные курсы для школьников</p>
             <div className={styles.stats}>
               <p><strong>14 млн</strong><span>школьников</span></p>
               <p><strong>6 млн</strong><span>родителей</span></p>

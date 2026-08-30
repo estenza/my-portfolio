@@ -6,12 +6,20 @@
 .hypothesesContent { max-width: calc(100% - 48px); }
 .hypothesesContent > h2 { margin: 0; padding-left: 4px; font-size: 32px; font-weight: 500; line-height: 40px; }
 .hypothesisSection { margin-top: 48px; }
+.hypothesesContent > .hypothesisSection:first-child { margin-top: 0; }
 .hypothesisSection h3 { margin: 0 0 24px; padding-left: 4px; font-size: 24px; font-weight: 500; line-height: 32px; }
 .hypothesisSection img { display: block; width: 100%; height: auto; border-radius: 24px; }
+.onboardingSection { margin-top: 0; }
+.onboardingStage { display: flex; width: 100%; height: 524px; align-items: center; justify-content: center; border-radius: 24px; background: #f6f7f8; }
+.onboardingPhone { position: relative; width: auto; height: 456px; aspect-ratio: 551 / 1136; }
+.onboardingPhone::before { position: absolute; z-index: 0; top: calc(2.4% - 2px); left: 3%; width: 93.2%; height: 95%; border-radius: 32px; background: #000; content: ''; }
+.onboardingGif { position: absolute; z-index: 1; top: 2.4%; left: 3%; width: 93.2% !important; height: 95% !important; border-radius: 32px !important; background: #000; object-fit: contain; transform: translateY(1px); }
+.onboardingFrame { position: absolute; z-index: 2; inset: 0; width: 100% !important; height: 100% !important; border-radius: 0 !important; pointer-events: none; }
 .hypothesisText { margin: 28px 4px 0; }
 .hypothesisText p { margin: 0; font-size: 20px; line-height: 28px; }
 .hypothesisText p + p { margin-top: 28px; }
 .hypothesisSection + .hypothesisSection { margin-top: 40px; }
+.onboardingSection + .hypothesisSection { margin-top: 80px; }
 .hypothesisSection:nth-of-type(3), .hypothesisSection:nth-of-type(4), .hypothesisSection:nth-of-type(5) { margin-top: 80px; }
 .liquidGlassImage { margin-top: 40px; }
 .resultSection { margin-top: 96px; }
@@ -33,6 +41,7 @@
 .brand h1 { margin: 0; font-size: 40px; font-weight: 500; line-height: 48px; }
 .projectInfo > p { margin: 24px 0 0; font-size: 24px; line-height: 32px; }
 .overview { display: grid; grid-template-columns: minmax(0, 1fr) minmax(300px, 1.04fr); align-items: center; gap: 32px; margin-top: 48px; }
+.overviewSingle { grid-template-columns: 1fr; }
 .overviewText { padding-left: 4px; }
 .overviewText p, .textSection p { margin: 0; font-size: 20px; line-height: 28px; }
 .overviewText p + p, .textSection p + p { margin-top: 28px; }
@@ -51,10 +60,15 @@
   .hypothesisSection { margin-top: 40px; }
   .hypothesisSection h3 { margin-bottom: 20px; font-size: 22px; line-height: 30px; }
   .hypothesisSection img { border-radius: 16px; }
+  .onboardingStage { height: 440px; border-radius: 16px; }
+  .onboardingPhone { height: 382px; }
+  .onboardingPhone::before { border-radius: 26px; }
+  .onboardingGif { border-radius: 26px !important; }
   .hypothesisText { margin: 20px 0 0; }
   .hypothesisText p { font-size: 18px; line-height: 26px; }
   .hypothesisText p + p { margin-top: 24px; }
   .hypothesisSection + .hypothesisSection { margin-top: 40px; }
+  .onboardingSection + .hypothesisSection { margin-top: 56px; }
   .hypothesisSection:nth-of-type(3), .hypothesisSection:nth-of-type(4), .hypothesisSection:nth-of-type(5) { margin-top: 56px; }
   .liquidGlassImage { margin-top: 32px; }
   .resultSection { margin-top: 64px; }
