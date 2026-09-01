@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Image from 'next/image';
+import { useEffect, useRef } from 'react';
 import CaseNavigation from '@/components/CaseNavigation';
 import { CaseContainer, CasePage, CaseSurface } from '@/components/CasePage';
 import CaseSection from '@/components/CaseSection';
@@ -45,6 +46,43 @@ function Section({ title, children, className = '' }) {
 
 function Result({ children }) {
   return <div className={styles.result}><strong>✦&nbsp;&nbsp;результат</strong><p>{children}</p></div>;
+}
+
+function AutoPlayCaseVideo() {
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return undefined;
+
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        video.play().catch(() => {});
+        return;
+      }
+
+      video.pause();
+      video.currentTime = 0;
+    }, { threshold: 0.35 });
+
+    observer.observe(video);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <video
+      ref={videoRef}
+      className={styles.heroVideo}
+      muted
+      loop
+      playsInline
+      preload="metadata"
+      poster="/uchi/rebuild/case1-hero.png"
+      aria-label="Демонстрация игры «Математические гонки»"
+    >
+      <source src="/uchi/rebuild/math-racing-gameplay.webm" type="video/webm" />
+    </video>
+  );
 }
 
 export default function UchiPage() {
@@ -96,7 +134,7 @@ export default function UchiPage() {
             <p><strong><a href="https://uchi.ru/products/courses/course-math-racing" target="_blank" rel="noopener noreferrer">«математические гонки»</a></strong> — игровой тренажер для развития навыков быстрого счета у учеников 1–4 классов. правильные ответы ускоряют машину, неправильные — замедляют.</p>
             <p>как и&nbsp;все игровые курсы на&nbsp;«учи.ру», состоял из&nbsp;бесплатной trial-части, которая завершалась пейволом с&nbsp;призывом позвать родителя для&nbsp;покупки полного доступа</p>
           </header>
-          <figure className={`${styles.heroImage} ${styles.paywallOverlayBorder}`}><img src="/uchi/rebuild/case1-hero.png" alt="Игра Математические гонки" /></figure>
+          <figure className={`${styles.heroImage} ${styles.paywallOverlayBorder}`}><AutoPlayCaseVideo /></figure>
 
           <Section title="проблема">
             <div className={styles.problemGrid}>

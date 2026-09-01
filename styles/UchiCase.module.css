@@ -55,7 +55,7 @@
 .caseHeader { padding: 0; }
 .caseHeader p + p { margin-top: 20px; }
 .heroImage { position: relative; width: 100%; margin: 40px 0 0; }
-.heroImage img { display: block; width: 100%; border-radius: 24px; }
+.heroImage :is(img, video) { display: block; width: 100%; border-radius: 24px; }
 .problemGrid { display: grid; grid-template-columns: 1fr 404px; gap: 40px; align-items: start; }
 .problemGrid p + p { margin-top: 28px; }
 .problemGrid strong { font-weight: 500; }
@@ -147,7 +147,7 @@
 }
 
 @media (max-width: 640px) {
-  .heroImage img,
+  .heroImage :is(img, video),
   .heroImage.paywallOverlayBorder::after { border-radius: 16px; }
   .heroImage.paywallOverlayBorder::after { border-width: 2px; }
   .hypothesisRow article + article { border-top: 2px solid rgb(26 26 26 / 6%); }
