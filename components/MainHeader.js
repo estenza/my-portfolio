@@ -16,7 +16,7 @@ export default function MainHeader({ fullBleed = false }) {
       <ProgressiveHeaderBlur />
       <div className={`${styles.mainHeaderInner} mx-auto flex h-full w-full max-w-[1440px] items-center justify-between px-5 sm:px-10`}>
         <Link href="/" className={styles.bodyNarrow}>главная</Link>
-        <nav aria-label="Контакты" className={`${styles.bodyNarrow} flex items-center gap-3 sm:gap-10`}>
+        <nav aria-label="Контакты" className={`${styles.bodyNarrow} flex items-center gap-8 sm:gap-10`}>
           {navigation.map((item) => item.label === 'email' ? (
             <CopyEmailLink key={item.label} className="hidden transition-colors focus:outline-none sm:inline" />
           ) : (
@@ -25,7 +25,7 @@ export default function MainHeader({ fullBleed = false }) {
               href={item.href}
               target={item.external ? '_blank' : undefined}
               rel={item.external ? 'noopener noreferrer' : undefined}
-              className={`transition-colors focus:outline-none ${item.label === 'telegram' ? '' : 'hidden sm:inline'}`}
+              className={`transition-colors focus:outline-none ${item.label === 'telegram' || item.label === 'cv' ? '' : 'hidden sm:inline'}`}
             >
               {item.label}
             </a>

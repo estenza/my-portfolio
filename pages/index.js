@@ -447,7 +447,7 @@ function FactPhotoStack({ reverse = false }) {
 function RandomFacts() {
   return (
     <section className={styles.randomFacts} aria-labelledby="facts-title">
-      <h2 id="facts-title" className={styles.randomFactsTitle}>рандомные факты обо мне</h2>
+      <h2 id="facts-title" className={styles.randomFactsTitle}>рандомные факты</h2>
       <p className={styles.randomFactsIntro}>с детства люблю творить: рисовал машины и хотел стать автомобильным дизайнером. сейчас детская мечта переросла в желание поработать над интерфейсом автомобильной бортовой системы</p>
       <div className={styles.randomFactsRow}>
         <FactPhotoStack />
@@ -457,6 +457,30 @@ function RandomFacts() {
         <p>хожу в английский разговорный клуб, выращиваю комнатные растения, живу с бенгальской 🐆 кошкой. летом играю в бадминтон и волейбол, а зимой катаю на сноуборде</p>
         <FactPhotoStack reverse />
       </div>
+    </section>
+  );
+}
+
+function AboutMe() {
+  const points = [
+    ['с бизнесом на ты', 'презентую решения заказчикам, объясняю свою логику и работаю с комментариями'],
+    ['отвечаю за прод', 'качественно передаю макеты в разработку, провожу дизайн-ревью и регулярно проверяю прод на баги и несоответствие макетам'],
+    ['вел командные скрам-мероприятия', 'проводил дейлики, груминги и ретро, следил за порядком в Jira'],
+    ['развиваю дизайн-систему и создаю классные компоненты', 'делаю компоненты и виджеты, поддерживаю чистоту и порядок в дизайн-системе'],
+    ['выполняю задачу с учетом целей пользователя и метрик', 'ищу баланс между задачами бизнеса и комфортом пользователя'],
+  ];
+
+  return (
+    <section className={styles.aboutMe} aria-labelledby="about-me-title">
+      <h2 id="about-me-title">кое-что обо мне</h2>
+      <ul>
+        {points.map(([title, description]) => (
+          <li key={title}>
+            <h3>✦&nbsp;&nbsp;{title}</h3>
+            <p>{description}</p>
+          </li>
+        ))}
+      </ul>
     </section>
   );
 }
@@ -501,6 +525,8 @@ export default function Home() {
             <ProjectCard key={project.label} project={project} />
           ))}
         </section>
+
+        <AboutMe />
 
         <RandomFacts />
 

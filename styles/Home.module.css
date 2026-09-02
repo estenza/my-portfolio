@@ -33,6 +33,44 @@
   line-height: 32px;
 }
 
+.aboutMe {
+  width: min(100% - 48px, 670px);
+  margin: 0 auto;
+  padding: 56px 0 0;
+  color: #202020;
+}
+
+.aboutMe h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32px;
+}
+
+.aboutMe ul {
+  display: grid;
+  gap: 32px;
+  margin: 32px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.aboutMe h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 28px;
+}
+
+.aboutMe p {
+  max-width: 1280px;
+  margin: 12px 0 0;
+  color: #202020;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 28px;
+}
+
 .randomFacts {
   width: min(100% - 48px, 670px);
   margin: 0 auto;
@@ -131,6 +169,20 @@
 }
 
 @media (max-width: 639px) {
+  .aboutMe {
+    width: min(100% - 48px, 670px);
+    padding-top: 56px;
+  }
+
+  .aboutMe ul {
+    gap: 32px;
+    margin-top: 32px;
+  }
+
+  .aboutMe p {
+    margin-top: 12px;
+  }
+
   .randomFacts {
     width: min(100% - 48px, 670px);
     padding: 64px 0;
@@ -163,7 +215,8 @@
   .factPhoto {
     width: 52vw;
     height: 53vw;
-    border-radius: 11vw;
+    border-width: 4px;
+    border-radius: calc(11vw - 16px);
   }
 
   .factPhotoBack {
@@ -196,6 +249,11 @@
 }
 
 @media (max-width: 479px) {
+  .aboutMe {
+    width: min(100% - 32px, 670px);
+    padding-top: 56px;
+  }
+
   .mainHeader {
     height: 64px;
   }
@@ -837,6 +895,14 @@
 }
 
 @media (max-width: 639px) {
+  .projectsGrid {
+    gap: 16px;
+  }
+
+  .projectShell {
+    transition: none;
+  }
+
   .noomadWithdrawPreview {
     display: none;
   }
