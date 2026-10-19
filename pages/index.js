@@ -260,10 +260,10 @@ export default function Home() {
         <section className={`${styles.intro} flex w-full flex-col items-start gap-6 px-4 pt-8 pb-16 sm:flex-row sm:items-center sm:gap-8 sm:px-10 md:justify-center`}>
           <div className={`${styles.profileImage} relative h-24 w-24 shrink-0 overflow-hidden rounded-full bg-[#E0E0E0] sm:h-[120px] sm:w-[120px]`}>
             <Image
-              src="/home-figma/profile-seaside.jpg"
+              src="/home-figma/profile-square.jpg"
               alt="Вадим Зарипов"
-              width={1920}
-              height={2560}
+              width={1143}
+              height={1143}
               sizes="300px"
               priority
               className={styles.profilePortrait}
