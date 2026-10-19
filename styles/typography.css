@@ -1,0 +1,33 @@
+/* Shared text roles; spacing remains in case-spacing.css. */
+:root {
+  --type-title: 40px;
+  --type-title-leading: 48px;
+  --type-chapter: 32px;
+  --type-chapter-leading: 40px;
+  --type-heading: 24px;
+  --type-heading-leading: 32px;
+  --type-body: 20px;
+  --type-body-leading: 30px;
+  --type-small: 16px;
+  --type-small-leading: 24px;
+  --type-nav: 18px;
+  --type-nav-leading: 26px;
+  --text-primary: #202020;
+  --text-secondary: #595959;
+  --text-muted: #666666;
+}
+
+@media (max-width: 640px) {
+  :root {
+    --type-title: 32px;
+    --type-title-leading: 40px;
+    --type-chapter: 28px;
+    --type-chapter-leading: 36px;
+    --type-heading: 22px;
+    --type-heading-leading: 30px;
+    --type-body: 18px;
+    --type-body-leading: 28px;
+    --type-nav: 16px;
+    --type-nav-leading: 24px;
+  }
+}

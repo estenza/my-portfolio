@@ -1,12 +1,13 @@
+import Arrow from '@/components/Arrow';
 import Link from 'next/link';
 import styles from '@/styles/CaseNavigation.module.css';
 
 function CaseLink({ href, direction }) {
   const previous = direction === 'previous';
-  const label = previous ? 'предыдущий кейс' : 'следующий кейс';
+  const label = previous ? 'Предыдущий кейс' : 'Следующий кейс';
   const content = previous
-    ? <><span aria-hidden="true">←</span><span>{label}</span></>
-    : <><span>{label}</span><span aria-hidden="true">→</span></>;
+    ? <><Arrow direction="left" /><span>{label}</span></>
+    : <><span>{label}</span><Arrow /></>;
 
   if (!href) {
     return <span className={styles.disabled} aria-disabled="true">{content}</span>;

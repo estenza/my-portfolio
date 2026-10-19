@@ -1,0 +1,26 @@
+/* Shared semantic rhythm for case pages. Use these tokens for new sections. */
+:root {
+  --case-space-paragraph: 20px;
+  --case-space-heading: 24px;
+  --case-space-subheading: 16px;
+  --case-space-media: 32px;
+  --case-space-caption: 12px;
+  --case-space-group: 40px;
+  --case-space-section: 64px;
+  --case-space-chapter: 80px;
+  --case-space-list: 12px;
+  --case-space-inset: 32px;
+}
+
+@media (max-width: 640px) {
+  :root {
+    --case-space-paragraph: 16px;
+    --case-space-heading: 20px;
+    --case-space-subheading: 12px;
+    --case-space-media: 24px;
+    --case-space-group: 32px;
+    --case-space-section: 48px;
+    --case-space-chapter: 56px;
+    --case-space-inset: 24px;
+  }
+}

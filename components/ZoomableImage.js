@@ -56,7 +56,7 @@ function ViewerButton({ children, disabled = false, label, onClick }) {
 export default function ZoomableImage({
   alt = '',
   children,
-  triggerClassName = 'block h-full w-full cursor-zoom-in border-0 bg-transparent p-0',
+  triggerClassName = 'block h-full w-full cursor-pointer border-0 bg-transparent p-0',
   wrapperClassName = 'block w-full',
   zoomSrc
 }) {
@@ -239,7 +239,7 @@ export default function ZoomableImage({
                 'max-h-full max-w-full select-none object-contain transition-transform duration-100 ease-out',
                 scale > MIN_SCALE
                   ? isDragging ? 'cursor-grabbing' : 'cursor-grab'
-                  : 'cursor-zoom-in'
+                  : 'cursor-pointer'
               ].join(' ')}
               style={{
                 transform: `translate3d(${offset.x}px, ${offset.y}px, 0) scale(${scale})`,

@@ -4,10 +4,10 @@ import ProgressiveHeaderBlur from './ProgressiveHeaderBlur';
 import styles from '@/styles/Home.module.css';
 
 const navigation = [
-  { label: 'telegram', href: 'https://t.me/estenza', external: true },
-  { label: 'email' },
-  { label: 'linkedin', href: 'https://www.linkedin.com/in/вадим-зарипов-40448317a', external: true },
-  { label: 'cv', href: '/cv/Vadim-Zaripov-CV.pdf', external: true },
+  { label: 'Telegram', href: 'https://t.me/estenza', external: true },
+  { label: 'Email' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/вадим-зарипов-40448317a', external: true },
+  { label: 'CV', href: '/cv/Vadim-Zaripov-CV.pdf', external: true },
 ];
 
 export default function MainHeader({ fullBleed = false }) {
@@ -15,9 +15,9 @@ export default function MainHeader({ fullBleed = false }) {
     <header className={`${styles.mainHeader} ${fullBleed ? styles.mainHeaderFullBleed : 'w-full'} site-header h-[72px]`}>
       <ProgressiveHeaderBlur />
       <div className={`${styles.mainHeaderInner} mx-auto flex h-full w-full max-w-[1440px] items-center justify-between px-5 sm:px-10`}>
-        <Link href="/" className={styles.bodyNarrow}>главная</Link>
+        <Link href="/" className={styles.bodyNarrow}>Главная</Link>
         <nav aria-label="Контакты" className={`${styles.bodyNarrow} flex items-center gap-8 sm:gap-10`}>
-          {navigation.map((item) => item.label === 'email' ? (
+          {navigation.map((item) => item.label === 'Email' ? (
             <CopyEmailLink key={item.label} className="hidden transition-colors focus:outline-none sm:inline" />
           ) : (
             <a
@@ -25,7 +25,7 @@ export default function MainHeader({ fullBleed = false }) {
               href={item.href}
               target={item.external ? '_blank' : undefined}
               rel={item.external ? 'noopener noreferrer' : undefined}
-              className={`transition-colors focus:outline-none ${item.label === 'telegram' || item.label === 'cv' ? '' : 'hidden sm:inline'}`}
+              className={`transition-colors focus:outline-none ${item.label === 'Telegram' || item.label === 'CV' ? '' : 'hidden sm:inline'}`}
             >
               {item.label}
             </a>

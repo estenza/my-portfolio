@@ -1,0 +1,27 @@
+/* One composition grid shared by the home page and case pages. */
+:root {
+  --layout-columns: 12;
+  --layout-gap: 24px;
+  --layout-gutter: clamp(32px, calc(32px + (100vw - 1024px) * 0.153846), 96px);
+  --layout-width: min(1248px, calc(100vw - 2 * var(--layout-gutter)));
+  --layout-column: calc((var(--layout-width) - 11 * var(--layout-gap)) / 12);
+  --layout-reading: calc(8 * var(--layout-column) + 7 * var(--layout-gap));
+}
+
+@media (max-width: 1023px) {
+  :root {
+    --layout-columns: 8;
+    --layout-gutter: 32px;
+    --layout-column: calc((var(--layout-width) - 7 * var(--layout-gap)) / 8);
+    --layout-reading: var(--layout-width);
+  }
+}
+
+@media (max-width: 639px) {
+  :root {
+    --layout-columns: 4;
+    --layout-gap: 16px;
+    --layout-gutter: 16px;
+    --layout-column: calc((var(--layout-width) - 3 * var(--layout-gap)) / 4);
+  }
+}

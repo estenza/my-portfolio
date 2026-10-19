@@ -1,3 +1,5 @@
+import { addToast } from '@heroui/toast';
+
 const email = 'estenza@gmail.com';
 
 async function copyEmail() {
@@ -13,8 +15,11 @@ async function copyEmail() {
   input.style.opacity = '0';
   document.body.appendChild(input);
   input.select();
-  document.execCommand('copy');
-  input.remove();
+  try {
+    if (!document.execCommand('copy')) throw new Error('Copy failed');
+  } finally {
+    input.remove();
+  }
 }
 
 export default function CopyEmailLink({ className = '' }) {
@@ -23,9 +28,7 @@ export default function CopyEmailLink({ className = '' }) {
 
     try {
       await copyEmail();
-      window.dispatchEvent(new CustomEvent('magnifier-cursor-change', {
-        detail: { label: 'email скопирован', icon: 'check' },
-      }));
+      addToast({ title: 'Email скопирован', timeout: 2500 });
     } catch {
       return;
     }
@@ -36,10 +39,8 @@ export default function CopyEmailLink({ className = '' }) {
       href={`mailto:${email}`}
       onClick={handleClick}
       className={className}
-      data-cursor-label="скопировать email"
-      data-cursor-icon="mail"
     >
-      email
+      Email
     </a>
   );
 }

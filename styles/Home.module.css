@@ -1,96 +1,159 @@
+.profilePortrait {
+  position: absolute;
+  width: 168%;
+  max-width: none;
+  height: auto;
+  left: -60.88%;
+  top: -55.28%;
+}
+
+.introWord {
+  white-space: nowrap;
+}
+
+.introCharacter {
+  display: inline-block;
+  animation: introLetter 450ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.profileImage {
+  animation: contentEntrance 550ms ease both;
+}
+
+.projectsEntrance {
+  animation: contentEntrance 600ms ease 750ms both;
+}
+
+@keyframes introLetter {
+  from { opacity: 0; filter: blur(6px); }
+  to { opacity: 1; filter: blur(0); }
+}
+
+@keyframes contentEntrance {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .introCharacter,
+  .profileImage,
+  .projectsEntrance { animation: none; }
+}
+
 .body {
   font-weight: 400;
 }
 
 .bodyLarge {
   font-family: inherit;
-  font-size: 24px;
+  font-size: var(--type-heading);
   font-weight: 400;
-  line-height: 32px;
+  line-height: var(--type-heading-leading);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 .bodyNarrow {
-  font-size: 18px;
+  font-size: var(--type-nav);
   font-weight: 400;
-  line-height: 24px;
+  line-height: var(--type-nav-leading);
 }
 
 .muted {
-  color: #a3a3a3;
+  color: var(--text-muted);
 }
 
 .cardTitle {
-  font-size: 20px;
+  font-size: var(--type-heading);
   font-weight: 500;
-  line-height: 26px;
+  line-height: var(--type-heading-leading);
 }
 
 .cardOutcome {
-  font-size: 24px;
-  font-weight: 500;
-  line-height: 32px;
+  color: var(--color-label-secondary);
+  opacity: 0.64;
+  font-size: var(--type-body);
+  font-weight: 400;
+  line-height: var(--type-body-leading);
+}
+
+.aboutMe,
+.randomFacts {
+  transition: opacity 650ms ease, transform 650ms ease;
+}
+
+.fadePending {
+  opacity: 0;
+  transform: translateY(32px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aboutMe,
+  .randomFacts {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 .aboutMe {
-  width: min(100% - 48px, 670px);
+  width: var(--layout-reading);
   margin: 0 auto;
-  padding: 56px 0 0;
+  padding: 80px 0 0;
   color: #202020;
 }
 
 .aboutMe h2 {
   margin: 0;
-  font-size: 24px;
+  font-size: var(--type-heading);
   font-weight: 500;
-  line-height: 32px;
+  line-height: var(--type-heading-leading);
 }
 
 .aboutMe ul {
   display: grid;
   gap: 32px;
-  margin: 32px 0 0;
+  margin: 0;
   padding: 0;
   list-style: none;
 }
 
 .aboutMe h3 {
   margin: 0;
-  font-size: 20px;
+  font-size: var(--type-body);
   font-weight: 500;
-  line-height: 28px;
+  line-height: var(--type-body-leading);
 }
 
 .aboutMe p {
   max-width: 1280px;
   margin: 12px 0 0;
   color: #202020;
-  font-size: 20px;
+  font-size: var(--type-body);
   font-weight: 400;
-  line-height: 28px;
+  line-height: var(--type-body-leading);
 }
 
 .randomFacts {
-  width: min(100% - 48px, 670px);
+  width: var(--layout-reading);
   margin: 0 auto;
   padding: 80px 0 64px;
 }
 
 .randomFactsTitle {
   margin: 0 0 32px;
-  font-size: 24px;
+  font-size: var(--type-body);
   font-weight: 500;
-  line-height: 32px;
-  letter-spacing: 0.005em;
+  line-height: var(--type-body-leading);
+  letter-spacing: 0;
 }
 
 .randomFacts p {
   margin: 0;
-  font-size: 20px;
+  font-size: var(--type-body);
   font-weight: 400;
-  line-height: 28px;
-  letter-spacing: 0.005em;
+  line-height: var(--type-body-leading);
+  letter-spacing: 0;
 }
 
 .randomFactsIntro {
@@ -119,7 +182,6 @@
   border-radius: 32px;
   object-fit: cover;
   transform-origin: center;
-  transition: transform 240ms ease;
 }
 
 .factPhotoBack {
@@ -150,33 +212,15 @@
   transform: rotate(4.2deg);
 }
 
-@media (hover: hover) and (min-width: 640px) {
-  .factPhotoStack:hover .factPhotoBack {
-    transform: rotate(7deg) translate(8px, -6px);
-  }
-
-  .factPhotoStack:hover .factPhotoFront {
-    transform: rotate(-8deg) translate(-8px, 4px);
-  }
-
-  .factPhotoStackReverse:hover .factPhotoBack {
-    transform: rotate(-8deg) translate(8px, -6px);
-  }
-
-  .factPhotoStackReverse:hover .factPhotoFront {
-    transform: rotate(7deg) translate(-8px, 4px);
-  }
-}
-
 @media (max-width: 639px) {
   .aboutMe {
-    width: min(100% - 48px, 670px);
-    padding-top: 56px;
+    width: var(--layout-reading);
+    padding-top: 80px;
   }
 
   .aboutMe ul {
     gap: 32px;
-    margin-top: 32px;
+    margin-top: 0;
   }
 
   .aboutMe p {
@@ -184,7 +228,7 @@
   }
 
   .randomFacts {
-    width: min(100% - 48px, 670px);
+    width: var(--layout-reading);
     padding: 64px 0;
   }
 
@@ -250,8 +294,8 @@
 
 @media (max-width: 479px) {
   .aboutMe {
-    width: min(100% - 32px, 670px);
-    padding-top: 56px;
+    width: var(--layout-reading);
+    padding-top: 80px;
   }
 
   .mainHeader {
@@ -270,689 +314,161 @@
   }
 
   .randomFacts {
-    width: min(100% - 32px, 670px);
+    width: var(--layout-reading);
   }
-}
-
-@font-face {
-  font-family: 'Lato Widget';
-  src: url('/fonts/Lato-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Lato Widget';
-  src: url('/fonts/Lato-Bold.ttf') format('truetype');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Lato Widget';
-  src: url('/fonts/Lato-Medium.ttf') format('truetype');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Noto Sans Ruble';
-  src: url('/fonts/NotoSans-Variable.ttf') format('truetype');
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: swap;
 }
 
 .projectShell {
-  isolation: isolate;
   position: relative;
-  background: #f6f7f8;
-  transform: scale(1);
-  transition: transform 160ms cubic-bezier(0.2, 0, 0, 1);
-  will-change: transform;
 }
 
-.projectNoomad {
-  background: #f3f4f5;
+.homePage .footer {
+  height: auto;
+  padding-block: 24px;
 }
 
-.projectShell::before {
-  position: absolute;
-  z-index: 0;
-  inset: 0;
+
+.projectsGrid {
+  align-items: start;
+  row-gap: 24px;
+  column-gap: 24px;
+}
+
+.projectCard {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 24px;
+  background: #f5f5f5;
+}
+
+.projectCard::after {
   content: '';
-  pointer-events: none;
-  opacity: 0;
-  background: rgba(0, 0, 0, 0.04);
-  transition: opacity 240ms ease;
-}
-
-.projectShell:hover::before,
-.projectShell:focus-within::before {
-  opacity: 1;
-}
-
-.projectShell:active {
-  transform: scale(0.96);
-  transition-duration: 80ms;
-}
-
-.projectShell > * {
-  position: relative;
-  z-index: 1;
-}
-
-.uchiPaywallPreview {
-  display: flex;
-  min-height: 0;
-  flex: 1;
-  align-items: center;
-  justify-content: center;
-  padding-inline: 24px;
-  padding-top: 32px;
-}
-
-.uchiPaywallFrame {
-  position: relative;
-  width: min(100%, 573px);
-  aspect-ratio: 573 / 317;
-  overflow: hidden;
-  border-radius: 20px;
-}
-
-.uchiPaywallVideo {
   position: absolute;
-  z-index: 2;
-  top: 18.58%;
-  left: 1.8%;
-  width: 45.37%;
-  height: 49.52%;
-  border-radius: 6px;
-  object-fit: cover;
-}
-
-.parklyBookingPreview {
-  display: flex;
-  height: 100%;
-  min-height: 220px;
-  align-items: center;
-  justify-content: center;
-  padding: 0 0 0 24px;
-  container-type: inline-size;
-  background: transparent;
-  color: #1d3262;
-}
-
-.parklyCard {
-  display: flex;
-  flex-direction: column;
-}
-
-.parklyCardHeader {
-  padding: 32px 32px 0;
-}
-
-.parklyCardVisual {
-  position: relative;
-  display: flex;
-  min-height: 260px;
-  flex: 1;
-  align-items: center;
-  overflow: hidden;
-}
-
-.parklyPhonePreview {
-  position: relative;
-  width: 46%;
-  min-height: 240px;
-  flex: 0 0 46%;
-}
-
-.parklyCardOutcome {
-  padding: 0 32px 28px;
-}
-
-.noomadCard {
-  display: flex;
-  flex-direction: column;
-}
-
-.noomadCardHeader {
-  padding: 32px 32px 0;
-}
-
-.noomadCardVisual {
-  position: relative;
-  display: flex;
-  min-height: 300px;
-  flex: 1;
-  align-items: center;
-  overflow: hidden;
-}
-
-.noomadWithdrawPreview {
-  position: relative;
-  z-index: 0;
-  align-self: center;
-  display: flex;
-  width: 280px;
-  min-height: 218px;
-  box-sizing: border-box;
-  flex-direction: column;
-  gap: 11.085px;
-  margin: 20px auto 16px;
-  padding: 11.085px;
-  border-radius: 28px;
-  background: #fff;
-  box-shadow: 0 4px 24px rgb(48 54 66 / 4%);
-  color: #000;
-  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
-}
-
-.noomadWithdrawPreview::before {
-  position: absolute;
-  z-index: -1;
   inset: 0;
+  z-index: 2;
   border-radius: inherit;
-  content: none;
+  background: #000;
+  opacity: 0;
   pointer-events: none;
-  transform: translate(40px, -24px) rotate(5deg);
-  transform-origin: center;
+  transition: opacity 200ms ease;
 }
 
-.noomadWidgetStarting {
-  animation: noomadWidgetStart 500ms cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
-.noomadSendProcessing {
-  height: 218px;
-  align-items: center;
-  justify-content: center;
-  background: #fff;
-}
-
-.noomadSendProcessingContent {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  animation: noomadSendProcessingEnter 460ms cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
-.noomadProcessingIcon {
-  width: 72px;
-  height: 72px;
-}
-
-.noomadProcessingCircle { stroke-dasharray: 176; stroke-dashoffset: 176; animation: noomadCircleDraw 190ms ease-out 80ms forwards; }
-.noomadProcessingCheck { stroke-dasharray: 100; stroke-dashoffset: 100; animation: noomadCheckDraw 180ms ease-out 240ms forwards; }
-
-.noomadSendProcessing span {
-  color: #000;
-  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 24px;
-}
-
-.noomadSendProcessingCaption {
-  margin: -6px 0 0;
-  color: rgb(0 0 0 / 48%);
-  font-size: 13px;
-  font-weight: 500;
-  line-height: 14px;
-}
-
-.noomadSendProcessing .noomadProcessingCircle,
-.noomadSendProcessing .noomadProcessingCheck {
-  stroke: #000;
-}
-
-.noomadNetworkTabs { position: relative; display: flex; width: 100%; box-sizing: border-box; align-self: stretch; gap: 3.695px; padding: 3.695px; border-radius: 22.169px; background: rgb(0 0 0 / 6%); }
-.noomadNetworkIndicator { position: absolute; top: 3.695px; left: var(--active-network-left); width: calc((100% - 14.78px) / 3); height: 29.904px; border-radius: 17.942px; background: #fff; transition: left 420ms cubic-bezier(0.22, 1, 0.36, 1); }
-.noomadNetworkTab, .noomadNetworkTabActive { position: relative; z-index: 1; display: flex; height: 29.904px; box-sizing: border-box; align-items: center; justify-content: flex-start; gap: 6px; overflow: hidden; padding-left: 6px; border-radius: 17.942px; color: #000; font-family: 'SF Pro Rounded', -apple-system, sans-serif; font-size: 11px; font-weight: 500; line-height: 14px; letter-spacing: .02em; white-space: nowrap; transition: flex-basis 220ms cubic-bezier(0.22, 1, 0.36, 1); }
-.noomadNetworkTab { flex: 1 1 0; color: rgb(0 0 0 / 48%); }
-.noomadNetworkTabActive { flex: 1 1 0; }
-.noomadNetworkIcon { display: block; width: 17.942px; height: 17.942px; flex: 0 0 17.942px; }
-.noomadNetworkTab .noomadNetworkIcon { opacity: .48; }
-.noomadNetworkIconInverted { filter: invert(1); }
-.noomadAmountGroup { display: grid; width: 100%; gap: 5px; }
-.noomadAmountField { display: flex; width: 100%; box-sizing: border-box; flex-direction: column; gap: 2px; padding: 7px 12.213px 9.16px; border: 0; border-radius: 15.266px; background: rgb(0 0 0 / 6%); }
-.noomadAmountLabel { color: rgb(0 0 0 / 48%); font-family: 'SF Pro Rounded', -apple-system, sans-serif; font-size: 13px; font-weight: 500; line-height: 16px; letter-spacing: .02em; }
-.noomadAmountRow { display: flex; height: 36.638px; align-items: baseline; justify-content: space-between; }
-.noomadAmountValue { position: relative; display: inline-flex; height: 36.638px; align-items: center; overflow: hidden; font-family: 'SF Pro Rounded', -apple-system, sans-serif; font-size: 30.532px; font-weight: 500; line-height: 36.638px; }
-.noomadAmountPlaceholder { color: rgb(0 0 0 / 32%); }
-.noomadAmountValue i { display: inline-block; width: 2px; height: 35px; margin-left: 1.527px; border-radius: 4px; background: #0099ff; animation: noomadCaret 850ms step-end infinite; }
-.noomadAmountValue .noomadAmountPlaceholderCaret { position: absolute; top: 0.819px; left: 0; z-index: 1; margin: 0; }
-.noomadCurrency { color: rgb(0 0 0 / 32%); font-family: 'SF Pro Rounded', -apple-system, sans-serif; font-size: 12.976px; font-weight: 500; line-height: 16.029px; }
-.noomadBalance { margin: 0; color: rgb(0 0 0 / 48%); font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-size: 11px; font-weight: 500; line-height: 14px; letter-spacing: 0; text-align: center; }
-.noomadBalance strong { color: inherit; font-family: inherit; font-style: normal; font-weight: 500; }
-.noomadWithdrawButton { display: flex; width: 100%; height: 44.105px; align-items: center; justify-content: center; gap: 7px; border: 0; border-radius: 25.203px; background: #111; color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-size: 13px; font-weight: 500; line-height: 16px; transition: transform 140ms ease, background 180ms ease, color 180ms ease; }
-.noomadWithdrawButtonPressed { transform: scale(.96); }
-.noomadWithdrawButtonProcessing { background: rgb(0 0 0 / 16%); color: #000; }
-.noomadSpinner { width: 20px; height: 20px; border: 2.5px solid rgb(0 0 0 / 32%); border-top-color: #000; border-radius: 50%; animation: noomadSpin 700ms linear infinite; }
-.noomadTouchIndicator { position: absolute; z-index: 3; width: 34px; height: 34px; border: 0; border-radius: 50%; background: rgb(255 255 255 / 48%); box-shadow: 0 4px 12px rgb(0 0 0 / 12%); pointer-events: none; animation: noomadTouch 420ms ease-out both; }
-.noomadTouchIndicatorNetwork { top: 14px; left: calc(83.333% - 17px); }
-.noomadTouchIndicatorWithdraw { bottom: 16px; left: calc(68% - 17px); }
-
-@keyframes noomadCaret { 50% { opacity: 0; } }
-@keyframes noomadSpin { to { transform: rotate(360deg); } }
-@keyframes noomadTouch { 0% { opacity: 0; transform: scale(.58); } 45% { opacity: 1; transform: scale(1); } 100% { opacity: .72; transform: scale(.9); } }
-
-@keyframes noomadWidgetStart {
-  0% { transform: scale(.94); }
-  100% { transform: scale(1); }
-}
-
-@keyframes noomadSendProcessingEnter {
-  0% { transform: translateY(18px); opacity: 0; }
-  100% { transform: translateY(0); opacity: 1; }
-}
-
-@keyframes noomadCircleDraw { to { stroke-dashoffset: 0; } }
-@keyframes noomadCheckDraw { to { stroke-dashoffset: 0; } }
-
-.noomadCardOutcome {
-  padding: 0 32px 28px;
-}
-
-.parklyWidgets {
-  display: flex;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  transform-origin: center;
-  transition: gap 560ms cubic-bezier(0.22, 1, 0.36, 1), transform 240ms ease;
-}
-
-.parklyWidgetsActive {
-  gap: 32px;
-}
-
-.parklySelectionCard {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  width: 144px;
-  height: 136px;
-  box-sizing: border-box;
-  flex: 0 0 144px;
-  flex-direction: column;
-  justify-content: center;
-  padding: 12px 0;
-  border-radius: 16px;
-  background: #fff;
-  box-shadow: 0 4px 12px rgba(48, 54, 66, 0.12);
-  font-family: 'Lato Widget', sans-serif;
-  transform: translateX(40px) rotate(-3deg);
-  transition: transform 560ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.parklyPreviewHeader {
-  display: grid;
-  justify-items: center;
-  gap: 2.269px;
-  padding-bottom: 6.806px;
-  padding-inline: 12px;
-  text-align: center;
-}
-
-.parklyPreviewHeader strong {
-  font-size: 16px;
-  line-height: 15.88px;
-  font-weight: 700;
-}
-
-.parklyPreviewRate {
-  font-size: 10px;
-  line-height: 11.343px;
-  font-weight: 400;
-}
-
-.parklyPreviewHeader .parklyRuble {
-  font-family: 'Noto Sans Ruble', sans-serif;
-  font-weight: 400;
-}
-
-.parklyRoller {
-  position: relative;
-  width: 100%;
-  margin-top: 0;
-}
-
-.parklyRollerArrow {
-  display: block;
-  width: 11.491px;
-  height: 8.619px;
-  margin: 4.537px auto;
-}
-
-.parklyRollerViewport {
-  position: relative;
-  width: 100%;
-  height: 52.177px;
-  overflow: hidden;
-}
-
-.parklyRollerViewport::before,
-.parklyRollerViewport::after {
-  position: absolute;
-  z-index: 2;
-  top: 0;
-  bottom: 0;
-  width: 22px;
-  pointer-events: none;
-  content: '';
-}
-
-.parklyRollerViewport::before {
-  left: 0;
-  background: linear-gradient(to right, #fff 10%, rgba(255, 255, 255, 0));
-}
-
-.parklyRollerViewport::after {
-  right: 0;
-  background: linear-gradient(to left, #fff 10%, rgba(255, 255, 255, 0));
-}
-
-.parklyRollerStrip {
-  display: flex;
-  gap: 4px;
-  height: 100%;
-  align-items: end;
-  transition: transform 560ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.parklyRollerItem,
-.parklyRollerItemActive {
-  display: flex;
-  width: 18.149px;
-  height: 52.177px;
-  flex: 0 0 18.149px;
-  flex-direction: column;
-  align-items: center;
-  justify-content: end;
-  transition: color 220ms ease;
-}
-
-.parklyRollerItem::before,
-.parklyRollerItemActive::before {
-  display: block;
-  width: 100%;
-  height: var(--bar-height);
-  border-radius: 4px;
-  content: '';
-  background: rgba(38, 209, 148, 0.5);
-  transition: background 220ms ease;
-}
-
-.parklyRollerItemActive {
-  color: #1d3262;
-  font-weight: 500;
-}
-
-.parklyRollerItemActive::before {
-  background: #26d194;
-}
-
-.parklyGsmButton {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  width: 144px;
-  height: 136px;
-  box-sizing: border-box;
-  flex: 0 0 144px;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 8px;
-  padding: 16px;
-  border-radius: 16px;
-  background: #fff;
-  box-shadow: 0 4px 12px rgba(48, 54, 66, 0.12);
-  font-family: 'Lato Widget', sans-serif;
-  transform: translate(-40px, -8px) rotate(3deg);
-  transition: transform 560ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.parklyWidgetsActive .parklySelectionCard {
-  transform: translateX(0) rotate(-3deg);
-}
-
-.parklyWidgetsActive .parklyGsmButton {
-  transform: translateY(-8px) rotate(3deg);
-}
-
-.parklyGsmIcon {
-  position: relative;
-  width: 40px;
-  height: 40px;
-  flex: 0 0 40px;
-  overflow: hidden;
-  border-radius: 50%;
-  background: #00ca24;
-}
-
-.parklyGsmGlyph {
-  position: absolute;
-  inset: 8px;
-  overflow: hidden;
-}
-
-.parklyGsmBody,
-.parklyGsmWheel,
-.parklyGsmLine {
-  position: absolute;
-  display: block;
-}
-
-.parklyGsmBody {
-  top: 8px;
-  left: 4px;
-  width: 16px;
-  height: 9px;
-  transform: scaleX(-1);
-}
-
-.parklyGsmWheel {
-  top: 12.5px;
-  left: 5.5px;
-  width: 5px;
-  height: 5px;
-  transform: scaleX(-1);
-}
-
-.parklyGsmLine {
-  top: 5px;
-  left: 19px;
-  width: 1.5px;
-  height: 15.5px;
-}
-
-.parklyGsmCopy {
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 4px;
-}
-
-.parklyGsmCopy strong {
-  width: 100%;
-  color: #00b220;
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 22px;
-}
-
-.parklyGsmCopy span {
-  width: 100%;
-  color: #1d3262;
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 0.005em;
-  line-height: 16px;
-}
-
-/* Карточка Паркли становится уже раньше, чем весь блок проектов.
-   Масштабируем виджеты по ширине их собственной колонки, сохраняя пропорции. */
-@container (max-width: 400px) {
-  .parklyWidgets { transform: scale(0.96); }
-}
-
-@container (max-width: 340px) {
-  .parklyWidgets { transform: scale(0.9); }
-}
-
-@container (max-width: 285px) {
-  .parklyWidgets { transform: scale(0.86); }
-}
-
-@container (max-width: 240px) {
-  .parklyWidgets { transform: scale(0.72); }
+@media (hover: hover) {
+  a:hover .projectCard::after { opacity: 0.02; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .parklyRollerStrip,
-  .parklyWidgets,
-  .parklySelectionCard,
-  .parklyGsmButton {
-    transition: none;
-  }
-
+  .projectCard::after { transition: none; }
 }
 
-@media (min-width: 640px) {
-  .parklyCard {
-    display: grid;
-    grid-template-columns: 3fr 2fr;
-    grid-template-rows: auto 1fr auto;
+.projectCardCopy {
+  padding: 28px 32px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.projectBrand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: var(--type-nav);
+  font-weight: 500;
+  line-height: var(--type-nav-leading);
+}
+
+.projectBrand img { border-radius: 6px; }
+
+.projectHeadline {
+  margin: 0;
+  max-width: 540px;
+  font-size: var(--type-heading);
+  font-weight: 400;
+  line-height: var(--type-heading-leading);
+}
+
+.projectCardVisual {
+  position: relative;
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.projectImageFrame {
+  position: absolute;
+  inset: 0;
+}
+
+/* Account for transparent image margins: show 70% of the phone,
+   starting 10% below the cover's top edge. */
+.projectPhoneFrame {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  top: -1.402%;
+  height: 147.625%;
+}
+
+.projectPhoneFrameParkly {
+  top: -6.282%;
+  height: 157.264%;
+}
+
+.projectPhoneImage {
+  object-fit: contain;
+  transition: transform 240ms ease;
+}
+
+.projectCardImage {
+  object-fit: contain;
+  padding: 24px;
+  transition: transform 240ms ease;
+}
+
+.projectCardOpen {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  padding: 10px 18px;
+  border-radius: 64px;
+  background: rgb(255 255 255 / 76%);
+  backdrop-filter: blur(6px);
+  color: #171717;
+  font-size: var(--type-nav);
+  line-height: var(--type-nav-leading);
+  transition: background 160ms ease;
+}
+
+@media (hover: hover) {
+  a:hover .projectCardImage,
+  a:hover .projectPhoneImage {
+    transform: scale(1.03);
   }
 
-  .parklyCardHeader {
-    grid-column: 1;
-    grid-row: 1;
-    padding-right: 16px;
-  }
-
-  .parklyCardVisual {
-    display: contents;
-  }
-
-  .parklyBookingPreview {
-    grid-column: 1;
-    grid-row: 2;
-  }
-
-  .parklyPhonePreview {
-    grid-column: 2;
-    grid-row: 1 / 4;
-    width: auto;
-    min-height: 0;
-    overflow: hidden;
-  }
-
-  .parklyCardOutcome {
-    grid-column: 1;
-    grid-row: 3;
-    padding-right: 16px;
-  }
-
-  .noomadCard {
-    display: grid;
-    grid-template-columns: 3fr 2fr;
-    grid-template-rows: auto 1fr auto;
-  }
-
-  .noomadCardHeader {
-    grid-column: 1;
-    grid-row: 1;
-    padding-right: 16px;
-  }
-
-  .noomadCardVisual {
-    grid-column: 2;
-    grid-row: 1 / 4;
-    min-height: 0;
-  }
-
-  .noomadWithdrawPreview {
-    grid-column: 1;
-    grid-row: 2;
-    width: 280px;
-    margin: 20px auto;
-  }
-
-  .noomadCardOutcome {
-    grid-column: 1;
-    grid-row: 3;
-    padding-right: 16px;
+  .projectCardOpen:hover {
+    background: #fff;
   }
 }
 
-@media (max-width: 639px) {
-  .projectsGrid {
-    gap: 16px;
-  }
-
-  .projectShell {
+@media (prefers-reduced-motion: reduce) {
+  .projectPhoneImage,
+  .projectCardImage,
+  .projectCardOpen {
     transition: none;
-  }
-
-  .noomadWithdrawPreview {
-    display: none;
-  }
-
-  .parklyCardVisual {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .parklyBookingPreview,
-  .parklyPhonePreview {
-    width: auto;
-    min-width: 0;
-  }
-
-  .noomadCardVisual {
-    min-height: 340px;
-  }
-
-  .parklyBookingPreview {
-    grid-column: 1;
-    padding-left: 0;
-  }
-
-  .parklyPhonePreview {
-    grid-column: 2;
-    min-height: 220px;
-    flex: none;
-  }
-
-  .parklyGsmButton {
-    display: none;
-  }
-
-  .parklyBookingPreview {
-    display: none;
-  }
-
-  .parklyCardVisual {
-    display: block;
-    min-height: 0;
-  }
-
-  .parklyPhonePreview {
-    width: 100%;
-    min-height: 300px;
   }
 }
 
 @media (max-width: 479px) {
+  .projectCard { aspect-ratio: 0.95; border-radius: 20px; }
+  .projectCardCopy { padding: 24px 24px 16px; gap: 12px; }
+  .projectBrand { font-size: var(--type-nav); line-height: var(--type-nav-leading); }
+  .projectHeadline { font-size: var(--type-heading); line-height: var(--type-heading-leading); }
   .intro,
   .projectsGrid,
   .footer {
@@ -961,12 +477,8 @@
   }
 
   .projectsGrid {
-    gap: 16px;
+    row-gap: 24px;
     padding-bottom: 0;
-  }
-
-  .projectShell {
-    border-radius: 24px;
   }
 
   .intro {
@@ -986,10 +498,9 @@
     padding-left: 4px;
   }
 
-  .bodyLarge,
-  .cardOutcome {
-    font-size: 20px;
-    line-height: 24px;
+  .cardTitle {
+    font-size: var(--type-heading);
+    line-height: var(--type-heading-leading);
   }
 
   .randomFacts p {
@@ -997,9 +508,9 @@
   }
 
   .bodyNarrow,
-  .cardTitle {
-    font-size: 18px;
-    line-height: 24px;
+  .cardOutcome {
+    font-size: var(--type-nav);
+    line-height: var(--type-nav-leading);
   }
 
   .mainHeaderInner {
@@ -1007,41 +518,85 @@
     padding-bottom: 8px;
   }
 
-  .parklyCardHeader,
-  .noomadCardHeader,
-  .projectCardHeader {
-    padding: 20px 20px 0;
-    gap: 16px;
+  .projectCardVisual {
+    border-radius: 0;
   }
 
-  .parklyCardHeader > div,
-  .noomadCardHeader > div {
-    gap: 16px;
+  .projectCardImage {
+    padding: 16px;
   }
 
-  .cardOutcome,
-  .parklyCardOutcome,
-  .noomadCardOutcome {
-    padding: 20px;
+  .projectCardOpen {
+    right: 12px;
+    bottom: 12px;
+    padding: 8px 14px;
+    font-size: var(--type-nav);
+    line-height: var(--type-nav-leading);
+  }
+}
+
+/* Align every primary region with the shared composition grid. */
+.mainHeader .mainHeaderInner,
+.homePage .intro,
+.homePage .projectsGrid,
+.homePage .footer {
+  width: var(--layout-width);
+  max-width: none;
+  margin-inline: auto;
+  padding-inline: 0;
+}
+
+.homePage .projectsGrid {
+  grid-template-columns: repeat(var(--layout-columns), minmax(0, 1fr));
+  gap: var(--layout-gap);
+}
+
+.projectsGrid > * { grid-column: span 6; }
+
+@media (max-width: 1023px) {
+  .projectsGrid > * { grid-column: 1 / -1; }
+}
+
+@supports (corner-shape: squircle) {
+  .projectCard, .projectCard::after, .factPhoto {
+    border-radius: var(--container-radius);
+    corner-shape: var(--container-corner-shape);
+  }
+}
+
+.projectMeta {
+  position: absolute;
+  z-index: 3;
+  bottom: 20px;
+  left: 24px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-width: calc(100% - 48px);
+  padding: 8px 12px;
+  border-radius: 12px;
+  background: rgb(255 255 255 / 96%);
+  color: var(--text-secondary);
+  font-size: var(--type-small);
+  line-height: var(--type-small-leading);
+  pointer-events: none;
+}
+
+@media (hover: hover) {
+  .projectMeta {
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 180ms ease, transform 180ms ease;
   }
 
-  .uchiPaywallPreview {
-    padding-top: 16px;
+  a:hover .projectMeta,
+  a:focus-visible .projectMeta {
+    opacity: 1;
+    transform: translateY(0);
   }
+}
 
-  .uchiPaywallFrame {
-    border-radius: 12px;
-  }
-
-  .funCardVisual {
-    flex: 1 1 220px;
-  }
-
-  .vnutriCardVisual {
-    flex: 0 0 220px;
-  }
-
-  .projectVnutri {
-    min-height: 0 !important;
-  }
+@media (prefers-reduced-motion: reduce) {
+  .projectMeta { transition: none; transform: none; }
 }

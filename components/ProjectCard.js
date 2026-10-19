@@ -1,3 +1,4 @@
+import Arrow from '@/components/Arrow';
 // ProjectCard.js
 import Image from 'next/image'
 import Link from 'next/link'
@@ -6,7 +7,7 @@ function CaseButton({ label = 'Подробнее' }) {
   return (
     <span className="inline-flex h-12 w-fit items-center justify-center gap-2 rounded-xl bg-neutral-950 py-0 pl-6 pr-4 text-base font-medium leading-none text-white transition-colors hover:bg-neutral-800">
       <span>{label}</span>
-      <span aria-hidden="true" className="text-xl leading-none">→</span>
+      <Arrow />
     </span>
   )
 }

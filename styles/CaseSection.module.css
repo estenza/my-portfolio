@@ -1,0 +1,17 @@
+/* Prevent heading and child margins from adding up or collapsing outside a section. */
+.section {
+  display: flow-root;
+}
+
+.section.section > :is(h2, h3) {
+  margin-top: 0;
+  margin-bottom: var(--case-space-heading);
+}
+
+.section.section > :is(h2, h3) + * {
+  margin-top: 0;
+}
+
+.section.section > p + p {
+  margin-top: var(--case-space-paragraph);
+}

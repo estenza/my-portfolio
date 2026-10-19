@@ -1,34 +1,49 @@
 .page {
   min-height: 100vh;
-  padding: 0 16px;
-  background: #eceff2;
+  padding: 0;
+  background: #fff;
   color: #1a1a1a;
 }
 
-.surface {
+.page > .surface {
   width: 100%;
-  border-radius: 40px;
-  background: #fff;
+  border-radius: 0;
+  background: transparent;
 }
 
-.surface + .surface { margin-top: 16px; }
+.page > .surface + .surface {
+  position: relative;
+  margin-top: 0;
+}
+
+.page > .surface + .surface::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: var(--layout-reading);
+  max-width: var(--layout-reading);
+  height: 1px;
+  background: #e5e5e5;
+}
 
 .container {
-  width: 800px;
-  max-width: calc(100% - 64px);
+  width: var(--layout-reading);
+  max-width: var(--layout-reading);
   margin-inline: auto;
 }
 
 .footer {
   display: flex;
-  width: calc(100% + 32px);
+  width: 100%;
   height: 120px;
-  margin-inline: -16px;
+  margin-inline: 0;
   align-items: center;
   justify-content: space-between;
   padding: 0 16px;
-  font-size: 20px;
-  line-height: 24px;
+  font-size: var(--type-small);
+  line-height: var(--type-small-leading);
 }
 
 @media (min-width: 640px) {
@@ -36,7 +51,15 @@
 }
 
 @media (max-width: 640px) {
-  .container { max-width: calc(100% - 32px); }
-  .surface { border-radius: 32px; }
+  .page > .surface + .surface::before { max-width: var(--layout-reading); }
+  .container { max-width: var(--layout-reading); }
   .footer { height: auto; padding-block: 40px; }
+}
+
+.page > .footer {
+  height: auto;
+  padding-block: 24px;
+  width: var(--layout-width);
+  margin-inline: auto;
+  padding-inline: 0;
 }

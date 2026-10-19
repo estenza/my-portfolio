@@ -1,3 +1,4 @@
+import SiteFooter from '@/components/SiteFooter';
 import MainHeader from '@/components/MainHeader';
 import styles from '@/styles/CasePage.module.css';
 
@@ -10,15 +11,12 @@ function classNames(...names) {
  * Визуальные блоки внутри остаются у конкретного кейса, а сетка, поверхности,
  * контейнер и футер поддерживаются в одном месте.
  */
-export function CasePage({ children, className = '', footerClassName = '', year = '2026' }) {
+export function CasePage({ children, className = '', year = '2026' }) {
   return (
     <main className={classNames(styles.page, className)}>
-      <MainHeader fullBleed />
+      <MainHeader />
       {children}
-      <footer className={classNames(styles.footer, footerClassName)}>
-        <span>дизайнил + кодил вадим зарипов</span>
-        <span>{year}</span>
-      </footer>
+      <SiteFooter year={year} />
     </main>
   );
 }

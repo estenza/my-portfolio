@@ -1,3 +1,4 @@
+import Arrow from '@/components/Arrow';
 import Head from 'next/head';
 import Image from 'next/image';
 import { useEffect, useRef } from 'react';
@@ -16,9 +17,9 @@ const courses = [
 ];
 
 const funnel = [
-  { label: 'начало онбординга', value: 95.4, muted: true },
-  { label: 'завершение онбординга', value: 70.6 },
-  { label: 'запуск 1-го уровня', value: 64.3, muted: true },
+  { label: 'Начало онбординга', value: 95.4, muted: true },
+  { label: 'Завершение онбординга', value: 70.6 },
+  { label: 'Запуск 1-го уровня', value: 64.3, muted: true },
 ].map((stage, index, stages) => {
   const previousValue = stages[index - 1]?.value ?? stage.value;
   const lossValue = previousValue - stage.value;
@@ -36,8 +37,8 @@ const funnel = [
 });
 
 const improvements = [
-  ['auto.png', '1. сделали автоматический переход дальше после завершения озвучки реплики, клик по кнопке «→» теперь не обязателен'],
-  ['reassurance.png', '2. добавили подтверждение действия при выходе из игры, чтобы немного замедлить игрока и снизить импульсивность'],
+  ['auto.png', <>1. Сделали автоматический переход дальше после завершения озвучки реплики, клик по кнопке «<Arrow />» теперь не обязателен</>],
+  ['reassurance.png', '2. Добавили подтверждение действия при выходе из игры, чтобы немного замедлить игрока и снизить импульсивность'],
 ];
 
 function Section({ title, children, className = '' }) {
@@ -45,7 +46,7 @@ function Section({ title, children, className = '' }) {
 }
 
 function Result({ children }) {
-  return <div className={styles.result}><strong>✦&nbsp;&nbsp;результат</strong><p>{children}</p></div>;
+  return <div className={styles.result}><strong>✦&nbsp;&nbsp;Результат</strong><p>{children}</p></div>;
 }
 
 function AutoPlayCaseVideo() {
@@ -93,18 +94,18 @@ export default function UchiPage() {
 
         <CaseSurface as="section" className={styles.intro}>
           <div className={styles.introContent}>
-            <div className={styles.brand}><Image src="/workplaces/uchi.png" alt="Учи.ру" width={56} height={56} priority /><h1><a href="https://uchi.ru" target="_blank" rel="noopener noreferrer">учи.ру</a></h1></div>
-            <p className={styles.lead}>игровые образовательные курсы для школьников</p>
+            <div className={styles.brand}><Image src="/workplaces/uchi.png" alt="Учи.ру" width={56} height={56} priority /><h1><a href="https://uchi.ru" target="_blank" rel="noopener noreferrer">Учи.ру</a></h1></div>
+            <p className={styles.lead}>Игровые образовательные курсы для школьников</p>
             <div className={styles.stats}>
               <p><strong>14 млн</strong><span>школьников</span></p>
               <p><strong>6 млн</strong><span>родителей</span></p>
               <p><strong>4,1 млн*</strong><span>MAU</span></p>
             </div>
-            <small>*по данным на конец 2024 года</small>
+            <small>*По данным на конец 2024 года</small>
           </div>
 
           <Section className={styles.courses}>
-            <h2>за 4 года поработал над 8 курсами</h2>
+            <h2>За 4 года поработал над 8 курсами</h2>
             <div className={styles.courseRow}>
               <div className={styles.courseSet}>
                 {courses.map((src) => <img key={src} src={src} alt="" />)}
@@ -117,12 +118,12 @@ export default function UchiPage() {
             </div>
           </Section>
 
-          <Section title="что делал">
+          <Section title="Что делал">
             <div className={styles.whatGrid}>
-              <article><h3>✦&nbsp;&nbsp;исследовал</h3><p>препродакшен, качественные/количественные тесты</p></article>
-              <article><h3>✦&nbsp;&nbsp;проектировал</h3><p>весь путь ученика от первого запуска до пейволла</p></article>
-              <article><h3>✦&nbsp;&nbsp;рисовал</h3><p>нескучные игровые интерфейсы и микроанимации</p></article>
-              <article><h3>✦&nbsp;&nbsp;проверял на проде</h3><p>курировал разработку, чтобы дизайн соответствовал макетам</p></article>
+              <article><h3>✦&nbsp;&nbsp;Исследовал</h3><p>Препродакшен, качественные/количественные тесты</p></article>
+              <article><h3>✦&nbsp;&nbsp;Проектировал</h3><p>Весь путь ученика от первого запуска до пейволла</p></article>
+              <article><h3>✦&nbsp;&nbsp;Рисовал</h3><p>Нескучные игровые интерфейсы и микроанимации</p></article>
+              <article><h3>✦&nbsp;&nbsp;Проверял на проде</h3><p>Курировал разработку, чтобы дизайн соответствовал макетам</p></article>
             </div>
           </Section>
         </CaseSurface>
@@ -130,66 +131,66 @@ export default function UchiPage() {
         <CaseSurface className={styles.case}>
           <CaseContainer className={styles.caseContent}>
             <header className={styles.caseHeader}>
-            <h2>кейс 1: увеличили конверсию в покупку курса</h2>
-            <p><strong><a href="https://uchi.ru/products/courses/course-math-racing" target="_blank" rel="noopener noreferrer">«математические гонки»</a></strong> — игровой тренажер для развития навыков быстрого счета у учеников 1–4 классов. правильные ответы ускоряют машину, неправильные — замедляют.</p>
-            <p>как и&nbsp;все игровые курсы на&nbsp;«учи.ру», состоял из&nbsp;бесплатной trial-части, которая завершалась пейволом с&nbsp;призывом позвать родителя для&nbsp;покупки полного доступа</p>
+            <h2>Кейс 1: увеличили конверсию в покупку курса</h2>
+            <p><strong><a href="https://uchi.ru/products/courses/course-math-racing" target="_blank" rel="noopener noreferrer">«Математические гонки»</a></strong> — игровой тренажер для развития навыков быстрого счета у учеников 1–4 классов. Правильные ответы ускоряют машину, неправильные — замедляют.</p>
+            <p>Как и&nbsp;все игровые курсы на&nbsp;«учи.ру», состоял из&nbsp;бесплатной trial-части, которая завершалась пейволом с&nbsp;призывом позвать родителя для&nbsp;покупки полного доступа</p>
           </header>
           <figure className={`${styles.heroImage} ${styles.paywallOverlayBorder}`}><AutoPlayCaseVideo /></figure>
 
-          <Section title="проблема">
+          <Section title="Проблема">
             <div className={styles.problemGrid}>
-              <div><p>через две недели после релиза увидели, что CR в покупку курса составляет <strong>0.7%</strong>, что меньше целевого показателя в <strong>1%</strong>.</p><p>события аналитики показали, что больше всего отвалов по воронке было во время онбординга в начале игры — мы теряли на этом этапе <strong>26%</strong> учеников, только <strong>70.6%</strong> доходило до завершения обучения</p></div>
+              <div><p>Через две недели после релиза увидели, что CR в покупку курса составляет <strong>0.7%</strong>, что меньше целевого показателя в <strong>1%</strong>.</p><p>События аналитики показали, что больше всего отвалов по воронке было во время онбординга в начале игры — мы теряли на этом этапе <strong>26%</strong> учеников, только <strong>70.6%</strong> доходило до завершения обучения</p></div>
               <div className={styles.funnel}>{funnel.map((item) => <div key={item.label} className={item.muted ? styles.mutedFunnel : ''}><span>{item.label}</span><div className={styles.funnelTrack}><b style={{ width: item.fillWidth }}>{item.displayValue}</b>{item.lossWidth && <i style={{ left: item.lossOffset, width: item.lossWidth }} />}{item.lossLabel && <em style={{ left: item.lossLabelPosition }}>{item.lossLabel}</em>}</div></div>)}</div>
             </div>
-            <p className={`${styles.copy} ${styles.problemConclusion}`}>чтобы выяснить причину отвалов, выбрали формат немодерируемых плей-тестов с детьми, но сперва решили просто увеличить доходимость небольшими UX-правками и проверить их влияние на воронку с помощью A/B-теста</p>
+            <p className={`${styles.copy} ${styles.problemConclusion}`}>Чтобы выяснить причину отвалов, выбрали формат немодерируемых плей-тестов с детьми, но сперва решили просто увеличить доходимость небольшими UX-правками и проверить их влияние на воронку с помощью A/B-теста</p>
           </Section>
 
-          <Section title="первый A/B-тест">
-            <p className={`${styles.copy} ${styles.hypothesesIntro}`}>вместе с продактом внимательно изучили весь флоу, сопоставив его с событиями аналитики, выделили проблемные места и сформулировали для них гипотезы</p>
+          <Section title="Первый A/B-тест">
+            <p className={`${styles.copy} ${styles.hypothesesIntro}`}>Вместе с продактом внимательно изучили весь флоу, сопоставив его с событиями аналитики, выделили проблемные места и сформулировали для них гипотезы</p>
             <div className={styles.hypotheses}>
-              <div className={styles.hypothesisRow}><article><span>!</span><p><strong>проблема:</strong> много отвалов на обучающих диалогах</p></article><article className={styles.hypothesisSolution}><span>→</span><p><strong>гипотеза:</strong> дети не понимают назначение кнопки «→» / не замечают ее и потому закрывают игру. если добавить автопереход после завершения озвучки, то уменьшим отвалы на диалогах</p></article></div>
-              <div className={styles.hypothesisRow}><article><span>!</span><p><strong>проблема:</strong> заметные отвалы между заданиями во время и после онбординга</p></article><article className={styles.hypothesisSolution}><span>→</span><p><strong>гипотеза:</strong> когда дети видят фидбэк «правильно/неправильно», они не понимают, что нужно нажать на кнопку «Дальше». если сделать клик необязательным и добавить автопереход к следующему заданию, то уменьшим отвалы во время решения заданий</p></article></div>
+              <div className={styles.hypothesisRow}><article><span>!</span><p><strong>Проблема:</strong> много отвалов на обучающих диалогах</p></article><article className={styles.hypothesisSolution}><span aria-hidden="true" /><p><strong>Гипотеза:</strong> дети не понимают назначение кнопки «<Arrow />» / не замечают ее и потому закрывают игру. Если добавить автопереход после завершения озвучки, то уменьшим отвалы на диалогах</p></article></div>
+              <div className={styles.hypothesisRow}><article><span>!</span><p><strong>Проблема:</strong> заметные отвалы между заданиями во время и после онбординга</p></article><article className={styles.hypothesisSolution}><span aria-hidden="true" /><p><strong>Гипотеза:</strong> когда дети видят фидбэк «правильно/неправильно», они не понимают, что нужно нажать на кнопку «Дальше». Если сделать клик необязательным и добавить автопереход к следующему заданию, то уменьшим отвалы во время решения заданий</p></article></div>
             </div>
-            <p className={`${styles.copy} ${styles.abTestConclusion}`}>на основе сформулированных гипотез внесли UX-правки и запустили A/B-тест, который длился две недели</p>
+            <p className={`${styles.copy} ${styles.abTestConclusion}`}>На основе сформулированных гипотез внесли UX-правки и запустили A/B-тест, который длился две недели</p>
             <div className={styles.improvements}>{improvements.map(([image, text]) => <figure key={image}><div><img src={`/uchi/rebuild/${image}`} alt="" /></div><figcaption>{text}</figcaption></figure>)}</div>
           </Section>
 
-          <Result>процент завершивших онбординг повысился <strong>с 70.8 до 81.1%</strong>, общий CR в покупку незначительно вырос <strong>с 0.7% до 0.8%</strong></Result>
-          <p className={styles.copy}>пришли к выводу, что у нас недостаточно данных для того, чтобы более существенно повлиять на CR в покупку курса — нужны дополнительные исследования</p>
+          <Result>Процент завершивших онбординг повысился <strong>с 70.8 до 81.1%</strong>, общий CR в покупку незначительно вырос <strong>с 0.7% до 0.8%</strong></Result>
+          <p className={styles.copy}>Пришли к выводу, что у нас недостаточно данных для того, чтобы более существенно повлиять на CR в покупку курса — нужны дополнительные исследования</p>
 
-          <Section title="плей-тесты с детьми">
-            <p className={styles.copy}>ux-исследователь подобрал для нас 8 детей, уже занимающихся на «учи», но еще не знакомых с курсом: мальчики и девочки поровну, ученики 1–4-х классов. я провел часть ux-тестов самостоятельно из-за высокой загрузки ux-ресерчера.</p>
-            <p className={`${styles.copy} ${styles.researchConclusion}`}>исследование показало серьезные проблемы со сложностью и с продолжительностью заездов, детям было тяжело решать задачи и одновременно следить за своим местом на трассе. один ребенок во время прохождения второго уровня даже заплакал 😢, пришлось прервать тест</p>
+          <Section title="Плей-тесты с детьми">
+            <p className={styles.copy}>Ux-исследователь подобрал для нас 8 детей, уже занимающихся на «учи», но еще не знакомых с курсом: мальчики и девочки поровну, ученики 1–4-х классов. Я провел часть ux-тестов самостоятельно из-за высокой загрузки ux-ресерчера.</p>
+            <p className={`${styles.copy} ${styles.researchConclusion}`}>Исследование показало серьезные проблемы со сложностью и с продолжительностью заездов, детям было тяжело решать задачи и одновременно следить за своим местом на трассе. Один ребенок во время прохождения второго уровня даже заплакал 😢, пришлось прервать тест</p>
             <div className={`${styles.hypotheses} ${styles.researchHypotheses}`}>
-              <div className={styles.hypothesisRow}><article><span>!</span><p><strong>проблема:</strong> задачи для кого-то были слишком трудными, а для кого-то слишком простыми</p></article><article className={styles.hypothesisSolution}><span>→</span><p><strong>гипотеза:</strong> если адаптировать сложность задач под уровень игры ребенка, то удастся найти баланс между сложностью и скукой</p></article></div>
-              <div className={styles.hypothesisRow}><article><span>!</span><p><strong>проблема:</strong> боты-соперники редко косячили, их было сложно победить даже если не ошибаться во время ответов</p></article><article className={styles.hypothesisSolution}><span>→</span><p><strong>гипотеза:</strong> если адаптировать сложность соперников под то, как ребенок справляется с задачами, то победить станет проще (или сложнее)</p></article></div>
-              <div className={styles.hypothesisRow}><article><span>!</span><p><strong>проблема:</strong> онбординг был затянут, дети теряли интерес еще до первого уровня</p></article><article className={styles.hypothesisSolution}><span>→</span><p><strong>гипотеза:</strong> если сократить количество кругов с двух до одного, то дети будут быстрее доходить до первого уровня</p></article></div>
-              <div className={styles.hypothesisRow}><article><span>!</span><p><strong>проблема:</strong> явный перебор с четырьмя кругами на уровнях — дети сильно уставали или начинали скучать</p></article><article className={styles.hypothesisSolution}><span>→</span><p><strong>гипотеза:</strong> если сократить количество кругов с четырех до двух, то игровой процесс станет более динамичным, дети будут меньше уставать</p></article></div>
-              <div className={styles.hypothesisRow}><article><span>!</span><p><strong>проблема:</strong> дети терялись и начинали следить за машинками, забывая решать задачи</p></article><article className={styles.hypothesisSolution}><span>→</span><p><strong>гипотеза:</strong> если добавить CTA-подсказки на ответы после нескольких секунд бездействия, то удастся переключить фокус внимания ребенка на задачи</p></article></div>
+              <div className={styles.hypothesisRow}><article><span>!</span><p><strong>Проблема:</strong> задачи для кого-то были слишком трудными, а для кого-то слишком простыми</p></article><article className={styles.hypothesisSolution}><span aria-hidden="true" /><p><strong>Гипотеза:</strong> если адаптировать сложность задач под уровень игры ребенка, то удастся найти баланс между сложностью и скукой</p></article></div>
+              <div className={styles.hypothesisRow}><article><span>!</span><p><strong>Проблема:</strong> боты-соперники редко косячили, их было сложно победить даже если не ошибаться во время ответов</p></article><article className={styles.hypothesisSolution}><span aria-hidden="true" /><p><strong>Гипотеза:</strong> если адаптировать сложность соперников под то, как ребенок справляется с задачами, то победить станет проще (или сложнее)</p></article></div>
+              <div className={styles.hypothesisRow}><article><span>!</span><p><strong>Проблема:</strong> онбординг был затянут, дети теряли интерес еще до первого уровня</p></article><article className={styles.hypothesisSolution}><span aria-hidden="true" /><p><strong>Гипотеза:</strong> если сократить количество кругов с двух до одного, то дети будут быстрее доходить до первого уровня</p></article></div>
+              <div className={styles.hypothesisRow}><article><span>!</span><p><strong>Проблема:</strong> явный перебор с четырьмя кругами на уровнях — дети сильно уставали или начинали скучать</p></article><article className={styles.hypothesisSolution}><span aria-hidden="true" /><p><strong>Гипотеза:</strong> если сократить количество кругов с четырех до двух, то игровой процесс станет более динамичным, дети будут меньше уставать</p></article></div>
+              <div className={styles.hypothesisRow}><article><span>!</span><p><strong>Проблема:</strong> дети терялись и начинали следить за машинками, забывая решать задачи</p></article><article className={styles.hypothesisSolution}><span aria-hidden="true" /><p><strong>Гипотеза:</strong> если добавить CTA-подсказки на ответы после нескольких секунд бездействия, то удастся переключить фокус внимания ребенка на задачи</p></article></div>
             </div>
           </Section>
 
-          <Section title="финальные A/B-тесты">
+          <Section title="Финальные A/B-тесты">
             <div className={styles.designGrid}>
-              <figure className={styles.designSquare}><img src="/uchi/rebuild/laps.png" alt="Сокращение кругов" className={styles.designFill} /><figcaption>1. в два раза сократили кол-во кругов в заездах: в обучающей гонке с 2 до 1, на уровнях с 4 до 2</figcaption></figure>
-              <figure><img src="/uchi/rebuild/difficulty.png" alt="Адаптивная сложность" className={styles.designFill} /><figcaption>2. геймдизайнер создал алгоритм, адаптирующий сложность заданий и соперников под уровень игрока</figcaption></figure>
-              <figure><img src="/uchi/rebuild/cta.gif" alt="Подсказка" /><figcaption>3. добавил подсказки к ответам после 3-х секунд бездействия во время обучения</figcaption></figure>
-              <figure><img src="/uchi/rebuild/cta-point4.gif" alt="Общий CTA" /><figcaption>4. добавил общий CTA на варианты ответа после 10 секунд бездействия</figcaption></figure>
+              <figure className={styles.designSquare}><img src="/uchi/rebuild/laps.png" alt="Сокращение кругов" className={styles.designFill} /><figcaption>1. В два раза сократили кол-во кругов в заездах: в обучающей гонке с 2 до 1, на уровнях с 4 до 2</figcaption></figure>
+              <figure><img src="/uchi/rebuild/difficulty.png" alt="Адаптивная сложность" className={styles.designFill} /><figcaption>2. Геймдизайнер создал алгоритм, адаптирующий сложность заданий и соперников под уровень игрока</figcaption></figure>
+              <figure><img src="/uchi/rebuild/cta.gif" alt="Подсказка" /><figcaption>3. Добавил подсказки к ответам после 3-х секунд бездействия во время обучения</figcaption></figure>
+              <figure><img src="/uchi/rebuild/cta-point4.gif" alt="Общий CTA" /><figcaption>4. Добавил общий CTA на варианты ответа после 10 секунд бездействия</figcaption></figure>
             </div>
           </Section>
-            <Result>провели A/B-тест, аналитика показала увеличение CR в покупку курса <strong>с 0.8% до 1.3%</strong>, заметно превысив целевой показатель. тест был признан удачным, раскатили изменения на всех пользователей</Result>
+            <Result>Провели A/B-тест, аналитика показала увеличение CR в покупку курса <strong>с 0.8% до 1.3%</strong>, заметно превысив целевой показатель. Тест был признан удачным, раскатили изменения на всех пользователей</Result>
           </CaseContainer>
         </CaseSurface>
 
         <CaseSurface className={styles.case}>
           <CaseContainer className={`${styles.caseContent} ${styles.caseContentLast}`}>
-            <header className={styles.caseHeader}><h2>кейс 2: внедрили пейвол, увеличивший продажи курса</h2><p><strong><a href="https://uchi.ru/products/games/word-keepers" target="_blank" rel="noopener noreferrer">«хранители слов»</a></strong> — игровой тренажер для закрепления правил орфографии с помощью сбора слов. стояла задача спроектировать для него пейвол, который бы хорошо конвертировал в покупку.</p><p>в «учи» ранее проводились исследования о том, почему дети закрывают игру, когда доходят до пейвола, и не зовут родителей. из них следовало, что чаще всего детей пугает обилие текста, общая «взрослость» и серьезность страницы, а также неочевидность дальнейших действий для продолжения игры. мы постарались учесть эти наблюдения при проектировании первой версии</p></header>
-          <Section title="проблема"><p className={styles.copy}>через две недели после запуска данные аналитики показали, что доходимость до пейвола была в целом неплохой, но конверсия в покупку на этом этапе составляла всего <strong>0.4%</strong>, что критически мало при целевом показателе в <strong>1%</strong>.</p></Section>
+            <header className={styles.caseHeader}><h2>Кейс 2: внедрили пейвол, увеличивший продажи курса</h2><p><strong><a href="https://uchi.ru/products/games/word-keepers" target="_blank" rel="noopener noreferrer">«Хранители слов»</a></strong> — игровой тренажер для закрепления правил орфографии с помощью сбора слов. Стояла задача спроектировать для него пейвол, который бы хорошо конвертировал в покупку.</p><p>В «учи» ранее проводились исследования о том, почему дети закрывают игру, когда доходят до пейвола, и не зовут родителей. Из них следовало, что чаще всего детей пугает обилие текста, общая «взрослость» и серьезность страницы, а также неочевидность дальнейших действий для продолжения игры. Мы постарались учесть эти наблюдения при проектировании первой версии</p></header>
+          <Section title="Проблема"><p className={styles.copy}>Через две недели после запуска данные аналитики показали, что доходимость до пейвола была в целом неплохой, но конверсия в покупку на этом этапе составляла всего <strong>0.4%</strong>, что критически мало при целевом показателе в <strong>1%</strong>.</p></Section>
           <figure className={styles.paywall}><img src="/uchi/rebuild/case2-3.png" alt="Первая версия пейвола" /></figure>
-          <Section title="пошли спрашивать родителей"><p className={styles.copy}>чтобы точнее определить причины, инициировали серию глубинных интервью с родителями учеников (8 респондентов) и узнали из них следующее:</p><ul className={styles.list}><li>недостаточно информации для принятия решения о покупке: не понятна польза курса для ребенка — какие навыки он разовьет и что нового узнает</li><li>геймплейный трейлер занимает много места и будто сделан в первую очередь для детей, но при этом дает мало представления о курсе</li></ul></Section>
-          <Section title="вторая версия"><figure className={`${styles.paywall} ${styles.paywallOverlayBorder}`}><img src="/uchi/rebuild/case2-6.png" alt="Вторая версия пейвола" /></figure><p className={styles.copy}>для новой версии добавили больше информации о курсе и его образовательной ценности</p><p className={`${styles.copy} ${styles.hypothesisCopy}`}>запустили A/B-тест на 2 недели, он показал прирост CR <strong>+0.2%</strong>, <strong>итого 0.6%</strong>. пришли к выводу, что для достижения целевых показателей нужно кардинально пересмотреть содержание и менять посыл</p></Section>
-          <Section title="третья версия"><figure className={`${styles.paywall} ${styles.paywallNoBorder}`}><img src="/uchi/rebuild/case2-5.png" alt="Третья версия пейвола" /></figure><p className={styles.copy}>в третьей версии пейвола постарались максимально учесть пожелания родителей и полностью переориентировали его на взрослую аудиторию</p><ul className={styles.featureList}><li>убрали упоминание геймплейных и сюжетных особенностей курса, с помощью методистов сделал акцент на развитии прикладных навыков ребенка</li><li>добавили фоновую озвучку реплики «позови родителя…» при открытии страницы, чтобы ребенок понимал, что нужно делать и не закрывал пейвол</li></ul></Section>
-          <Section title="пошли снова спрашивать родителей"><p className={styles.copy}>чтобы понять, насколько точно последний вариант соответствует их запросу, на следующем интервью мы предложили сравнить между собой все три версии пейвола, выбрать из них лучший и обосновать свой выбор.</p><p className={`${styles.copy} ${styles.hypothesisCopy}`}>все родители сошлись во мнении, что третья версия гораздо лучше доносит образовательную ценность и хорошо формирует представление о курсе. критических замечаний озвучено не было.</p><p className={`${styles.copy} ${styles.hypothesisCopy}`}>такой позитивный фидбек вселил в нас надежду, что теперь родители более охотно будут покупать курс</p></Section>
+          <Section title="Пошли спрашивать родителей"><p className={styles.copy}>Чтобы точнее определить причины, инициировали серию глубинных интервью с родителями учеников (8 респондентов) и узнали из них следующее:</p><ul className={styles.list}><li>Недостаточно информации для принятия решения о покупке: не понятна польза курса для ребенка — какие навыки он разовьет и что нового узнает</li><li>Геймплейный трейлер занимает много места и будто сделан в первую очередь для детей, но при этом дает мало представления о курсе</li></ul></Section>
+          <Section title="Вторая версия"><figure className={`${styles.paywall} ${styles.paywallOverlayBorder}`}><img src="/uchi/rebuild/case2-6.png" alt="Вторая версия пейвола" /></figure><p className={styles.copy}>Для новой версии добавили больше информации о курсе и его образовательной ценности</p><p className={`${styles.copy} ${styles.hypothesisCopy}`}>Запустили A/B-тест на 2 недели, он показал прирост CR <strong>+0.2%</strong>, <strong>итого 0.6%</strong>. Пришли к выводу, что для достижения целевых показателей нужно кардинально пересмотреть содержание и менять посыл</p></Section>
+          <Section title="Третья версия"><figure className={`${styles.paywall} ${styles.paywallNoBorder}`}><img src="/uchi/rebuild/case2-5.png" alt="Третья версия пейвола" /></figure><p className={styles.copy}>В третьей версии пейвола постарались максимально учесть пожелания родителей и полностью переориентировали его на взрослую аудиторию</p><ul className={styles.featureList}><li>Убрали упоминание геймплейных и сюжетных особенностей курса, с помощью методистов сделал акцент на развитии прикладных навыков ребенка</li><li>Добавили фоновую озвучку реплики «позови родителя…» при открытии страницы, чтобы ребенок понимал, что нужно делать и не закрывал пейвол</li></ul></Section>
+          <Section title="Пошли снова спрашивать родителей"><p className={styles.copy}>Чтобы понять, насколько точно последний вариант соответствует их запросу, на следующем интервью мы предложили сравнить между собой все три версии пейвола, выбрать из них лучший и обосновать свой выбор.</p><p className={`${styles.copy} ${styles.hypothesisCopy}`}>Все родители сошлись во мнении, что третья версия гораздо лучше доносит образовательную ценность и хорошо формирует представление о курсе. Критических замечаний озвучено не было.</p><p className={`${styles.copy} ${styles.hypothesisCopy}`}>Такой позитивный фидбек вселил в нас надежду, что теперь родители более охотно будут покупать курс</p></Section>
             <Result>A/B-тест со сравнением второй и третьей версии завершился в пользу последней. CR вырос <strong>с 0.6 до 1.1%</strong>, гипотеза подтвердилась, целевой показатель был достигнут</Result>
             <CaseNavigation previous="/noomad" next="/parkly" />
           </CaseContainer>

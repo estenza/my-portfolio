@@ -1,3 +1,4 @@
+import Arrow from '@/components/Arrow';
 import Image from 'next/image';
 import Head from 'next/head';
 import { Fragment, useCallback, useEffect, useState } from 'react';
@@ -39,11 +40,11 @@ function TextBlock({ description, className = '' }) {
   });
 
   return (
-    <div className={`w-full text-base leading-relaxed text-label-secondary sm:text-base ${className}`}>
+    <div className={`w-full text-[length:var(--type-body)] leading-[var(--type-body-leading)] text-label-primary ${className}`}>
       {blocks.map((block, idx) => {
         if (block.type === 'list') {
           return (
-            <ul key={idx} className="mb-5 space-y-2 last:mb-0">
+            <ul key={idx} className="mb-[var(--case-space-paragraph)] space-y-[var(--case-space-list)] last:mb-0">
               {block.items.map((item) => (
                 <li key={item} className="flex gap-3">
                   <span aria-hidden="true" className="shrink-0 text-label-tertiary">—</span>
@@ -55,7 +56,7 @@ function TextBlock({ description, className = '' }) {
         }
 
         return (
-          <p key={idx} className="mb-5 last:mb-0">{block.text}</p>
+          <p key={idx} className="mb-[var(--case-space-paragraph)] last:mb-0">{block.text}</p>
         );
       })}
     </div>
@@ -162,7 +163,7 @@ function CaseHeader({ title, description, pills = [], heroImage }) {
           {title}
         </h1>
         {description && (
-          <p className="mt-8 max-w-[800px] text-base leading-6 text-label-secondary">
+          <p className="mt-8 max-w-[var(--layout-reading)] text-base leading-6 text-label-secondary">
             {description}
           </p>
         )}
@@ -198,7 +199,7 @@ function ProductOverview({ section }) {
   }
 
   return (
-    <section className="mt-16 w-full sm:mt-24">
+    <section className="mt-[var(--case-space-section)] w-full">
       <h2 className="mb-10 text-[32px] font-semibold leading-[40px] text-label-primary">
         {section.title}
       </h2>
@@ -235,7 +236,7 @@ function CourseShowcase({ section }) {
   const content = (
     <>
       {section.title && (
-        <h2 className="mb-10 max-w-[800px] text-[32px] font-semibold leading-[40px] text-label-primary">
+        <h2 className="mb-10 max-w-[var(--layout-reading)] text-[32px] font-semibold leading-[40px] text-label-primary">
           {section.title}
         </h2>
       )}
@@ -282,7 +283,7 @@ function CourseShowcase({ section }) {
   }
 
   return (
-    <section className="mt-16 w-full sm:mt-24" aria-label={section.label || 'Примеры курсов'}>
+    <section className="mt-[var(--case-space-section)] w-full" aria-label={section.label || 'Примеры курсов'}>
       {content}
     </section>
   );
@@ -295,7 +296,7 @@ function ProductGoals({ section }) {
 
   return (
     <section className="mt-20 w-full sm:mt-28">
-      <h2 className="max-w-[800px] text-[32px] font-bold leading-10 text-label-primary">
+      <h2 className="max-w-[var(--layout-reading)] text-[32px] font-bold leading-10 text-label-primary">
         {section.title}
       </h2>
       <div className="mt-12 grid grid-cols-1 gap-10 md:grid-cols-3">
@@ -369,7 +370,7 @@ function UXContext({ section }) {
 
   return (
     <section className="mt-20 w-full sm:mt-28">
-      <h2 className="max-w-[800px] text-[32px] font-bold leading-10 text-label-primary">
+      <h2 className="max-w-[var(--layout-reading)] text-[32px] font-bold leading-10 text-label-primary">
         {section.title}
       </h2>
       <div className="mt-12 space-y-10 sm:space-y-14">
@@ -394,7 +395,7 @@ function ProductModel({ section }) {
 
   return (
     <section className="mt-20 w-full sm:mt-28">
-      <h2 className="max-w-[800px] text-[32px] font-bold leading-10 text-label-primary">
+      <h2 className="max-w-[var(--layout-reading)] text-[32px] font-bold leading-10 text-label-primary">
         {section.title}
       </h2>
       <div className="mt-12">
@@ -443,11 +444,11 @@ function PurchaseTransition({ section }) {
 
   return (
     <section className="mt-20 w-full sm:mt-28">
-      <h2 className="max-w-[800px] text-[32px] font-bold leading-10 text-label-primary">
+      <h2 className="max-w-[var(--layout-reading)] text-[32px] font-bold leading-10 text-label-primary">
         {section.title}
       </h2>
       {section.description && (
-        <p className="mt-6 max-w-[800px] text-base leading-6 text-label-secondary">
+        <p className="mt-6 max-w-[var(--layout-reading)] text-base leading-6 text-label-secondary">
           {section.description}
         </p>
       )}
@@ -463,7 +464,7 @@ function PurchaseTransition({ section }) {
               className="h-auto w-full"
             />
             <h3 className="mt-4 text-[18px] font-bold leading-6 text-label-primary">{item.title}</h3>
-            <p className="mt-2 max-w-[800px] text-base leading-6 text-label-secondary">{item.description}</p>
+            <p className="mt-2 max-w-[var(--layout-reading)] text-base leading-6 text-label-secondary">{item.description}</p>
           </article>
         ))}
       </div>
@@ -478,10 +479,10 @@ function TeamRole({ section }) {
 
   return (
     <section className="mt-20 w-full sm:mt-28">
-      <h2 className="max-w-[800px] text-[32px] font-bold leading-10 text-label-primary">
+      <h2 className="max-w-[var(--layout-reading)] text-[32px] font-bold leading-10 text-label-primary">
         {section.title}
       </h2>
-      <p className="mt-6 max-w-[800px] text-base leading-6 text-label-secondary">
+      <p className="mt-6 max-w-[var(--layout-reading)] text-base leading-6 text-label-secondary">
         {section.description}
       </p>
       <div className="mt-8 flex flex-wrap gap-3 py-6">
@@ -514,7 +515,7 @@ function MediaBlocks({ images = [], videos = [] }) {
   return (
     <>
       {videos.length > 0 && videos.map((video, index) => (
-        <figure key={index} className="mt-8 flex w-full flex-col items-start sm:mt-10">
+        <figure key={index} className="mt-[var(--case-space-media)] flex w-full flex-col items-start">
           <video
             src={video.src}
             controls
@@ -523,7 +524,7 @@ function MediaBlocks({ images = [], videos = [] }) {
             Видео не поддерживается вашим браузером
           </video>
           {video.caption && (
-            <figcaption className="mt-2 text-sm text-neutral-500">
+            <figcaption className="mt-2 text-[length:var(--type-small)] leading-[var(--type-small-leading)] text-label-secondary">
               {video.caption}
             </figcaption>
           )}
@@ -531,7 +532,7 @@ function MediaBlocks({ images = [], videos = [] }) {
       ))}
 
       {images.map((block, idx) => (
-        <div key={idx} className="mt-8 flex w-full flex-col items-center sm:mt-10">
+        <div key={idx} className="mt-[var(--case-space-media)] flex w-full flex-col items-center">
           <div className="w-full">
             {Array.isArray(block.imgs) && block.imgs.map((img, i) => (
               <div key={i} className={img.wrapperClassName || 'w-full mb-4'}>
@@ -539,7 +540,7 @@ function MediaBlocks({ images = [], videos = [] }) {
                   zoomSrc={img.src}
                   alt={img.alt || `Изображение ${i + 1}`}
                   wrapperClassName={img.zoomWrapperClassName || 'block w-full'}
-                  triggerClassName={img.triggerClassName || 'block w-full cursor-zoom-in overflow-hidden rounded-xl border-0 bg-transparent p-0 sm:rounded-2xl'}
+                  triggerClassName={img.triggerClassName || 'block w-full cursor-pointer overflow-hidden rounded-xl border-0 bg-transparent p-0 sm:rounded-2xl'}
                 >
                   <Image
                     src={img.src}
@@ -552,13 +553,13 @@ function MediaBlocks({ images = [], videos = [] }) {
                   />
                 </ZoomableImage>
                 {img.caption && (
-                  <p className="mt-2 text-sm leading-relaxed text-neutral-500">{img.caption}</p>
+                  <p className="mt-2 text-[length:var(--type-small)] leading-[var(--type-small-leading)] text-label-secondary">{img.caption}</p>
                 )}
               </div>
             ))}
           </div>
           {block.caption && (
-            <p className="w-full pb-6 text-sm text-neutral-500">{block.caption}</p>
+            <p className="w-full pb-6 text-[length:var(--type-small)] leading-[var(--type-small-leading)] text-label-secondary">{block.caption}</p>
           )}
         </div>
       ))}
@@ -662,7 +663,7 @@ function StoriesCarousel({ items = [] }) {
                 <ZoomableImage
                   zoomSrc={item.image.src}
                   alt={item.image.alt}
-                  triggerClassName="block w-full cursor-zoom-in overflow-hidden rounded-xl border-0 bg-transparent p-0 sm:rounded-2xl"
+                  triggerClassName="block w-full cursor-pointer overflow-hidden rounded-xl border-0 bg-transparent p-0 sm:rounded-2xl"
                 >
                   <Image
                     src={item.image.src}
@@ -673,7 +674,7 @@ function StoriesCarousel({ items = [] }) {
                     className="h-auto w-full"
                   />
                 </ZoomableImage>
-                <div className="mt-2 max-w-[760px] text-sm leading-relaxed text-neutral-500">
+                <div className="mt-2 max-w-[var(--layout-reading)] text-[length:var(--type-small)] leading-[var(--type-small-leading)] text-label-secondary">
                   {item.description}
                 </div>
               </article>
@@ -689,9 +690,7 @@ function StoriesCarousel({ items = [] }) {
             className="pointer-events-auto flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-white/90 text-label-primary shadow-sm transition disabled:cursor-default disabled:opacity-30"
             aria-label="Предыдущий слайд"
           >
-            <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M15 4L7 12L15 20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
+            <Arrow direction="left" />
           </button>
           <button
             type="button"
@@ -700,9 +699,7 @@ function StoriesCarousel({ items = [] }) {
             className="pointer-events-auto flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-white/90 text-label-primary shadow-sm transition disabled:cursor-default disabled:opacity-30"
             aria-label="Следующий слайд"
           >
-            <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" className="rotate-180">
-              <path d="M15 4L7 12L15 20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
+            <Arrow />
           </button>
         </div>
 
@@ -741,13 +738,13 @@ export default function ProjectPage({ title, productLogo, heroImage, statusNote,
             <PurchaseTransition section={purchaseTransition} />
             <TeamRole section={teamRole} />
             {introSections.map((section) => (
-              <section key={section.title} className="mt-16 w-full sm:mt-24">
+              <section key={section.title} className="mt-[var(--case-space-section)] w-full">
                 {section.title && (
-                  <h2 className="mb-6 max-w-[800px] text-[32px] font-semibold leading-[40px] text-label-primary">
+                  <h2 className="mb-[var(--case-space-heading)] max-w-[var(--layout-reading)] text-[32px] font-semibold leading-[40px] text-label-primary">
                     {section.title}
                   </h2>
                 )}
-                <TextBlock description={section.description} className="max-w-[800px]" />
+                <TextBlock description={section.description} className="max-w-[var(--layout-reading)]" />
                 <CardGrid cards={section.cards} columns={section.cardColumns} />
                 <MediaBlocks images={section.images} videos={section.videos} />
                 <EvolutionBlocks items={section.evolutionItems} />
@@ -759,9 +756,9 @@ export default function ProjectPage({ title, productLogo, heroImage, statusNote,
             ))}
             <MediaBlocks images={images} videos={videos} />
             {sections.map((section) => (
-              <section key={section.title} className="mt-16 w-full sm:mt-24">
-                <h2 className="mb-6 max-w-[800px] text-[32px] font-semibold leading-[40px] text-label-primary">{section.title}</h2>
-                <TextBlock description={section.description} className="max-w-[800px]" />
+              <section key={section.title} className="mt-[var(--case-space-section)] w-full">
+                <h2 className="mb-[var(--case-space-heading)] max-w-[var(--layout-reading)] text-[32px] font-semibold leading-[40px] text-label-primary">{section.title}</h2>
+                <TextBlock description={section.description} className="max-w-[var(--layout-reading)]" />
                 <MediaBlocks images={section.images} videos={section.videos} />
               </section>
             ))}
@@ -776,8 +773,8 @@ export default function ProjectPage({ title, productLogo, heroImage, statusNote,
       <Head>
         <title>{`Кейс — ${title}`}</title>
       </Head>
-      <div className="w-full px-5 py-8 text-label-primary sm:px-6 sm:py-10 lg:px-10 lg:py-12">
-        <div className="mx-auto grid w-full max-w-5xl grid-cols-1 gap-y-6 lg:grid-cols-[48px_minmax(0,920px)] lg:justify-center lg:gap-x-10">
+      <div className="mx-auto w-[var(--layout-width)] py-8 text-label-primary sm:py-10 lg:py-12">
+        <div className="mx-auto grid w-full grid-cols-1 gap-y-6 lg:grid-cols-[48px_minmax(0,var(--layout-reading))] lg:justify-center lg:gap-x-[var(--layout-gap)]">
           <div className="hidden lg:block">
             <BackButton variant="desktop" />
           </div>
@@ -787,7 +784,7 @@ export default function ProjectPage({ title, productLogo, heroImage, statusNote,
               <BackButton variant="mobile-compact" />
             </div>
 
-          <div className="mb-2 flex max-w-[760px] items-center gap-4">
+          <div className="mb-2 flex max-w-[var(--layout-reading)] items-center gap-4">
             {productLogo?.src && (
               <div
                 className="ios-squircle relative h-12 w-12 shrink-0 overflow-hidden bg-[#135BFF] sm:h-14 sm:w-14"
@@ -806,16 +803,16 @@ export default function ProjectPage({ title, productLogo, heroImage, statusNote,
           </div>
           <StatusNote text={statusNote} />
           {type && year && (
-            <p className="mb-6 max-w-[760px] text-[16px] leading-normal text-label-tertiary sm:mb-8">{type} · {year}</p>
+            <p className="mb-6 max-w-[var(--layout-reading)] text-[16px] leading-normal text-label-tertiary sm:mb-8">{type} · {year}</p>
           )}
 
           <SummaryList items={summary} />
           <FactList items={facts} />
           <HeroImage image={heroImage} />
           {introSections.map((section) => (
-            <section key={section.title} className="mt-12 w-full sm:mt-16">
+            <section key={section.title} className="mt-[var(--case-space-section)] w-full">
               {section.title && (
-                <h2 className="mb-5 max-w-[760px] text-2xl font-semibold leading-tight text-neutral-950 sm:mb-6 sm:text-3xl">{section.title}</h2>
+                <h2 className="mb-[var(--case-space-heading)] max-w-[var(--layout-reading)] text-2xl font-semibold leading-tight text-neutral-950 sm:text-3xl">{section.title}</h2>
               )}
               <TextBlock description={section.description} />
               <CardGrid cards={section.cards} columns={section.cardColumns} />
@@ -830,8 +827,8 @@ export default function ProjectPage({ title, productLogo, heroImage, statusNote,
           <MediaBlocks images={images} videos={videos} />
 
           {sections.map((section) => (
-            <section key={section.title} className="mt-12 w-full sm:mt-16">
-              <h2 className="mb-5 max-w-[760px] text-2xl font-semibold leading-tight text-neutral-950 sm:mb-6 sm:text-3xl">{section.title}</h2>
+            <section key={section.title} className="mt-[var(--case-space-section)] w-full">
+              <h2 className="mb-[var(--case-space-heading)] max-w-[var(--layout-reading)] text-2xl font-semibold leading-tight text-neutral-950 sm:text-3xl">{section.title}</h2>
               <TextBlock description={section.description} />
               <MediaBlocks images={section.images} videos={section.videos} />
             </section>

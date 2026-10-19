@@ -1,11 +1,13 @@
-import { useEffect } from 'react';
-import { HeroUIProvider } from '@heroui/react';
+import { useEffect, useState } from 'react';
+import { HeroUIProvider } from '@heroui/system';
+import { ToastProvider } from '@heroui/toast';
 import { useRouter } from 'next/router';
 import '@/styles/globals.css';
 import { Golos_Text } from 'next/font/google';
 import Meta from '@/components/Meta';
 import TypographyGlue from '@/components/TypographyGlue';
-import MagnifierCursor from '@/components/MagnifierCursor';
+
+
 
 const golos = Golos_Text({
   subsets: ['latin', 'cyrillic'],
@@ -15,8 +17,17 @@ const golos = Golos_Text({
 });
 
 function MyApp({ Component, pageProps }) {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
   const { pathname } = useRouter();
   const isCasePage = ['/uchi', '/parkly', '/concepts', '/noomad'].includes(pathname);
+
+  useEffect(() => {
+    const platform = navigator.userAgentData?.platform || navigator.platform || navigator.userAgent;
+    document.documentElement.classList.toggle('is-windows', /win/i.test(platform));
+
+    return () => document.documentElement.classList.remove('is-windows');
+  }, []);
 
   useEffect(() => {
     const scrollKey = `scroll-position:${window.location.pathname}${window.location.search}`;
@@ -60,10 +71,10 @@ function MyApp({ Component, pageProps }) {
       
       <HeroUIProvider>
         <div className={`${golos.className} ${golos.variable}`}>
+          {mounted && <ToastProvider placement="bottom-center" maxVisibleToasts={1} toastOffset={24} toastProps={{ classNames: { base: 'border-0 rounded-full' } }} />}
           <TypographyGlue>
             <Component {...pageProps} />
           </TypographyGlue>
-          <MagnifierCursor />
         </div>
       </HeroUIProvider>
 

@@ -5,25 +5,25 @@
 
 .intro,
 .case { border-radius: 40px; background: #fff; }
-.intro { padding: 48px 0 80px; }
+.intro { padding: var(--case-space-group) 0 var(--case-space-chapter); }
 .introContent,
-.caseContent { width: 800px; max-width: calc(100% - 64px); margin-inline: auto; }
+.caseContent { width: var(--layout-reading); max-width: var(--layout-reading); margin-inline: auto; }
 .brand { display: flex; align-items: center; gap: 24px; }
 .brand img { width: 56px; height: 56px; border-radius: 16px; }
-.brand h1 { margin: 0; font-size: 40px; font-weight: 500; line-height: 48px; }
-.intro p { margin: 24px 4px 0; font-size: 24px; line-height: 32px; }
+.brand h1 { margin: 0; font-size: var(--type-title); font-weight: 500; line-height: var(--type-title-leading); }
+.intro p { margin: var(--case-space-heading) 0 0; font-size: var(--type-heading); line-height: var(--type-heading-leading); }
 
 .case { margin-top: 16px; }
-.caseContent { padding-block: 80px; }
-.caseContentWithNavigation { padding-bottom: 40px; }
+.caseContent { padding-block: var(--case-space-chapter); }
+.caseContentWithNavigation { padding-bottom: var(--case-space-group); }
 .caseHeader { padding-inline: 4px; }
 .caseTitle { display: flex; align-items: baseline; gap: 20px; }
-.caseTitle h2 { margin: 0; font-size: 24px; font-weight: 500; line-height: 32px; }
-.caseTitle span { color: rgb(26 26 26 / 56%); font-size: 20px; line-height: 28px; }
-.caseHeader p { margin: 32px 0 0; font-size: 20px; line-height: 28px; }
-.caseImage { display: block; width: 100%; height: auto; margin-top: 40px; border-radius: 32px; }
+.caseTitle h2 { margin: 0; font-size: var(--type-heading); font-weight: 500; line-height: var(--type-heading-leading); }
+.caseTitle span { color: var(--text-muted); font-size: var(--type-small); line-height: var(--type-small-leading); }
+.caseHeader p { margin: var(--case-space-heading) 0 0; font-size: var(--type-body); line-height: var(--type-body-leading); }
+.caseImage { display: block; width: 100%; height: auto; margin-top: var(--case-space-media); border-radius: 32px; }
 
-.footer { display: flex; width: calc(100% + 32px); height: 120px; margin-inline: -16px; align-items: center; justify-content: space-between; padding-inline: 16px; font-size: 20px; line-height: 24px; }
+.footer { display: flex; width: calc(100% + 32px); height: 120px; margin-inline: -16px; align-items: center; justify-content: space-between; padding-inline: 16px; font-size: var(--type-small); line-height: var(--type-small-leading); }
 
 @media (min-width: 640px) {
   .headerInner,
@@ -35,19 +35,19 @@
   .header nav a:nth-child(3) { display: none; }
   .intro,
   .case { border-radius: 32px; }
-  .intro { padding: 32px 0; }
+  .intro { padding: var(--case-space-group) 0 var(--case-space-chapter); }
   .introContent,
-  .caseContent { max-width: calc(100% - 32px); }
+  .caseContent { max-width: var(--layout-reading); }
   .brand { gap: 16px; }
-  .brand h1 { font-size: 32px; line-height: 40px; }
-  .intro p { margin-inline: 0; font-size: 20px; line-height: 28px; }
-  .caseContent { padding-block: 56px; }
-  .caseContentWithNavigation { padding-bottom: 40px; }
+  .brand h1 { font-size: var(--type-title); line-height: var(--type-title-leading); }
+  .intro p { margin-inline: 0; font-size: var(--type-heading); line-height: var(--type-heading-leading); }
+  .caseContent { padding-block: var(--case-space-chapter); }
+  .caseContentWithNavigation { padding-bottom: var(--case-space-group); }
   .caseHeader { padding-inline: 0; }
   .caseTitle { display: block; }
-  .caseTitle h2 { font-size: 22px; line-height: 30px; }
-  .caseTitle span { display: block; margin-top: 8px; font-size: 18px; line-height: 26px; }
-  .caseHeader p { margin-top: 24px; font-size: 18px; line-height: 26px; }
-  .caseImage { margin-top: 40px; border-radius: 16px; }
-  .footer { height: 120px; font-size: 20px; }
+  .caseTitle h2 { font-size: var(--type-heading); line-height: var(--type-heading-leading); }
+  .caseTitle span { display: block; margin-top: 8px; font-size: var(--type-small); line-height: var(--type-small-leading); }
+  .caseHeader p { margin-top: 24px; font-size: var(--type-body); line-height: var(--type-body-leading); }
+  .caseImage { margin-top: var(--case-space-media); border-radius: 16px; }
+  .footer { height: 120px; font-size: var(--type-small); }
 }

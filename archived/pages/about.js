@@ -191,7 +191,7 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="w-full px-5 py-8 text-label-primary tracking-wide sm:px-6 sm:py-10 lg:px-10 lg:py-12">
+    <div className="w-full px-5 py-8 text-label-primary sm:px-6 sm:py-10 lg:px-10 lg:py-12">
       <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-y-6 lg:grid-cols-[48px_minmax(0,964px)] lg:justify-center lg:gap-x-10">
         <div className="hidden lg:block">
           <BackButton variant="desktop" />
@@ -220,7 +220,7 @@ export default function AboutPage() {
 
               <RichText
                 blocks={aboutBlocks}
-                className="w-full max-w-[700px] text-lg leading-relaxed tracking-wide text-label-primary"
+                className="w-full max-w-[700px] text-lg leading-relaxed text-label-primary"
               />
             </div>
           </section>
