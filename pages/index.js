@@ -193,9 +193,13 @@ const introText = 'Я Вадим Зарипов, продуктовый диза
 
 function AnimatedIntro() {
   let characterIndex = 0;
+  const introGroups = introText
+    .replace(/(^| )(Я|в|и|с|к|на|о|у|не|по|до|за) /giu, '$1$2\u00a0')
+    .replace(/6 лет/gu, '6\u00a0лет')
+    .split(' ');
   return (
     <h1 className={`${styles.bodyLarge} max-w-[629px]`} aria-label={introText}>
-      {introText.split(' ').map((word, wordIndex) => (
+      {introGroups.map((word, wordIndex) => (
         <span key={wordIndex} aria-hidden="true">
           {wordIndex > 0 && ' '}
           <span className={styles.introWord}>
